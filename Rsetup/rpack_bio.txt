@@ -1,0 +1,12 @@
+rtracklayer
+BiocInstaller
+Biostrings
+BitSeq
+BSgenome
+GenomeInfoDb
+GenomicAlignments
+GenomicRanges
+IRanges
+LOLA
+Rsamtools
+MotIV

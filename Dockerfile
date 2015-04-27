@@ -17,8 +17,27 @@ RUN sudo apt-get update
 
 RUN sudo apt-get install -y --force-yes r-base
 
-ADD Rsetup.R Rsetup.R
+# Required for R Package XML
+RUN sudo apt-get install -y --force-yes libxml2-dev
+
+# Required for RCurl
+RUN apt-get install -y --force-yes libcurl4-gnutls-dev
+
+ADD Rsetup/install_bioconductor.R Rsetup/install_bioconductor.R
+RUN Rscript Rsetup/install_bioconductor.R
+
+# I put these COPY statements in separately, so that the whole thing
+# isn't invalidated (causing unnecessary cache rebuilds) 
+# with an unrelated change in Rsetup/
+COPY Rsetup/install_fonts.R Rsetup/install_fonts.R
+COPY Rsetup/fonts Rsetup/fonts
+RUN Rscript Rsetup/install_fonts.R
+
+
+ADD Rsetup Rsetup
 ADD .Rprofile .Rprofile
-RUN Rscript Rsetup.R
+RUN Rscript Rsetup/Rsetup.R
+RUN Rscript Rsetup/Rsetup.R --packages=Rsetup/rpack_basic.txt
+RUN Rscript Rsetup/Rsetup.R --packages=Rsetup/rpack_bio.txt
 
 # You can also use the VOLUME instruction in a Dockerfile to add one or more new volumes to any container created from that image.

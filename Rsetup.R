@@ -1,3 +1,0 @@
-#!Rscript
-
-install.packages("glmnet")
