@@ -17,6 +17,8 @@ RUN sudo apt-get update
 
 RUN sudo apt-get install -y --force-yes r-base
 
-ADD Rsetup.R
+ADD Rsetup.R Rsetup.R
+ADD .Rprofile .Rprofile
+RUN Rscript Rsetup.R
 
 # You can also use the VOLUME instruction in a Dockerfile to add one or more new volumes to any container created from that image.
