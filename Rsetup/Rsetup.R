@@ -1,21 +1,41 @@
-#!Rscript
+#!/usr/bin/env Rscript
 # This script will install the list of packages below, various from
 # CRAN, Bioconductor, or github, to set up the R computing environment
 # I like.
 #
 # It will also create (or suggest, if one exists) an Rprofile setup to
 # interfact with this R Package.
+## Renviron updates:
+#R.version
+#RenvironCode = "R_LIBS=~/R"
+#if (! file.exists("~/.Renviron")) {
+#	message("#############################")
+#	message("Writing a new Renviron to ~/.Renviron")
+#	write(RenvironCode, "~/.Renviron")
+#} else {
+#	message("#############################")
+#	message("Add this to your ~/.Renviron:")
+#	message(RenvironCode)
+#}
 
+# Try to create a local user directory for packages.
+dir.create(Sys.getenv("R_LIBS_USER"), recursive=TRUE);
 # Set local CRAN mirror:
-local({r <- getOption("repos");
-       r["CRAN"] <- "http://cran.at.r-project.org";  #AUSTRIA mirror
-       options(repos=r)})
+
 
 options(menu.graphics=FALSE)
 #source("http://bioconductor.org/biocLite.R")
 # Use a closer mirror (it's way faster for BSgenome packages!)
+# But the problem is: it doesn't correctly resolve dependencies!
 source("http://bioconductor.statistik.tu-dortmund.de/biocLite.R")
-biocLite(suppressUpdates=TRUE)
+#biocLite(suppressUpdates=TRUE)
+
+# Seems to help to put this after the bioconductor source; since it
+# updates the CRAN to a new spot, which otherwise would try the bioc
+# mirror, which seems to lack some stuff.
+local({r <- getOption("repos");
+       r["CRAN"] <- "http://cran.at.r-project.org";  #AUSTRIA mirror
+       options(repos=r)})
 
 
 
@@ -30,9 +50,6 @@ message(scriptPath);
 packageArg = args[grep("--packages",args)]
 packageFile = sub("--packages=","",packageArg)
 packagePath = paste0(getwd(), "/", packageFile)
-
-
-
 
 if (length(packageFile) ==0 | !file.exists(packagePath)) {
 	message("No package list found. Using default")
@@ -52,14 +69,16 @@ xts"))
 
 # List of packages to install:
 
-
+# 	WARNING: THESE PACKAGES ARE FACTORS AND NOT STRINGS. THIS IS
+# ANNOYING. BE CAREFUL.
 cu = contrib.url(biocinstallRepos())
 ap = as.data.frame(available.packages(cu))
-
+print(cu)
 selected.packages = ap$Package %in% packages
 unavailable.packages = ! packages %in% ap$Package
 
 installed.packages = rownames(installed.packages())
+
 #i=3245
 # which(selected.packages)
 for (i in which(selected.packages)) {
@@ -68,9 +87,10 @@ for (i in which(selected.packages)) {
 	message("## Installing ", i, " ", ap$Package[i]);
 	tryCatch( {
 	if ( grepl("bioconductor", ap$Repo[i]) ) {
-	biocLite(ap$Package[i], suppressUpdates=TRUE)
+	message("using biocLite...")
+	biocLite(as.character(ap$Package[i]))
 	} else {
-	install.packages(as.character(ap$Package[i]),  contriburl = ap$Repo[i], dependencies=TRUE)
+	install.packages(as.character(ap$Package[i]),  lib=Sys.getenv("R_LIBS_USER"), contriburl = ap$Repo[i], dependencies=TRUE)
 	}
 	} , error = function(e) { warning("Install Error: ", e); } )
 }
@@ -113,6 +133,8 @@ RprofileCode = sub("SHARE_DIR", scriptPath, RprofileCode)
 
 # Create Rprofile if it doesn't already exist
 # To not overwrite anything if it's there...
+
+
 if (! file.exists("~/.Rprofile")) {
 	message("#############################")
 	message("Writing a new Rprofile to ~/.Rprofile")
@@ -124,26 +146,10 @@ if (! file.exists("~/.Rprofile")) {
 	message(RprofileCode)
 }
 
-## Renviron updates:
-RenvironCode = "R_LIBS=~/R"
-if (! file.exists("~/.Renviron")) {
-	message("#############################")
-	message("Writing a new Renviron to ~/.Renviron")
-	write(RenvironCode, "~/.Renviron")
-} else {
-	message("#############################")
-	message("Add this to your ~/.Renviron:")
-	message(RenvironCode)
-}
 
+#Linking to BiocCheck:
+#paste0("ln -s ~/bin/ ", Sys.getenv("R_LIBS_USER"), "/BiocCheck/script/BiocCheck")
 
-
-
-
-## Bash updates if you want to use the bin...
-message(".bashrc update lines: ")
-paste0("PATH=$PATH:", paste0(scriptPath, "bin"))
-paste0("source ", paste0(scriptPath, "bin/alias_git.sh"))
 
 # And R updates if you want to run the latest version of R:
 # http://cran.r-project.org/bin/linux/ubuntu/

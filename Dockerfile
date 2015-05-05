@@ -39,6 +39,8 @@ ADD .Rprofile .Rprofile
 RUN Rscript Rsetup/Rsetup.R
 RUN Rscript Rsetup/Rsetup.R --packages=Rsetup/rpack_basic.txt
 RUN Rscript Rsetup/Rsetup.R --packages=Rsetup/rpack_bio.txt
+# If you want to develop R packages on this machine (need biocCheck):
+#RUN Rscript Rsetup/Rsetup.R --packages=Rsetup/rpack_bio.txt
 
 # Add a few other things that might be helpful:
 
