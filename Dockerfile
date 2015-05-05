@@ -40,4 +40,8 @@ RUN Rscript Rsetup/Rsetup.R
 RUN Rscript Rsetup/Rsetup.R --packages=Rsetup/rpack_basic.txt
 RUN Rscript Rsetup/Rsetup.R --packages=Rsetup/rpack_bio.txt
 
+# Add a few other things that might be helpful:
+
+RUN apt-get install -y --force-yes wget
+
 # You can also use the VOLUME instruction in a Dockerfile to add one or more new volumes to any container created from that image.
