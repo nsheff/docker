@@ -1,6 +1,7 @@
 #! Rscript
 # Install Arial into R:
 
+skip = FALSE
 if(require("extrafont")) {
 	if ("Arial" %in% fonts()) {
 		message("Arial already installed.")
