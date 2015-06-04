@@ -6,22 +6,22 @@
 
 # FROM sheffien/rim
 # Switch to using the bioconductor maintained docker images
-FROM bioconductor/devel_core
+#FROM bioconductor/devel_core
 
-#FROM rocker/r-devel
+FROM rocker/r-devel
 
 
 MAINTAINER Nathan Sheffield <nathan@code.databio.org>
 
 # Updating is required before any apt-gets
-RUN sudo apt-get update
+RUN apt-get update && apt-get install -y --force-yes libxml2-dev
 
 ################################################################################
 # Some of these dependencies will be already installed by the parent images;
 # But just to make sure, run these installs here:
 
 # Required for R Package XML
-RUN sudo apt-get install -y --force-yes libxml2-dev
+#RUN sudo 
 
 # Curl; required for RCurl
 #RUN apt-get install -y --force-yes libcurl4-gnutls-dev
@@ -33,6 +33,11 @@ RUN apt-get install -y --force-yes libgsl0-dev
 RUN apt-get install -y --force-yes libssl-dev
 
 ################################################################################
+
+
+ADD Rsetup/install_bioconductor.R Rsetup/install_bioconductor.R
+RUN Rscript Rsetup/install_bioconductor.R
+
 ADD Rsetup/Rdev.R Rsetup/Rdev.R
 RUN Rscript Rsetup/Rdev.R
 
@@ -40,13 +45,12 @@ RUN Rscript Rsetup/Rdev.R
 # isn't invalidated (causing unnecessary cache rebuilds) 
 # with an unrelated change in Rsetup/
 
-#ADD Rsetup/install_bioconductor.R Rsetup/install_bioconductor.R
-#RUN Rscript Rsetup/install_bioconductor.R
 
 
 
-COPY Rpack/ bin/
 
+COPY Rpack/ Rpack/
+ENV PATH Rpack:$PATH
 
 # I put these COPY statements in separately, so that the whole thing
 # isn't invalidated (causing unnecessary cache rebuilds) 
@@ -68,6 +72,6 @@ RUN Rscript Rsetup/Rsetup.R --packages=Rsetup/rpack_biodev.txt
 
 
 # CMD Check requires to check pdf size
-RUN sudo apt-get install -y --force-yes qpdf
+RUN apt-get install -y --force-yes qpdf
 
 

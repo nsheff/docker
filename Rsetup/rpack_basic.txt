@@ -18,6 +18,7 @@ latticeExtra
 markdown
 mgcv
 microbenchmark
+project.init
 qvalue
 RColorBrewer
 Rcpp
