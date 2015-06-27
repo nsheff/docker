@@ -27,7 +27,7 @@ RUN sudo apt-get install -y --force-yes libxml2-dev
 #RUN apt-get install -y --force-yes libcurl4-gnutls-dev
 
 # GNU Scientific Library; required by MotIV
-RUN apt-get install -y --force-yes libgsl0-dev 
+RUN apt-get install -y --force-yes libgsl0-dev
 
 # Open SSL is used, for example, devtools dependency git2r
 RUN apt-get install -y --force-yes libssl-dev
@@ -37,7 +37,7 @@ ADD Rsetup/Rdev.R Rsetup/Rdev.R
 RUN Rscript Rsetup/Rdev.R
 
 # I put these COPY statements in separately, so that the whole thing
-# isn't invalidated (causing unnecessary cache rebuilds) 
+# isn't invalidated (causing unnecessary cache rebuilds)
 # with an unrelated change in Rsetup/
 
 #ADD Rsetup/install_bioconductor.R Rsetup/install_bioconductor.R
@@ -45,11 +45,10 @@ RUN Rscript Rsetup/Rdev.R
 
 
 
-COPY Rpack/ bin/
 
 
 # I put these COPY statements in separately, so that the whole thing
-# isn't invalidated (causing unnecessary cache rebuilds) 
+# isn't invalidated (causing unnecessary cache rebuilds)
 # with an unrelated change in Rsetup/
 COPY Rsetup/install_fonts.R Rsetup/install_fonts.R
 COPY Rsetup/fonts Rsetup/fonts
@@ -71,3 +70,7 @@ RUN Rscript Rsetup/Rsetup.R --packages=Rsetup/rpack_biodev.txt
 RUN sudo apt-get install -y --force-yes qpdf
 
 
+# I think it's good to have this one last, so if you change anything in the bin,
+# it won't make you reinstall all the packages.
+
+COPY Rpack/ bin/

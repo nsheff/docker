@@ -2,11 +2,16 @@
 # This first roxygenizes the package to ensure docs are up-to-date,
 # Then runs R CMD check
 # Finally runs R CMD BiocCheck
-# You can optionally give a second parameter: 
+# You can optionally give a second parameter:
 # "bio" to skip R check, or
 # "cran" skip R BiocCheck
 
 roxygenize.sh -i $1
+
+R --no-save <<END
+devtools::install_deps("$1");
+END
+
 a=$(R CMD build $1)
 echo "Building..."
 echo "$a"
