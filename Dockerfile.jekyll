@@ -1,0 +1,22 @@
+# Dockerfile for Jekyll environment:
+# Build me with: 
+# Run me with: docker run -p 4000:4000 -it -v ~/web:/web sheffien/jim  bash
+
+FROM ubuntu:14.04
+
+MAINTAINER John Doe <jdoe@example.com>
+
+
+RUN sudo apt-get update
+
+# jekyll also requires python2
+
+RUN sudo apt-get install -y --force-yes ruby ruby-dev make nodejs python 
+
+RUN gem install jekyll jekyll-sitemap octopress
+
+EXPOSE 4000
+
+COPY jserve jserve
+#ENTRYPOINT ./cdserve.sh
+

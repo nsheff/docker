@@ -1,0 +1,13 @@
+#! /bin/bash
+
+case "$1" in
+        start)
+            start
+			;;
+		igv)
+			docker run sheffien/igv
+			;;
+		test)
+			echo "test"
+			;;
+esac

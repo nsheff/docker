@@ -4,59 +4,57 @@
 # excellent Rocker project, and the bioconductor images based on these, and it
 # makes more sense for me to just use these instead...
 
-# FROM sheffien/rim
 # Switch to using the bioconductor maintained docker images
+# FROM sheffien/rim
+# FROM rocker/r-devel
 FROM bioconductor/devel_core
-
-#FROM rocker/r-devel
-
-
 MAINTAINER Nathan Sheffield <nathan@code.databio.org>
-
-# Updating is required before any apt-gets
-RUN sudo apt-get update
 
 ################################################################################
 # Some of these dependencies will be already installed by the parent images;
 # But just to make sure, run these installs here:
 
-# Required for R Package XML
-RUN sudo apt-get install -y --force-yes libxml2-dev
-
-# Curl; required for RCurl
-#RUN apt-get install -y --force-yes libcurl4-gnutls-dev
-
-# GNU Scientific Library; required by MotIV
-RUN apt-get install -y --force-yes libgsl0-dev
-
-# Open SSL is used, for example, devtools dependency git2r
-RUN apt-get install -y --force-yes libssl-dev
+# Updating is required before any apt-gets
+RUN sudo apt-get update && apt-get install -y --force-yes\
+  # Required for R Package XML
+  libxml2-dev \
+  # Curl; required for RCurl; but present in upstream images
+  # libcurl4-gnutls-dev \
+   # GNU Scientific Library; required by MotIV
+  libgsl0-dev \
+  # Open SSL is used, for example, devtools dependency git2r
+  libssl-dev \
+   # CMD Check requires to check pdf size
+  qpdf
 
 ################################################################################
-ADD Rsetup/Rdev.R Rsetup/Rdev.R
-RUN Rscript Rsetup/Rdev.R
-
 # I put these COPY statements in separately, so that the whole thing
 # isn't invalidated (causing unnecessary cache rebuilds)
 # with an unrelated change in Rsetup/
+# If you COPY a whole folder, it busts the cache if anything in that folder
+# changes, so it's better to add each file separately if the folder may change
 
-#ADD Rsetup/install_bioconductor.R Rsetup/install_bioconductor.R
+COPY Rprofile .Rprofile
+
+# Turn bioconductor into development mode
+COPY Rsetup/biocDevMode.R Rsetup/biocDevMode.R
+RUN Rscript Rsetup/biocDevMode.R
+
+# I used to install bioconductor; but now that I'm using the base
+# bioconductor docker images, this is no longer useful.
+#COPY Rsetup/install_bioconductor.R Rsetup/install_bioconductor.R
 #RUN Rscript Rsetup/install_bioconductor.R
 
-
-
-
-
 # I put these COPY statements in separately, so that the whole thing
 # isn't invalidated (causing unnecessary cache rebuilds)
 # with an unrelated change in Rsetup/
+
 COPY Rsetup/install_fonts.R Rsetup/install_fonts.R
 COPY Rsetup/fonts Rsetup/fonts
 RUN Rscript Rsetup/install_fonts.R
 
-
-ADD Rsetup Rsetup
-ADD Rprofile .Rprofile
+# Install packages
+COPY Rsetup/Rsetup.R Rsetup/Rsetup.R
 RUN Rscript Rsetup/Rsetup.R
 RUN Rscript Rsetup/Rsetup.R --packages=Rsetup/rpack_basic.txt
 RUN Rscript Rsetup/Rsetup.R --packages=Rsetup/rpack_bio.txt
@@ -65,12 +63,12 @@ RUN Rscript Rsetup/Rsetup.R --packages=Rsetup/rpack_bio.txt
 RUN Rscript Rsetup/Rsetup.R --packages=Rsetup/rpack_biodev.txt
 
 
-
 # CMD Check requires to check pdf size
 RUN sudo apt-get install -y --force-yes qpdf
 
 
 # I think it's good to have this one last, so if you change anything in the bin,
 # it won't make you reinstall all the packages.
+
 
 COPY Rpack/ bin/

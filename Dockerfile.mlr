@@ -1,0 +1,4 @@
+FROM sheffien/rdev
+
+ADD Rsetup Rsetup
+RUN Rscript Rsetup/Rsetup.R --packages=Rsetup/rpack_mlr.txt
