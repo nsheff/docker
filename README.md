@@ -23,3 +23,17 @@ djserve path/to/blog
 ```
 
 Then visit the site at `http://localhost:4000/`
+
+
+# Visualization
+
+graphics repository for making figures
+
+```
+cd rim
+docker build -t sheffien/rim .
+```
+
+# TODO:
+* put svg2pdfpng in here
+* write a wrapper script (a la djserve) to run the conversion in a container

@@ -1,0 +1,17 @@
+# Dockerfile for R environment:
+
+FROM ubuntu:14.04
+
+MAINTAINER John Doe <jdoe@example.com>
+
+
+RUN sudo echo "deb http://cran.at.r-project.org/bin/linux/ubuntu trusty/" >> /etc/apt/sources.list
+# add CRAN key
+RUN sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
+
+RUN sudo apt-get -qq update
+
+RUN sudo apt-get -qq install -y --force-yes inkscape > /dev/null
+
+# Required for R Package XML
+RUN sudo apt-get -qq install -y --force-yes imagemagick > /dev/null
