@@ -13,7 +13,7 @@ igv:
 	docker build -t sheffien/igv -f Dockerfile.igv .
 
 rim:
-	docker build -t sheffien/rim -f Dockerfile.rpod .
+	docker build -t sheffien/rim -f Dockerfile.rprod .
 
 jim:
 	docker build -t sheffien/jim -f Dockerfile.jekyll .
