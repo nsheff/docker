@@ -56,10 +56,13 @@ RUN Rscript Rsetup/install_fonts.R
 # Install packages
 COPY Rsetup/Rsetup.R Rsetup/Rsetup.R
 RUN Rscript Rsetup/Rsetup.R
+COPY Rsetup/rpack_basic.txt Rsetup/rpack_basic.txt
+COPY Rsetup/rpack_bio.txt Rsetup/rpack_bio.txt
 RUN Rscript Rsetup/Rsetup.R --packages=Rsetup/rpack_basic.txt
 RUN Rscript Rsetup/Rsetup.R --packages=Rsetup/rpack_bio.txt
 
 # If you want to develop R packages on this machine (need biocCheck):
+COPY Rsetup/rpack_biodev.txt Rsetup/rpack_biodev.txt
 RUN Rscript Rsetup/Rsetup.R --packages=Rsetup/rpack_biodev.txt
 
 

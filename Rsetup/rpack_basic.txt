@@ -28,3 +28,4 @@ reshape2
 RSQLite
 simpleCache
 testthat
+optparse
