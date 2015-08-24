@@ -19,15 +19,15 @@
 #}
 
 # Try to create a local user directory for packages.
-dir.create(Sys.getenv("R_LIBS_USER"), recursive=TRUE);
+suppressWarnings(dir.create(Sys.getenv("R_LIBS_USER"), recursive=TRUE))
 # Set local CRAN mirror:
 
 
 options(menu.graphics=FALSE)
-#source("http://bioconductor.org/biocLite.R")
+source("http://bioconductor.org/biocLite.R")
 # Use a closer mirror (it's way faster for BSgenome packages!)
 # But the problem is: it doesn't correctly resolve dependencies!
-source("http://bioconductor.statistik.tu-dortmund.de/biocLite.R")
+#source("http://bioconductor.statistik.tu-dortmund.de/biocLite.R")
 #biocLite(suppressUpdates=TRUE)
 
 # Seems to help to put this after the bioconductor source; since it
@@ -149,7 +149,6 @@ if (! file.exists("~/.Rprofile")) {
 
 #Linking to BiocCheck:
 #paste0("ln -s ~/bin/ ", Sys.getenv("R_LIBS_USER"), "/BiocCheck/script/BiocCheck")
-
 
 # And R updates if you want to run the latest version of R:
 # http://cran.r-project.org/bin/linux/ubuntu/
