@@ -13,7 +13,7 @@ RUN sudo apt-get update
 
 RUN sudo apt-get install -y --force-yes ruby ruby-dev make nodejs python 
 
-RUN gem install jekyll jekyll-sitemap octopress
+RUN gem install jekyll jekyll-sitemap octopress redcarpet
 
 EXPOSE 4000
 
