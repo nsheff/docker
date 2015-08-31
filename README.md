@@ -1,11 +1,18 @@
 # Dockerfiles
 A repository of Dockerfiles for building various docker containers. The different contains are described below.
 
-In this repo is a `Makefile` which stores instructions for how to build each Dockerfile. Built containers can be downloaded from [Dockerhub](https://hub.docker.com/u/sheffien/).
+In this repo is a [Makefile](Makefile) which stores instructions for how to build each Dockerfile. You can clone this repository, and then type `make CONTAINER`, where `CONTAINER` is one of:
 
-I'm working on a script to be able to run any of these `script/drun` followed by the name of the image.
+* rim - R image
+* rdev - R development
+* rmlr - R `mlr` package depedencies for machine learning.
+* jim - Jekyll image
+* vis - graphics; under construction
+* igv - under contruction
 
-Container descriptions follow:
+Built containers can (sometimes) also be downloaded from [Dockerhub](https://hub.docker.com/u/sheffien/).
+
+Detailed container descriptions follow:
 
 # R containers
 
@@ -48,3 +55,9 @@ My docker container to convert Inkscape SVG figures into PDF, and other graphics
 TODO:
 * put svg2pdfpng in here
 * write a wrapper script (a la djserve) to run the conversion in a container
+
+
+# TO DO:
+
+I'm working on a script to be able to run any of these `script/drun` followed by the name of the image.
+
