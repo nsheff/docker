@@ -1,4 +1,6 @@
 # Dockerfile for R environment:
+# This one would actually build the latest R -- but it's probably better to use
+# containers provided by the Rocker project, so this is here for legacy
 
 FROM ubuntu:14.04
 

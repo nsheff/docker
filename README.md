@@ -17,7 +17,9 @@ Detailed container descriptions follow:
 # R containers
 
 ## rim
-My R production environment, based on the bioconductor Docker containers, then installs a bunch of packages I use regularly (the packages lists are, for example, in [Rsetup/rpack_basic.txt](Rsetup/rpack_basic.txt))
+My R production environment, based on the bioconductor Docker containers, then installs a bunch of packages I use regularly (the packages lists are, for example, in [Rsetup/rpack_basic.txt](Rsetup/rpack_basic.txt)).
+
+Currently this is the same as rdev.
 
 ## rdev
 
@@ -60,4 +62,3 @@ TODO:
 # TO DO:
 
 I'm working on a script to be able to run any of these `script/drun` followed by the name of the image.
-

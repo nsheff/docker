@@ -74,4 +74,8 @@ RUN sudo apt-get install -y --force-yes qpdf
 # it won't make you reinstall all the packages.
 
 
-COPY Rpack/ bin/
+# Copy over the stuff in Rpack and add it to path
+COPY Rpack/ Rpack/
+ENV PATH Rpack:$PATH
+
+
