@@ -18,3 +18,8 @@ igv:
 jim:
 	docker build -t sheffien/jim -f Dockerfile.jekyll .
 
+
+linkchecker:
+	docker build -t sheffien/linkchecker -f Dockerfile.linkchecker .
+
+
