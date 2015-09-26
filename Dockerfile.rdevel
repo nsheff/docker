@@ -27,6 +27,10 @@ RUN sudo apt-get update && apt-get install -y --force-yes\
    # CMD Check requires to check pdf size
   qpdf
 
+# Boost libraries are helpful for some r packages
+RUN sudo apt-get update && apt-get install -y --force-yes \
+libboost-all-dev
+
 ################################################################################
 # I put these COPY statements in separately, so that the whole thing
 # isn't invalidated (causing unnecessary cache rebuilds)
