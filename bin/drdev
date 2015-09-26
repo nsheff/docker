@@ -1,0 +1,1 @@
+docker run -v $HOME/repo:/git -it sheffien/rdev R --no-save
