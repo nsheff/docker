@@ -1,0 +1,11 @@
+FROM sheffien/rdev
+
+RUN wget http://big.databio.org/regionDB/LOLACoreCaches_latest.tgz
+RUN tar -xf LOLACoreCaches_latest.tgz
+
+RUN wget http://big.databio.org/regionDB/lola_vignette_data_150505.tgz
+RUN tar -xf lola_vignette_data_150505.tgz
+
+COPY LOLA/LOLA.sh bin/LOLA
+
+ENTRYPOINT ["LOLA", "-d", "LOLACore/hg19", "-u", "lola_vignette_data/activeDHS_universe.bed"]

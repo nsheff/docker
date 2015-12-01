@@ -22,4 +22,6 @@ jim:
 linkchecker:
 	docker build -t sheffien/linkchecker -f Dockerfile.linkchecker .
 
+lola:
+	docker build -t sheffien/lola -f Dockerfile.lola .
 
