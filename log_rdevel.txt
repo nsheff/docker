@@ -1,0 +1,1445 @@
+Sending build context to Docker daemon 557.1 kBSending build context to Docker daemon 621.1 kBSending build context to Docker daemon 621.1 kB
+Step 0 : FROM bioconductor/devel_core
+ ---> 3a21cb2a751e
+Step 1 : MAINTAINER Nathan Sheffield <nathan@code.databio.org>
+ ---> Running in ce2466d9ad55
+ ---> b9a19f3851eb
+Removing intermediate container ce2466d9ad55
+Step 2 : RUN sudo apt-get update && apt-get install -y --force-yes  libxml2-dev   libgsl0-dev   libssl-dev   qpdf
+ ---> Running in 4162da6450fb
+Get:1 http://security.debian.org testing/updates InRelease [62.8 kB]
+Get:2 http://security.debian.org testing/updates/main amd64 Packages [20 B]
+Get:3 http://httpredir.debian.org testing InRelease [215 kB]
+Get:4 http://httpredir.debian.org testing-updates InRelease [113 kB]
+Get:5 http://http.debian.net sid InRelease [287 kB]
+Get:6 http://httpredir.debian.org testing/main amd64 Packages [10.2 MB]
+Get:7 http://httpredir.debian.org testing-updates/main amd64 Packages [20 B]
+Get:8 http://http.debian.net sid/main amd64 Packages [10.8 MB]
+Fetched 21.6 MB in 3s (6,624 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following extra packages will be installed:
+  libgsl0ldbl libqpdf17 libssl1.0.2 libxml2
+Suggested packages:
+  gsl-ref-psdoc gsl-doc-pdf gsl-doc-info gsl-ref-html pkg-config
+Recommended packages:
+  libssl-doc
+The following NEW packages will be installed:
+  libgsl0-dev libgsl0ldbl libqpdf17 libssl1.0.2 qpdf
+The following packages will be upgraded:
+  libssl-dev libxml2 libxml2-dev
+3 upgraded, 5 newly installed, 0 to remove and 327 not upgraded.
+Need to get 6,842 kB of archives.
+After this operation, 13.7 MB of additional disk space will be used.
+Get:1 http://httpredir.debian.org/debian/ testing/main libssl1.0.2 amd64 1.0.2f-2 [1,282 kB]
+Get:2 http://http.debian.net/debian/ sid/main libgsl0ldbl amd64 1.16+dfsg-4 [826 kB]
+Get:3 http://httpredir.debian.org/debian/ testing/main libxml2-dev amd64 2.9.3+dfsg1-1 [809 kB]
+Get:4 http://http.debian.net/debian/ sid/main libgsl0-dev amd64 1.16+dfsg-4 [914 kB]
+Get:5 http://httpredir.debian.org/debian/ testing/main libxml2 amd64 2.9.3+dfsg1-1 [916 kB]
+Get:6 http://httpredir.debian.org/debian/ testing/main libssl-dev amd64 1.0.2f-2 [1,538 kB]
+Get:7 http://httpredir.debian.org/debian/ testing/main libqpdf17 amd64 6.0.0-2 [319 kB]
+Get:8 http://httpredir.debian.org/debian/ testing/main qpdf amd64 6.0.0-2 [240 kB]
+[91mdebconf: delaying package configuration, since apt-utils is not installed
+[0mFetched 6,842 kB in 1s (5,547 kB/s)
+Selecting previously unselected package libssl1.0.2:amd64.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 101271 files and directories currently installed.)
+Preparing to unpack .../libssl1.0.2_1.0.2f-2_amd64.deb ...
+Unpacking libssl1.0.2:amd64 (1.0.2f-2) ...
+Preparing to unpack .../libxml2-dev_2.9.3+dfsg1-1_amd64.deb ...
+Unpacking libxml2-dev:amd64 (2.9.3+dfsg1-1) over (2.9.2+zdfsg1-4) ...
+Preparing to unpack .../libxml2_2.9.3+dfsg1-1_amd64.deb ...
+Unpacking libxml2:amd64 (2.9.3+dfsg1-1) over (2.9.2+zdfsg1-4) ...
+Selecting previously unselected package libgsl0ldbl:amd64.
+Preparing to unpack .../libgsl0ldbl_1.16+dfsg-4_amd64.deb ...
+Unpacking libgsl0ldbl:amd64 (1.16+dfsg-4) ...
+Selecting previously unselected package libgsl0-dev.
+Preparing to unpack .../libgsl0-dev_1.16+dfsg-4_amd64.deb ...
+Unpacking libgsl0-dev (1.16+dfsg-4) ...
+Selecting previously unselected package libqpdf17:amd64.
+Preparing to unpack .../libqpdf17_6.0.0-2_amd64.deb ...
+Unpacking libqpdf17:amd64 (6.0.0-2) ...
+Preparing to unpack .../libssl-dev_1.0.2f-2_amd64.deb ...
+Unpacking libssl-dev:amd64 (1.0.2f-2) over (1.0.2d-1) ...
+Selecting previously unselected package qpdf.
+Preparing to unpack .../qpdf_6.0.0-2_amd64.deb ...
+Unpacking qpdf (6.0.0-2) ...
+Processing triggers for libc-bin (2.19-19) ...
+Setting up libssl1.0.2:amd64 (1.0.2f-2) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (TERM is not set, so the dialog frontend is not usable.)
+debconf: falling back to frontend: Readline
+Setting up libxml2:amd64 (2.9.3+dfsg1-1) ...
+Setting up libxml2-dev:amd64 (2.9.3+dfsg1-1) ...
+Setting up libgsl0ldbl:amd64 (1.16+dfsg-4) ...
+Setting up libgsl0-dev (1.16+dfsg-4) ...
+Setting up libqpdf17:amd64 (6.0.0-2) ...
+Setting up libssl-dev:amd64 (1.0.2f-2) ...
+Setting up qpdf (6.0.0-2) ...
+Processing triggers for libc-bin (2.19-19) ...
+ ---> 88f1e5224c74
+Removing intermediate container 4162da6450fb
+Step 3 : RUN sudo apt-get update && apt-get install -y --force-yes libboost-all-dev
+ ---> Running in 286ba914eab4
+Hit http://security.debian.org testing/updates InRelease
+Get:1 http://security.debian.org testing/updates/main amd64 Packages [20 B]
+Hit http://http.debian.net sid InRelease
+Hit http://httpredir.debian.org testing InRelease
+Hit http://httpredir.debian.org testing-updates InRelease
+Get:2 http://httpredir.debian.org testing/main amd64 Packages [10.2 MB]
+Get:3 http://http.debian.net sid/main amd64 Packages [10.8 MB]
+Get:4 http://httpredir.debian.org testing-updates/main amd64 Packages [20 B]
+Fetched 21.0 MB in 2s (9,001 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following extra packages will be installed:
+  autotools-dev libboost-atomic-dev libboost-atomic1.58-dev
+  libboost-atomic1.58.0 libboost-chrono-dev libboost-chrono1.58-dev
+  libboost-chrono1.58.0 libboost-context-dev libboost-context1.58-dev
+  libboost-context1.58.0 libboost-coroutine-dev libboost-coroutine1.58-dev
+  libboost-date-time-dev libboost-date-time1.58-dev libboost-date-time1.58.0
+  libboost-dev libboost-exception-dev libboost-exception1.58-dev
+  libboost-filesystem-dev libboost-filesystem1.58-dev
+  libboost-filesystem1.58.0 libboost-graph-dev libboost-graph-parallel-dev
+  libboost-graph-parallel1.58-dev libboost-graph-parallel1.58.0
+  libboost-graph1.58-dev libboost-graph1.58.0 libboost-iostreams-dev
+  libboost-iostreams1.58-dev libboost-iostreams1.58.0 libboost-locale-dev
+  libboost-locale1.58-dev libboost-locale1.58.0 libboost-log-dev
+  libboost-log1.58-dev libboost-log1.58.0 libboost-math-dev
+  libboost-math1.58-dev libboost-math1.58.0 libboost-mpi-dev
+  libboost-mpi-python-dev libboost-mpi-python1.58-dev
+  libboost-mpi-python1.58.0 libboost-mpi1.58-dev libboost-mpi1.58.0
+  libboost-program-options-dev libboost-program-options1.58-dev
+  libboost-program-options1.58.0 libboost-python-dev libboost-python1.58-dev
+  libboost-python1.58.0 libboost-random-dev libboost-random1.58-dev
+  libboost-random1.58.0 libboost-regex-dev libboost-regex1.58-dev
+  libboost-regex1.58.0 libboost-serialization-dev
+  libboost-serialization1.58-dev libboost-serialization1.58.0
+  libboost-signals-dev libboost-signals1.58-dev libboost-signals1.58.0
+  libboost-system-dev libboost-system1.58-dev libboost-system1.58.0
+  libboost-test-dev libboost-test1.58-dev libboost-test1.58.0
+  libboost-thread-dev libboost-thread1.58-dev libboost-thread1.58.0
+  libboost-timer-dev libboost-timer1.58-dev libboost-timer1.58.0
+  libboost-tools-dev libboost-wave-dev libboost-wave1.58-dev
+  libboost-wave1.58.0 libboost1.58-dev libboost1.58-tools-dev libcr0
+  libexpat1-dev libhwloc-dev libhwloc-plugins libhwloc5 libibverbs-dev
+  libibverbs1 libltdl-dev libltdl7 libnuma-dev libnuma1 libopenmpi-dev
+  libopenmpi1.6 libpython-dev libpython-stdlib libpython2.7 libpython2.7-dev
+  libpython2.7-minimal libpython2.7-stdlib libtool mpi-default-bin
+  mpi-default-dev ocl-icd-libopencl1 openmpi-bin openmpi-common python
+  python-dev python-minimal python2.7 python2.7-dev python2.7-minimal
+Suggested packages:
+  libboost-doc graphviz python3 libboost1.58-doc gccxml libmpfrc++-dev
+  libntl-dev xsltproc doxygen docbook-xml docbook-xsl default-jdk fop
+  blcr-dkms libhwloc-contrib-plugins libtool-doc autoconf automaken gcj-jdk
+  opencl-icd openmpi-checkpoint python-doc python-tk python2.7-doc
+  binfmt-support
+The following NEW packages will be installed:
+  autotools-dev libboost-all-dev libboost-atomic-dev libboost-atomic1.58-dev
+  libboost-atomic1.58.0 libboost-chrono-dev libboost-chrono1.58-dev
+  libboost-chrono1.58.0 libboost-context-dev libboost-context1.58-dev
+  libboost-context1.58.0 libboost-coroutine-dev libboost-coroutine1.58-dev
+  libboost-date-time-dev libboost-date-time1.58-dev libboost-date-time1.58.0
+  libboost-dev libboost-exception-dev libboost-exception1.58-dev
+  libboost-filesystem-dev libboost-filesystem1.58-dev
+  libboost-filesystem1.58.0 libboost-graph-dev libboost-graph-parallel-dev
+  libboost-graph-parallel1.58-dev libboost-graph-parallel1.58.0
+  libboost-graph1.58-dev libboost-graph1.58.0 libboost-iostreams-dev
+  libboost-iostreams1.58-dev libboost-iostreams1.58.0 libboost-locale-dev
+  libboost-locale1.58-dev libboost-locale1.58.0 libboost-log-dev
+  libboost-log1.58-dev libboost-log1.58.0 libboost-math-dev
+  libboost-math1.58-dev libboost-math1.58.0 libboost-mpi-dev
+  libboost-mpi-python-dev libboost-mpi-python1.58-dev
+  libboost-mpi-python1.58.0 libboost-mpi1.58-dev libboost-mpi1.58.0
+  libboost-program-options-dev libboost-program-options1.58-dev
+  libboost-program-options1.58.0 libboost-python-dev libboost-python1.58-dev
+  libboost-python1.58.0 libboost-random-dev libboost-random1.58-dev
+  libboost-random1.58.0 libboost-regex-dev libboost-regex1.58-dev
+  libboost-regex1.58.0 libboost-serialization-dev
+  libboost-serialization1.58-dev libboost-serialization1.58.0
+  libboost-signals-dev libboost-signals1.58-dev libboost-signals1.58.0
+  libboost-system-dev libboost-system1.58-dev libboost-system1.58.0
+  libboost-test-dev libboost-test1.58-dev libboost-test1.58.0
+  libboost-thread-dev libboost-thread1.58-dev libboost-thread1.58.0
+  libboost-timer-dev libboost-timer1.58-dev libboost-timer1.58.0
+  libboost-tools-dev libboost-wave-dev libboost-wave1.58-dev
+  libboost-wave1.58.0 libboost1.58-dev libboost1.58-tools-dev libcr0
+  libexpat1-dev libhwloc-dev libhwloc-plugins libhwloc5 libibverbs-dev
+  libibverbs1 libltdl-dev libltdl7 libnuma-dev libnuma1 libopenmpi-dev
+  libopenmpi1.6 libpython-dev libpython2.7 libpython2.7-dev libtool
+  mpi-default-bin mpi-default-dev ocl-icd-libopencl1 openmpi-bin
+  openmpi-common python-dev python2.7-dev
+The following packages will be upgraded:
+  libpython-stdlib libpython2.7-minimal libpython2.7-stdlib python
+  python-minimal python2.7 python2.7-minimal
+7 upgraded, 106 newly installed, 0 to remove and 320 not upgraded.
+Need to get 51.3 MB of archives.
+After this operation, 238 MB of additional disk space will be used.
+Get:1 http://httpredir.debian.org/debian/ testing/main python2.7 amd64 2.7.11-3 [266 kB]
+Get:2 http://httpredir.debian.org/debian/ testing/main python2.7-minimal amd64 2.7.11-3 [1,312 kB]
+Get:3 http://httpredir.debian.org/debian/ testing/main libpython2.7-stdlib amd64 2.7.11-3 [1,875 kB]
+Get:4 http://httpredir.debian.org/debian/ testing/main python amd64 2.7.11-1 [151 kB]
+Get:5 http://httpredir.debian.org/debian/ testing/main libpython2.7-minimal amd64 2.7.11-3 [381 kB]
+Get:6 http://httpredir.debian.org/debian/ testing/main python-minimal amd64 2.7.11-1 [40.1 kB]
+Get:7 http://httpredir.debian.org/debian/ testing/main libpython-stdlib amd64 2.7.11-1 [19.5 kB]
+Get:8 http://httpredir.debian.org/debian/ testing/main libboost-iostreams1.58.0 amd64 1.58.0+dfsg-4.1 [50.8 kB]
+Get:9 http://httpredir.debian.org/debian/ testing/main autotools-dev all 20150820.1 [71.7 kB]
+Get:10 http://httpredir.debian.org/debian/ testing/main libboost1.58-dev amd64 1.58.0+dfsg-4.1 [6,256 kB]
+Get:11 http://httpredir.debian.org/debian/ testing/main libboost1.58-tools-dev amd64 1.58.0+dfsg-4.1 [1,161 kB]
+Get:12 http://httpredir.debian.org/debian/ testing/main libboost-dev amd64 1.58.0.1 [3,458 B]
+Get:13 http://httpredir.debian.org/debian/ testing/main libboost-tools-dev amd64 1.58.0.1 [3,288 B]
+Get:14 http://httpredir.debian.org/debian/ testing/main libboost-atomic1.58.0 amd64 1.58.0+dfsg-4.1 [28.8 kB]
+Get:15 http://httpredir.debian.org/debian/ testing/main libboost-atomic1.58-dev amd64 1.58.0+dfsg-4.1 [27.7 kB]
+Get:16 http://httpredir.debian.org/debian/ testing/main libboost-atomic-dev amd64 1.58.0.1 [3,414 B]
+Get:17 http://httpredir.debian.org/debian/ testing/main libboost-system1.58.0 amd64 1.58.0+dfsg-4.1 [30.7 kB]
+Get:18 http://httpredir.debian.org/debian/ testing/main libboost-chrono1.58.0 amd64 1.58.0+dfsg-4.1 [35.9 kB]
+Get:19 http://httpredir.debian.org/debian/ testing/main libboost-chrono1.58-dev amd64 1.58.0+dfsg-4.1 [38.2 kB]
+Get:20 http://httpredir.debian.org/debian/ testing/main libboost-chrono-dev amd64 1.58.0.1 [3,738 B]
+Get:21 http://httpredir.debian.org/debian/ testing/main libboost-thread1.58.0 amd64 1.58.0+dfsg-4.1 [69.7 kB]
+Get:22 http://httpredir.debian.org/debian/ testing/main libboost-context1.58.0 amd64 1.58.0+dfsg-4.1 [41.5 kB]
+Get:23 http://httpredir.debian.org/debian/ testing/main libboost-context1.58-dev amd64 1.58.0+dfsg-4.1 [41.7 kB]
+Get:24 http://httpredir.debian.org/debian/ testing/main libboost-context-dev amd64 1.58.0.1 [3,304 B]
+Get:25 http://httpredir.debian.org/debian/ testing/main libboost-coroutine1.58-dev amd64 1.58.0+dfsg-4.1 [43.6 kB]
+Get:26 http://httpredir.debian.org/debian/ testing/main libboost-coroutine-dev amd64 1.58.0.1 [3,382 B]
+Get:27 http://httpredir.debian.org/debian/ testing/main libboost-date-time1.58.0 amd64 1.58.0+dfsg-4.1 [42.2 kB]
+Get:28 http://httpredir.debian.org/debian/ testing/main libboost-serialization1.58.0 amd64 1.58.0+dfsg-4.1 [136 kB]
+Get:29 http://httpredir.debian.org/debian/ testing/main libboost-serialization1.58-dev amd64 1.58.0+dfsg-4.1 [169 kB]
+Get:30 http://httpredir.debian.org/debian/ testing/main libboost-date-time1.58-dev amd64 1.58.0+dfsg-4.1 [50.2 kB]
+Get:31 http://httpredir.debian.org/debian/ testing/main libboost-date-time-dev amd64 1.58.0.1 [3,112 B]
+Get:32 http://httpredir.debian.org/debian/ testing/main libboost-exception1.58-dev amd64 1.58.0+dfsg-4.1 [27.1 kB]
+Get:33 http://httpredir.debian.org/debian/ testing/main libboost-exception-dev amd64 1.58.0.1 [3,102 B]
+Get:34 http://httpredir.debian.org/debian/ testing/main libboost-filesystem1.58.0 amd64 1.58.0+dfsg-4.1 [60.6 kB]
+Get:35 http://httpredir.debian.org/debian/ testing/main libboost-system1.58-dev amd64 1.58.0+dfsg-4.1 [31.3 kB]
+Get:36 http://httpredir.debian.org/debian/ testing/main libboost-filesystem1.58-dev amd64 1.58.0+dfsg-4.1 [69.0 kB]
+Get:37 http://httpredir.debian.org/debian/ testing/main libboost-filesystem-dev amd64 1.58.0.1 [3,138 B]
+Get:38 http://httpredir.debian.org/debian/ testing/main libboost-regex1.58.0 amd64 1.58.0+dfsg-4.1 [286 kB]
+Get:39 http://httpredir.debian.org/debian/ testing/main libboost-graph1.58.0 amd64 1.58.0+dfsg-4.1 [117 kB]
+Get:40 http://httpredir.debian.org/debian/ testing/main libboost-test1.58.0 amd64 1.58.0+dfsg-4.1 [210 kB]
+Get:41 http://httpredir.debian.org/debian/ testing/main libboost-test1.58-dev amd64 1.58.0+dfsg-4.1 [255 kB]
+Get:42 http://httpredir.debian.org/debian/ testing/main libboost-graph1.58-dev amd64 1.58.0+dfsg-4.1 [127 kB]
+Get:43 http://httpredir.debian.org/debian/ testing/main libboost-graph-dev amd64 1.58.0.1 [3,206 B]
+Get:44 http://httpredir.debian.org/debian/ testing/main libltdl7 amd64 2.4.6-0.1 [45.7 kB]
+Get:45 http://httpredir.debian.org/debian/ testing/main libnuma1 amd64 2.0.11-1 [32.5 kB]
+Get:46 http://httpredir.debian.org/debian/ testing/main libhwloc5 amd64 1.11.2-2 [92.0 kB]
+Get:47 http://httpredir.debian.org/debian/ testing/main libcr0 amd64 0.8.5-2.2 [32.7 kB]
+Get:48 http://httpredir.debian.org/debian/ testing/main libibverbs1 amd64 1.1.8-1.1 [32.2 kB]
+Get:49 http://httpredir.debian.org/debian/ testing/main libopenmpi1.6 amd64 1.6.5-11 [1,457 kB]
+Get:50 http://httpredir.debian.org/debian/ testing/main libboost-mpi1.58.0 amd64 1.58.0+dfsg-4.1 [70.2 kB]
+Get:51 http://httpredir.debian.org/debian/ testing/main libboost-graph-parallel1.58.0 amd64 1.58.0+dfsg-4.1 [95.3 kB]
+Get:52 http://httpredir.debian.org/debian/ testing/main libboost-graph-parallel1.58-dev amd64 1.58.0+dfsg-4.1 [102 kB]
+Get:53 http://httpredir.debian.org/debian/ testing/main libboost-graph-parallel-dev amd64 1.58.0.1 [3,238 B]
+Get:54 http://httpredir.debian.org/debian/ testing/main libboost-regex1.58-dev amd64 1.58.0+dfsg-4.1 [346 kB]
+Get:55 http://httpredir.debian.org/debian/ testing/main libboost-iostreams1.58-dev amd64 1.58.0+dfsg-4.1 [59.0 kB]
+Get:56 http://httpredir.debian.org/debian/ testing/main libboost-iostreams-dev amd64 1.58.0.1 [3,102 B]
+Get:57 http://httpredir.debian.org/debian/ testing/main libboost-locale1.58.0 amd64 1.58.0+dfsg-4.1 [267 kB]
+Get:58 http://httpredir.debian.org/debian/ testing/main libboost-locale1.58-dev amd64 1.58.0+dfsg-4.1 [353 kB]
+Get:59 http://httpredir.debian.org/debian/ testing/main libboost-locale-dev amd64 1.58.0.1 [3,442 B]
+Get:60 http://httpredir.debian.org/debian/ testing/main libboost-log1.58.0 amd64 1.58.0+dfsg-4.1 [446 kB]
+Get:61 http://httpredir.debian.org/debian/ testing/main libboost-thread1.58-dev amd64 1.58.0+dfsg-4.1 [71.7 kB]
+Get:62 http://httpredir.debian.org/debian/ testing/main libboost-log1.58-dev amd64 1.58.0+dfsg-4.1 [557 kB]
+Get:63 http://httpredir.debian.org/debian/ testing/main libboost-log-dev amd64 1.58.0.1 [3,308 B]
+Get:64 http://httpredir.debian.org/debian/ testing/main libboost-math1.58.0 amd64 1.58.0+dfsg-4.1 [312 kB]
+Get:65 http://httpredir.debian.org/debian/ testing/main libboost-math1.58-dev amd64 1.58.0+dfsg-4.1 [856 kB]
+Get:66 http://httpredir.debian.org/debian/ testing/main libboost-math-dev amd64 1.58.0.1 [3,312 B]
+Get:67 http://httpredir.debian.org/debian/ testing/main openmpi-common all 1.6.5-11 [111 kB]
+Get:68 http://httpredir.debian.org/debian/ testing/main libibverbs-dev amd64 1.1.8-1.1 [85.6 kB]
+Get:69 http://httpredir.debian.org/debian/ testing/main libnuma-dev amd64 2.0.11-1 [45.5 kB]
+Get:70 http://httpredir.debian.org/debian/ testing/main libltdl-dev amd64 2.4.6-0.1 [161 kB]
+Get:71 http://httpredir.debian.org/debian/ testing/main libhwloc-dev amd64 1.11.2-2 [148 kB]
+Get:72 http://httpredir.debian.org/debian/ testing/main libopenmpi-dev amd64 1.6.5-11 [448 kB]
+Get:73 http://httpredir.debian.org/debian/ testing/main mpi-default-dev amd64 1.0.2+nmu2 [3,962 B]
+Get:74 http://httpredir.debian.org/debian/ testing/main libboost-mpi1.58-dev amd64 1.58.0+dfsg-4.1 [171 kB]
+Get:75 http://httpredir.debian.org/debian/ testing/main libboost-mpi-dev amd64 1.58.0.1 [3,186 B]
+Get:76 http://httpredir.debian.org/debian/ testing/main libboost-python1.58.0 amd64 1.58.0+dfsg-4.1 [143 kB]
+Get:77 http://httpredir.debian.org/debian/ testing/main openmpi-bin amd64 1.6.5-11 [154 kB]
+Get:78 http://httpredir.debian.org/debian/ testing/main mpi-default-bin amd64 1.0.2+nmu2 [3,356 B]
+Get:79 http://httpredir.debian.org/debian/ testing/main libboost-mpi-python1.58.0 amd64 1.58.0+dfsg-4.1 [243 kB]
+Get:80 http://httpredir.debian.org/debian/ testing/main libboost-mpi-python1.58-dev amd64 1.58.0+dfsg-4.1 [49.3 kB]
+Get:81 http://httpredir.debian.org/debian/ testing/main libboost-mpi-python-dev amd64 1.58.0.1 [3,230 B]
+Get:82 http://httpredir.debian.org/debian/ testing/main libboost-program-options1.58.0 amd64 1.58.0+dfsg-4.1 [160 kB]
+Get:83 http://httpredir.debian.org/debian/ testing/main libboost-program-options1.58-dev amd64 1.58.0+dfsg-4.1 [194 kB]
+Get:84 http://httpredir.debian.org/debian/ testing/main libboost-program-options-dev amd64 1.58.0.1 [3,120 B]
+Get:85 http://httpredir.debian.org/debian/ testing/main libpython2.7 amd64 2.7.11-3 [1,066 kB]
+Get:86 http://httpredir.debian.org/debian/ testing/main libpython2.7-dev amd64 2.7.11-3 [27.7 MB]
+Get:87 http://httpredir.debian.org/debian/ testing/main libexpat1-dev amd64 2.1.0-7 [126 kB]
+Get:88 http://httpredir.debian.org/debian/ testing/main libpython-dev amd64 2.7.11-1 [19.6 kB]
+Get:89 http://httpredir.debian.org/debian/ testing/main python2.7-dev amd64 2.7.11-3 [262 kB]
+Get:90 http://httpredir.debian.org/debian/ testing/main python-dev amd64 2.7.11-1 [1,116 B]
+Get:91 http://httpredir.debian.org/debian/ testing/main libboost-python1.58-dev amd64 1.58.0+dfsg-4.1 [172 kB]
+Get:92 http://httpredir.debian.org/debian/ testing/main libboost-python-dev amd64 1.58.0.1 [3,494 B]
+Get:93 http://httpredir.debian.org/debian/ testing/main libboost-random1.58.0 amd64 1.58.0+dfsg-4.1 [34.4 kB]
+Get:94 http://httpredir.debian.org/debian/ testing/main libboost-random1.58-dev amd64 1.58.0+dfsg-4.1 [33.8 kB]
+Get:95 http://httpredir.debian.org/debian/ testing/main libboost-random-dev amd64 1.58.0.1 [3,106 B]
+Get:96 http://httpredir.debian.org/debian/ testing/main libboost-regex-dev amd64 1.58.0.1 [3,362 B]
+Get:97 http://httpredir.debian.org/debian/ testing/main libboost-serialization-dev amd64 1.58.0.1 [3,332 B]
+Get:98 http://httpredir.debian.org/debian/ testing/main libboost-signals1.58.0 amd64 1.58.0+dfsg-4.1 [53.3 kB]
+Get:99 http://httpredir.debian.org/debian/ testing/main libboost-signals1.58-dev amd64 1.58.0+dfsg-4.1 [57.6 kB]
+Get:100 http://httpredir.debian.org/debian/ testing/main libboost-signals-dev amd64 1.58.0.1 [3,168 B]
+Get:101 http://httpredir.debian.org/debian/ testing/main libboost-system-dev amd64 1.58.0.1 [3,246 B]
+Get:102 http://httpredir.debian.org/debian/ testing/main libboost-test-dev amd64 1.58.0.1 [3,138 B]
+Get:103 http://httpredir.debian.org/debian/ testing/main libboost-thread-dev amd64 1.58.0.1 [3,120 B]
+Get:104 http://httpredir.debian.org/debian/ testing/main libboost-timer1.58.0 amd64 1.58.0+dfsg-4.1 [32.9 kB]
+Get:105 http://httpredir.debian.org/debian/ testing/main libboost-timer1.58-dev amd64 1.58.0+dfsg-4.1 [32.3 kB]
+Get:106 http://httpredir.debian.org/debian/ testing/main libboost-timer-dev amd64 1.58.0.1 [3,226 B]
+Get:107 http://httpredir.debian.org/debian/ testing/main libboost-wave1.58.0 amd64 1.58.0+dfsg-4.1 [208 kB]
+Get:108 http://httpredir.debian.org/debian/ testing/main libboost-wave1.58-dev amd64 1.58.0+dfsg-4.1 [268 kB]
+Get:109 http://httpredir.debian.org/debian/ testing/main libboost-wave-dev amd64 1.58.0.1 [3,132 B]
+Get:110 http://httpredir.debian.org/debian/ testing/main libboost-all-dev amd64 1.58.0.1 [3,386 B]
+Get:111 http://httpredir.debian.org/debian/ testing/main libtool all 2.4.6-0.1 [200 kB]
+Get:112 http://httpredir.debian.org/debian/ testing/main ocl-icd-libopencl1 amd64 2.2.8-1 [35.6 kB]
+Get:113 http://httpredir.debian.org/debian/ testing/main libhwloc-plugins amd64 1.11.2-2 [15.5 kB]
+[91mdebconf: delaying package configuration, since apt-utils is not installed
+[0mFetched 51.3 MB in 18s (2,825 kB/s)
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 101562 files and directories currently installed.)
+Preparing to unpack .../python2.7_2.7.11-3_amd64.deb ...
+Unpacking python2.7 (2.7.11-3) over (2.7.10-4) ...
+Preparing to unpack .../libpython2.7-stdlib_2.7.11-3_amd64.deb ...
+Unpacking libpython2.7-stdlib:amd64 (2.7.11-3) over (2.7.10-4) ...
+Preparing to unpack .../python2.7-minimal_2.7.11-3_amd64.deb ...
+Unpacking python2.7-minimal (2.7.11-3) over (2.7.10-4) ...
+Preparing to unpack .../libpython2.7-minimal_2.7.11-3_amd64.deb ...
+Unpacking libpython2.7-minimal:amd64 (2.7.11-3) over (2.7.10-4) ...
+Preparing to unpack .../python-minimal_2.7.11-1_amd64.deb ...
+Unpacking python-minimal (2.7.11-1) over (2.7.9-1) ...
+Processing triggers for mime-support (3.59) ...
+Setting up libpython2.7-minimal:amd64 (2.7.11-3) ...
+Setting up python2.7-minimal (2.7.11-3) ...
+Setting up python-minimal (2.7.11-1) ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 101561 files and directories currently installed.)
+Preparing to unpack .../python_2.7.11-1_amd64.deb ...
+Unpacking python (2.7.11-1) over (2.7.9-1) ...
+Preparing to unpack .../libpython-stdlib_2.7.11-1_amd64.deb ...
+Unpacking libpython-stdlib:amd64 (2.7.11-1) over (2.7.9-1) ...
+Selecting previously unselected package libboost-iostreams1.58.0:amd64.
+Preparing to unpack .../libboost-iostreams1.58.0_1.58.0+dfsg-4.1_amd64.deb ...
+Unpacking libboost-iostreams1.58.0:amd64 (1.58.0+dfsg-4.1) ...
+Selecting previously unselected package autotools-dev.
+Preparing to unpack .../autotools-dev_20150820.1_all.deb ...
+Unpacking autotools-dev (20150820.1) ...
+Selecting previously unselected package libboost1.58-dev:amd64.
+Preparing to unpack .../libboost1.58-dev_1.58.0+dfsg-4.1_amd64.deb ...
+Unpacking libboost1.58-dev:amd64 (1.58.0+dfsg-4.1) ...
+Selecting previously unselected package libboost-dev:amd64.
+Preparing to unpack .../libboost-dev_1.58.0.1_amd64.deb ...
+Unpacking libboost-dev:amd64 (1.58.0.1) ...
+Selecting previously unselected package libboost1.58-tools-dev.
+Preparing to unpack .../libboost1.58-tools-dev_1.58.0+dfsg-4.1_amd64.deb ...
+Unpacking libboost1.58-tools-dev (1.58.0+dfsg-4.1) ...
+Selecting previously unselected package libboost-tools-dev.
+Preparing to unpack .../libboost-tools-dev_1.58.0.1_amd64.deb ...
+Unpacking libboost-tools-dev (1.58.0.1) ...
+Selecting previously unselected package libboost-atomic1.58.0:amd64.
+Preparing to unpack .../libboost-atomic1.58.0_1.58.0+dfsg-4.1_amd64.deb ...
+Unpacking libboost-atomic1.58.0:amd64 (1.58.0+dfsg-4.1) ...
+Selecting previously unselected package libboost-atomic1.58-dev:amd64.
+Preparing to unpack .../libboost-atomic1.58-dev_1.58.0+dfsg-4.1_amd64.deb ...
+Unpacking libboost-atomic1.58-dev:amd64 (1.58.0+dfsg-4.1) ...
+Selecting previously unselected package libboost-atomic-dev:amd64.
+Preparing to unpack .../libboost-atomic-dev_1.58.0.1_amd64.deb ...
+Unpacking libboost-atomic-dev:amd64 (1.58.0.1) ...
+Selecting previously unselected package libboost-system1.58.0:amd64.
+Preparing to unpack .../libboost-system1.58.0_1.58.0+dfsg-4.1_amd64.deb ...
+Unpacking libboost-system1.58.0:amd64 (1.58.0+dfsg-4.1) ...
+Selecting previously unselected package libboost-chrono1.58.0:amd64.
+Preparing to unpack .../libboost-chrono1.58.0_1.58.0+dfsg-4.1_amd64.deb ...
+Unpacking libboost-chrono1.58.0:amd64 (1.58.0+dfsg-4.1) ...
+Selecting previously unselected package libboost-chrono1.58-dev:amd64.
+Preparing to unpack .../libboost-chrono1.58-dev_1.58.0+dfsg-4.1_amd64.deb ...
+Unpacking libboost-chrono1.58-dev:amd64 (1.58.0+dfsg-4.1) ...
+Selecting previously unselected package libboost-chrono-dev:amd64.
+Preparing to unpack .../libboost-chrono-dev_1.58.0.1_amd64.deb ...
+Unpacking libboost-chrono-dev:amd64 (1.58.0.1) ...
+Selecting previously unselected package libboost-thread1.58.0:amd64.
+Preparing to unpack .../libboost-thread1.58.0_1.58.0+dfsg-4.1_amd64.deb ...
+Unpacking libboost-thread1.58.0:amd64 (1.58.0+dfsg-4.1) ...
+Selecting previously unselected package libboost-context1.58.0:amd64.
+Preparing to unpack .../libboost-context1.58.0_1.58.0+dfsg-4.1_amd64.deb ...
+Unpacking libboost-context1.58.0:amd64 (1.58.0+dfsg-4.1) ...
+Selecting previously unselected package libboost-context1.58-dev:amd64.
+Preparing to unpack .../libboost-context1.58-dev_1.58.0+dfsg-4.1_amd64.deb ...
+Unpacking libboost-context1.58-dev:amd64 (1.58.0+dfsg-4.1) ...
+Selecting previously unselected package libboost-context-dev:amd64.
+Preparing to unpack .../libboost-context-dev_1.58.0.1_amd64.deb ...
+Unpacking libboost-context-dev:amd64 (1.58.0.1) ...
+Selecting previously unselected package libboost-coroutine1.58-dev:amd64.
+Preparing to unpack .../libboost-coroutine1.58-dev_1.58.0+dfsg-4.1_amd64.deb ...
+Unpacking libboost-coroutine1.58-dev:amd64 (1.58.0+dfsg-4.1) ...
+Selecting previously unselected package libboost-coroutine-dev:amd64.
+Preparing to unpack .../libboost-coroutine-dev_1.58.0.1_amd64.deb ...
+Unpacking libboost-coroutine-dev:amd64 (1.58.0.1) ...
+Selecting previously unselected package libboost-date-time1.58.0:amd64.
+Preparing to unpack .../libboost-date-time1.58.0_1.58.0+dfsg-4.1_amd64.deb ...
+Unpacking libboost-date-time1.58.0:amd64 (1.58.0+dfsg-4.1) ...
+Selecting previously unselected package libboost-serialization1.58.0:amd64.
+Preparing to unpack .../libboost-serialization1.58.0_1.58.0+dfsg-4.1_amd64.deb ...
+Unpacking libboost-serialization1.58.0:amd64 (1.58.0+dfsg-4.1) ...
+Selecting previously unselected package libboost-serialization1.58-dev:amd64.
+Preparing to unpack .../libboost-serialization1.58-dev_1.58.0+dfsg-4.1_amd64.deb ...
+Unpacking libboost-serialization1.58-dev:amd64 (1.58.0+dfsg-4.1) ...
+Selecting previously unselected package libboost-date-time1.58-dev:amd64.
+Preparing to unpack .../libboost-date-time1.58-dev_1.58.0+dfsg-4.1_amd64.deb ...
+Unpacking libboost-date-time1.58-dev:amd64 (1.58.0+dfsg-4.1) ...
+Selecting previously unselected package libboost-date-time-dev:amd64.
+Preparing to unpack .../libboost-date-time-dev_1.58.0.1_amd64.deb ...
+Unpacking libboost-date-time-dev:amd64 (1.58.0.1) ...
+Selecting previously unselected package libboost-exception1.58-dev:amd64.
+Preparing to unpack .../libboost-exception1.58-dev_1.58.0+dfsg-4.1_amd64.deb ...
+Unpacking libboost-exception1.58-dev:amd64 (1.58.0+dfsg-4.1) ...
+Selecting previously unselected package libboost-exception-dev:amd64.
+Preparing to unpack .../libboost-exception-dev_1.58.0.1_amd64.deb ...
+Unpacking libboost-exception-dev:amd64 (1.58.0.1) ...
+Selecting previously unselected package libboost-filesystem1.58.0:amd64.
+Preparing to unpack .../libboost-filesystem1.58.0_1.58.0+dfsg-4.1_amd64.deb ...
+Unpacking libboost-filesystem1.58.0:amd64 (1.58.0+dfsg-4.1) ...
+Selecting previously unselected package libboost-system1.58-dev:amd64.
+Preparing to unpack .../libboost-system1.58-dev_1.58.0+dfsg-4.1_amd64.deb ...
+Unpacking libboost-system1.58-dev:amd64 (1.58.0+dfsg-4.1) ...
+Selecting previously unselected package libboost-filesystem1.58-dev:amd64.
+Preparing to unpack .../libboost-filesystem1.58-dev_1.58.0+dfsg-4.1_amd64.deb ...
+Unpacking libboost-filesystem1.58-dev:amd64 (1.58.0+dfsg-4.1) ...
+Selecting previously unselected package libboost-filesystem-dev:amd64.
+Preparing to unpack .../libboost-filesystem-dev_1.58.0.1_amd64.deb ...
+Unpacking libboost-filesystem-dev:amd64 (1.58.0.1) ...
+Selecting previously unselected package libboost-regex1.58.0:amd64.
+Preparing to unpack .../libboost-regex1.58.0_1.58.0+dfsg-4.1_amd64.deb ...
+Unpacking libboost-regex1.58.0:amd64 (1.58.0+dfsg-4.1) ...
+Selecting previously unselected package libboost-graph1.58.0:amd64.
+Preparing to unpack .../libboost-graph1.58.0_1.58.0+dfsg-4.1_amd64.deb ...
+Unpacking libboost-graph1.58.0:amd64 (1.58.0+dfsg-4.1) ...
+Selecting previously unselected package libboost-test1.58.0:amd64.
+Preparing to unpack .../libboost-test1.58.0_1.58.0+dfsg-4.1_amd64.deb ...
+Unpacking libboost-test1.58.0:amd64 (1.58.0+dfsg-4.1) ...
+Selecting previously unselected package libboost-test1.58-dev:amd64.
+Preparing to unpack .../libboost-test1.58-dev_1.58.0+dfsg-4.1_amd64.deb ...
+Unpacking libboost-test1.58-dev:amd64 (1.58.0+dfsg-4.1) ...
+Selecting previously unselected package libboost-graph1.58-dev:amd64.
+Preparing to unpack .../libboost-graph1.58-dev_1.58.0+dfsg-4.1_amd64.deb ...
+Unpacking libboost-graph1.58-dev:amd64 (1.58.0+dfsg-4.1) ...
+Selecting previously unselected package libboost-graph-dev:amd64.
+Preparing to unpack .../libboost-graph-dev_1.58.0.1_amd64.deb ...
+Unpacking libboost-graph-dev:amd64 (1.58.0.1) ...
+Selecting previously unselected package libltdl7:amd64.
+Preparing to unpack .../libltdl7_2.4.6-0.1_amd64.deb ...
+Unpacking libltdl7:amd64 (2.4.6-0.1) ...
+Selecting previously unselected package libnuma1:amd64.
+Preparing to unpack .../libnuma1_2.0.11-1_amd64.deb ...
+Unpacking libnuma1:amd64 (2.0.11-1) ...
+Selecting previously unselected package libhwloc5:amd64.
+Preparing to unpack .../libhwloc5_1.11.2-2_amd64.deb ...
+Unpacking libhwloc5:amd64 (1.11.2-2) ...
+Selecting previously unselected package libcr0.
+Preparing to unpack .../libcr0_0.8.5-2.2_amd64.deb ...
+Unpacking libcr0 (0.8.5-2.2) ...
+Selecting previously unselected package libibverbs1.
+Preparing to unpack .../libibverbs1_1.1.8-1.1_amd64.deb ...
+Unpacking libibverbs1 (1.1.8-1.1) ...
+Selecting previously unselected package libopenmpi1.6.
+Preparing to unpack .../libopenmpi1.6_1.6.5-11_amd64.deb ...
+Unpacking libopenmpi1.6 (1.6.5-11) ...
+Selecting previously unselected package libboost-mpi1.58.0.
+Preparing to unpack .../libboost-mpi1.58.0_1.58.0+dfsg-4.1_amd64.deb ...
+Unpacking libboost-mpi1.58.0 (1.58.0+dfsg-4.1) ...
+Selecting previously unselected package libboost-graph-parallel1.58.0.
+Preparing to unpack .../libboost-graph-parallel1.58.0_1.58.0+dfsg-4.1_amd64.deb ...
+Unpacking libboost-graph-parallel1.58.0 (1.58.0+dfsg-4.1) ...
+Selecting previously unselected package libboost-graph-parallel1.58-dev.
+Preparing to unpack .../libboost-graph-parallel1.58-dev_1.58.0+dfsg-4.1_amd64.deb ...
+Unpacking libboost-graph-parallel1.58-dev (1.58.0+dfsg-4.1) ...
+Selecting previously unselected package libboost-graph-parallel-dev.
+Preparing to unpack .../libboost-graph-parallel-dev_1.58.0.1_amd64.deb ...
+Unpacking libboost-graph-parallel-dev (1.58.0.1) ...
+Selecting previously unselected package libboost-regex1.58-dev:amd64.
+Preparing to unpack .../libboost-regex1.58-dev_1.58.0+dfsg-4.1_amd64.deb ...
+Unpacking libboost-regex1.58-dev:amd64 (1.58.0+dfsg-4.1) ...
+Selecting previously unselected package libboost-iostreams1.58-dev:amd64.
+Preparing to unpack .../libboost-iostreams1.58-dev_1.58.0+dfsg-4.1_amd64.deb ...
+Unpacking libboost-iostreams1.58-dev:amd64 (1.58.0+dfsg-4.1) ...
+Selecting previously unselected package libboost-iostreams-dev:amd64.
+Preparing to unpack .../libboost-iostreams-dev_1.58.0.1_amd64.deb ...
+Unpacking libboost-iostreams-dev:amd64 (1.58.0.1) ...
+Selecting previously unselected package libboost-locale1.58.0:amd64.
+Preparing to unpack .../libboost-locale1.58.0_1.58.0+dfsg-4.1_amd64.deb ...
+Unpacking libboost-locale1.58.0:amd64 (1.58.0+dfsg-4.1) ...
+Selecting previously unselected package libboost-locale1.58-dev:amd64.
+Preparing to unpack .../libboost-locale1.58-dev_1.58.0+dfsg-4.1_amd64.deb ...
+Unpacking libboost-locale1.58-dev:amd64 (1.58.0+dfsg-4.1) ...
+Selecting previously unselected package libboost-locale-dev:amd64.
+Preparing to unpack .../libboost-locale-dev_1.58.0.1_amd64.deb ...
+Unpacking libboost-locale-dev:amd64 (1.58.0.1) ...
+Selecting previously unselected package libboost-log1.58.0.
+Preparing to unpack .../libboost-log1.58.0_1.58.0+dfsg-4.1_amd64.deb ...
+Unpacking libboost-log1.58.0 (1.58.0+dfsg-4.1) ...
+Selecting previously unselected package libboost-thread1.58-dev:amd64.
+Preparing to unpack .../libboost-thread1.58-dev_1.58.0+dfsg-4.1_amd64.deb ...
+Unpacking libboost-thread1.58-dev:amd64 (1.58.0+dfsg-4.1) ...
+Selecting previously unselected package libboost-log1.58-dev.
+Preparing to unpack .../libboost-log1.58-dev_1.58.0+dfsg-4.1_amd64.deb ...
+Unpacking libboost-log1.58-dev (1.58.0+dfsg-4.1) ...
+Selecting previously unselected package libboost-log-dev.
+Preparing to unpack .../libboost-log-dev_1.58.0.1_amd64.deb ...
+Unpacking libboost-log-dev (1.58.0.1) ...
+Selecting previously unselected package libboost-math1.58.0:amd64.
+Preparing to unpack .../libboost-math1.58.0_1.58.0+dfsg-4.1_amd64.deb ...
+Unpacking libboost-math1.58.0:amd64 (1.58.0+dfsg-4.1) ...
+Selecting previously unselected package libboost-math1.58-dev:amd64.
+Preparing to unpack .../libboost-math1.58-dev_1.58.0+dfsg-4.1_amd64.deb ...
+Unpacking libboost-math1.58-dev:amd64 (1.58.0+dfsg-4.1) ...
+Selecting previously unselected package libboost-math-dev:amd64.
+Preparing to unpack .../libboost-math-dev_1.58.0.1_amd64.deb ...
+Unpacking libboost-math-dev:amd64 (1.58.0.1) ...
+Selecting previously unselected package openmpi-common.
+Preparing to unpack .../openmpi-common_1.6.5-11_all.deb ...
+Unpacking openmpi-common (1.6.5-11) ...
+Selecting previously unselected package libibverbs-dev.
+Preparing to unpack .../libibverbs-dev_1.1.8-1.1_amd64.deb ...
+Unpacking libibverbs-dev (1.1.8-1.1) ...
+Selecting previously unselected package libnuma-dev:amd64.
+Preparing to unpack .../libnuma-dev_2.0.11-1_amd64.deb ...
+Unpacking libnuma-dev:amd64 (2.0.11-1) ...
+Selecting previously unselected package libltdl-dev:amd64.
+Preparing to unpack .../libltdl-dev_2.4.6-0.1_amd64.deb ...
+Unpacking libltdl-dev:amd64 (2.4.6-0.1) ...
+Selecting previously unselected package libhwloc-dev:amd64.
+Preparing to unpack .../libhwloc-dev_1.11.2-2_amd64.deb ...
+Unpacking libhwloc-dev:amd64 (1.11.2-2) ...
+Selecting previously unselected package libopenmpi-dev.
+Preparing to unpack .../libopenmpi-dev_1.6.5-11_amd64.deb ...
+Unpacking libopenmpi-dev (1.6.5-11) ...
+Selecting previously unselected package mpi-default-dev.
+Preparing to unpack .../mpi-default-dev_1.0.2+nmu2_amd64.deb ...
+Unpacking mpi-default-dev (1.0.2+nmu2) ...
+Selecting previously unselected package libboost-mpi1.58-dev.
+Preparing to unpack .../libboost-mpi1.58-dev_1.58.0+dfsg-4.1_amd64.deb ...
+Unpacking libboost-mpi1.58-dev (1.58.0+dfsg-4.1) ...
+Selecting previously unselected package libboost-mpi-dev.
+Preparing to unpack .../libboost-mpi-dev_1.58.0.1_amd64.deb ...
+Unpacking libboost-mpi-dev (1.58.0.1) ...
+Selecting previously unselected package libboost-python1.58.0.
+Preparing to unpack .../libboost-python1.58.0_1.58.0+dfsg-4.1_amd64.deb ...
+Unpacking libboost-python1.58.0 (1.58.0+dfsg-4.1) ...
+Selecting previously unselected package openmpi-bin.
+Preparing to unpack .../openmpi-bin_1.6.5-11_amd64.deb ...
+Unpacking openmpi-bin (1.6.5-11) ...
+Selecting previously unselected package mpi-default-bin.
+Preparing to unpack .../mpi-default-bin_1.0.2+nmu2_amd64.deb ...
+Unpacking mpi-default-bin (1.0.2+nmu2) ...
+Selecting previously unselected package libboost-mpi-python1.58.0.
+Preparing to unpack .../libboost-mpi-python1.58.0_1.58.0+dfsg-4.1_amd64.deb ...
+Unpacking libboost-mpi-python1.58.0 (1.58.0+dfsg-4.1) ...
+Selecting previously unselected package libboost-mpi-python1.58-dev.
+Preparing to unpack .../libboost-mpi-python1.58-dev_1.58.0+dfsg-4.1_amd64.deb ...
+Unpacking libboost-mpi-python1.58-dev (1.58.0+dfsg-4.1) ...
+Selecting previously unselected package libboost-mpi-python-dev.
+Preparing to unpack .../libboost-mpi-python-dev_1.58.0.1_amd64.deb ...
+Unpacking libboost-mpi-python-dev (1.58.0.1) ...
+Selecting previously unselected package libboost-program-options1.58.0:amd64.
+Preparing to unpack .../libboost-program-options1.58.0_1.58.0+dfsg-4.1_amd64.deb ...
+Unpacking libboost-program-options1.58.0:amd64 (1.58.0+dfsg-4.1) ...
+Selecting previously unselected package libboost-program-options1.58-dev:amd64.
+Preparing to unpack .../libboost-program-options1.58-dev_1.58.0+dfsg-4.1_amd64.deb ...
+Unpacking libboost-program-options1.58-dev:amd64 (1.58.0+dfsg-4.1) ...
+Selecting previously unselected package libboost-program-options-dev:amd64.
+Preparing to unpack .../libboost-program-options-dev_1.58.0.1_amd64.deb ...
+Unpacking libboost-program-options-dev:amd64 (1.58.0.1) ...
+Selecting previously unselected package libpython2.7:amd64.
+Preparing to unpack .../libpython2.7_2.7.11-3_amd64.deb ...
+Unpacking libpython2.7:amd64 (2.7.11-3) ...
+Selecting previously unselected package libexpat1-dev:amd64.
+Preparing to unpack .../libexpat1-dev_2.1.0-7_amd64.deb ...
+Unpacking libexpat1-dev:amd64 (2.1.0-7) ...
+Selecting previously unselected package libpython2.7-dev:amd64.
+Preparing to unpack .../libpython2.7-dev_2.7.11-3_amd64.deb ...
+Unpacking libpython2.7-dev:amd64 (2.7.11-3) ...
+Selecting previously unselected package libpython-dev:amd64.
+Preparing to unpack .../libpython-dev_2.7.11-1_amd64.deb ...
+Unpacking libpython-dev:amd64 (2.7.11-1) ...
+Selecting previously unselected package python2.7-dev.
+Preparing to unpack .../python2.7-dev_2.7.11-3_amd64.deb ...
+Unpacking python2.7-dev (2.7.11-3) ...
+Selecting previously unselected package python-dev.
+Preparing to unpack .../python-dev_2.7.11-1_amd64.deb ...
+Unpacking python-dev (2.7.11-1) ...
+Selecting previously unselected package libboost-python1.58-dev.
+Preparing to unpack .../libboost-python1.58-dev_1.58.0+dfsg-4.1_amd64.deb ...
+Unpacking libboost-python1.58-dev (1.58.0+dfsg-4.1) ...
+Selecting previously unselected package libboost-python-dev.
+Preparing to unpack .../libboost-python-dev_1.58.0.1_amd64.deb ...
+Unpacking libboost-python-dev (1.58.0.1) ...
+Selecting previously unselected package libboost-random1.58.0:amd64.
+Preparing to unpack .../libboost-random1.58.0_1.58.0+dfsg-4.1_amd64.deb ...
+Unpacking libboost-random1.58.0:amd64 (1.58.0+dfsg-4.1) ...
+Selecting previously unselected package libboost-random1.58-dev:amd64.
+Preparing to unpack .../libboost-random1.58-dev_1.58.0+dfsg-4.1_amd64.deb ...
+Unpacking libboost-random1.58-dev:amd64 (1.58.0+dfsg-4.1) ...
+Selecting previously unselected package libboost-random-dev:amd64.
+Preparing to unpack .../libboost-random-dev_1.58.0.1_amd64.deb ...
+Unpacking libboost-random-dev:amd64 (1.58.0.1) ...
+Selecting previously unselected package libboost-regex-dev:amd64.
+Preparing to unpack .../libboost-regex-dev_1.58.0.1_amd64.deb ...
+Unpacking libboost-regex-dev:amd64 (1.58.0.1) ...
+Selecting previously unselected package libboost-serialization-dev:amd64.
+Preparing to unpack .../libboost-serialization-dev_1.58.0.1_amd64.deb ...
+Unpacking libboost-serialization-dev:amd64 (1.58.0.1) ...
+Selecting previously unselected package libboost-signals1.58.0:amd64.
+Preparing to unpack .../libboost-signals1.58.0_1.58.0+dfsg-4.1_amd64.deb ...
+Unpacking libboost-signals1.58.0:amd64 (1.58.0+dfsg-4.1) ...
+Selecting previously unselected package libboost-signals1.58-dev:amd64.
+Preparing to unpack .../libboost-signals1.58-dev_1.58.0+dfsg-4.1_amd64.deb ...
+Unpacking libboost-signals1.58-dev:amd64 (1.58.0+dfsg-4.1) ...
+Selecting previously unselected package libboost-signals-dev:amd64.
+Preparing to unpack .../libboost-signals-dev_1.58.0.1_amd64.deb ...
+Unpacking libboost-signals-dev:amd64 (1.58.0.1) ...
+Selecting previously unselected package libboost-system-dev:amd64.
+Preparing to unpack .../libboost-system-dev_1.58.0.1_amd64.deb ...
+Unpacking libboost-system-dev:amd64 (1.58.0.1) ...
+Selecting previously unselected package libboost-test-dev:amd64.
+Preparing to unpack .../libboost-test-dev_1.58.0.1_amd64.deb ...
+Unpacking libboost-test-dev:amd64 (1.58.0.1) ...
+Selecting previously unselected package libboost-thread-dev:amd64.
+Preparing to unpack .../libboost-thread-dev_1.58.0.1_amd64.deb ...
+Unpacking libboost-thread-dev:amd64 (1.58.0.1) ...
+Selecting previously unselected package libboost-timer1.58.0:amd64.
+Preparing to unpack .../libboost-timer1.58.0_1.58.0+dfsg-4.1_amd64.deb ...
+Unpacking libboost-timer1.58.0:amd64 (1.58.0+dfsg-4.1) ...
+Selecting previously unselected package libboost-timer1.58-dev:amd64.
+Preparing to unpack .../libboost-timer1.58-dev_1.58.0+dfsg-4.1_amd64.deb ...
+Unpacking libboost-timer1.58-dev:amd64 (1.58.0+dfsg-4.1) ...
+Selecting previously unselected package libboost-timer-dev:amd64.
+Preparing to unpack .../libboost-timer-dev_1.58.0.1_amd64.deb ...
+Unpacking libboost-timer-dev:amd64 (1.58.0.1) ...
+Selecting previously unselected package libboost-wave1.58.0:amd64.
+Preparing to unpack .../libboost-wave1.58.0_1.58.0+dfsg-4.1_amd64.deb ...
+Unpacking libboost-wave1.58.0:amd64 (1.58.0+dfsg-4.1) ...
+Selecting previously unselected package libboost-wave1.58-dev:amd64.
+Preparing to unpack .../libboost-wave1.58-dev_1.58.0+dfsg-4.1_amd64.deb ...
+Unpacking libboost-wave1.58-dev:amd64 (1.58.0+dfsg-4.1) ...
+Selecting previously unselected package libboost-wave-dev:amd64.
+Preparing to unpack .../libboost-wave-dev_1.58.0.1_amd64.deb ...
+Unpacking libboost-wave-dev:amd64 (1.58.0.1) ...
+Selecting previously unselected package libboost-all-dev.
+Preparing to unpack .../libboost-all-dev_1.58.0.1_amd64.deb ...
+Unpacking libboost-all-dev (1.58.0.1) ...
+Selecting previously unselected package libtool.
+Preparing to unpack .../libtool_2.4.6-0.1_all.deb ...
+Unpacking libtool (2.4.6-0.1) ...
+Selecting previously unselected package ocl-icd-libopencl1:amd64.
+Preparing to unpack .../ocl-icd-libopencl1_2.2.8-1_amd64.deb ...
+Unpacking ocl-icd-libopencl1:amd64 (2.2.8-1) ...
+Selecting previously unselected package libhwloc-plugins.
+Preparing to unpack .../libhwloc-plugins_1.11.2-2_amd64.deb ...
+Unpacking libhwloc-plugins (1.11.2-2) ...
+Processing triggers for libc-bin (2.19-19) ...
+Setting up libpython2.7-stdlib:amd64 (2.7.11-3) ...
+Setting up python2.7 (2.7.11-3) ...
+Setting up libpython-stdlib:amd64 (2.7.11-1) ...
+Setting up python (2.7.11-1) ...
+Setting up libboost-iostreams1.58.0:amd64 (1.58.0+dfsg-4.1) ...
+Setting up autotools-dev (20150820.1) ...
+Setting up libboost1.58-dev:amd64 (1.58.0+dfsg-4.1) ...
+Setting up libboost-dev:amd64 (1.58.0.1) ...
+Setting up libboost1.58-tools-dev (1.58.0+dfsg-4.1) ...
+Setting up libboost-tools-dev (1.58.0.1) ...
+Setting up libboost-atomic1.58.0:amd64 (1.58.0+dfsg-4.1) ...
+Setting up libboost-atomic1.58-dev:amd64 (1.58.0+dfsg-4.1) ...
+Setting up libboost-atomic-dev:amd64 (1.58.0.1) ...
+Setting up libboost-system1.58.0:amd64 (1.58.0+dfsg-4.1) ...
+Setting up libboost-chrono1.58.0:amd64 (1.58.0+dfsg-4.1) ...
+Setting up libboost-chrono1.58-dev:amd64 (1.58.0+dfsg-4.1) ...
+Setting up libboost-chrono-dev:amd64 (1.58.0.1) ...
+Setting up libboost-thread1.58.0:amd64 (1.58.0+dfsg-4.1) ...
+Setting up libboost-context1.58.0:amd64 (1.58.0+dfsg-4.1) ...
+Setting up libboost-context1.58-dev:amd64 (1.58.0+dfsg-4.1) ...
+Setting up libboost-context-dev:amd64 (1.58.0.1) ...
+Setting up libboost-coroutine1.58-dev:amd64 (1.58.0+dfsg-4.1) ...
+Setting up libboost-coroutine-dev:amd64 (1.58.0.1) ...
+Setting up libboost-date-time1.58.0:amd64 (1.58.0+dfsg-4.1) ...
+Setting up libboost-serialization1.58.0:amd64 (1.58.0+dfsg-4.1) ...
+Setting up libboost-serialization1.58-dev:amd64 (1.58.0+dfsg-4.1) ...
+Setting up libboost-date-time1.58-dev:amd64 (1.58.0+dfsg-4.1) ...
+Setting up libboost-date-time-dev:amd64 (1.58.0.1) ...
+Setting up libboost-exception1.58-dev:amd64 (1.58.0+dfsg-4.1) ...
+Setting up libboost-exception-dev:amd64 (1.58.0.1) ...
+Setting up libboost-filesystem1.58.0:amd64 (1.58.0+dfsg-4.1) ...
+Setting up libboost-system1.58-dev:amd64 (1.58.0+dfsg-4.1) ...
+Setting up libboost-filesystem1.58-dev:amd64 (1.58.0+dfsg-4.1) ...
+Setting up libboost-filesystem-dev:amd64 (1.58.0.1) ...
+Setting up libboost-regex1.58.0:amd64 (1.58.0+dfsg-4.1) ...
+Setting up libboost-graph1.58.0:amd64 (1.58.0+dfsg-4.1) ...
+Setting up libboost-test1.58.0:amd64 (1.58.0+dfsg-4.1) ...
+Setting up libboost-test1.58-dev:amd64 (1.58.0+dfsg-4.1) ...
+Setting up libboost-graph1.58-dev:amd64 (1.58.0+dfsg-4.1) ...
+Setting up libboost-graph-dev:amd64 (1.58.0.1) ...
+Setting up libltdl7:amd64 (2.4.6-0.1) ...
+Setting up libnuma1:amd64 (2.0.11-1) ...
+Setting up libhwloc5:amd64 (1.11.2-2) ...
+Setting up libcr0 (0.8.5-2.2) ...
+Setting up libibverbs1 (1.1.8-1.1) ...
+Setting up libopenmpi1.6 (1.6.5-11) ...
+Setting up libboost-mpi1.58.0 (1.58.0+dfsg-4.1) ...
+Setting up libboost-graph-parallel1.58.0 (1.58.0+dfsg-4.1) ...
+Setting up libboost-graph-parallel1.58-dev (1.58.0+dfsg-4.1) ...
+Setting up libboost-graph-parallel-dev (1.58.0.1) ...
+Setting up libboost-regex1.58-dev:amd64 (1.58.0+dfsg-4.1) ...
+Setting up libboost-iostreams1.58-dev:amd64 (1.58.0+dfsg-4.1) ...
+Setting up libboost-iostreams-dev:amd64 (1.58.0.1) ...
+Setting up libboost-locale1.58.0:amd64 (1.58.0+dfsg-4.1) ...
+Setting up libboost-locale1.58-dev:amd64 (1.58.0+dfsg-4.1) ...
+Setting up libboost-locale-dev:amd64 (1.58.0.1) ...
+Setting up libboost-log1.58.0 (1.58.0+dfsg-4.1) ...
+Setting up libboost-thread1.58-dev:amd64 (1.58.0+dfsg-4.1) ...
+Setting up libboost-log1.58-dev (1.58.0+dfsg-4.1) ...
+Setting up libboost-log-dev (1.58.0.1) ...
+Setting up libboost-math1.58.0:amd64 (1.58.0+dfsg-4.1) ...
+Setting up libboost-math1.58-dev:amd64 (1.58.0+dfsg-4.1) ...
+Setting up libboost-math-dev:amd64 (1.58.0.1) ...
+Setting up openmpi-common (1.6.5-11) ...
+Setting up libibverbs-dev (1.1.8-1.1) ...
+Setting up libnuma-dev:amd64 (2.0.11-1) ...
+Setting up libltdl-dev:amd64 (2.4.6-0.1) ...
+Setting up libhwloc-dev:amd64 (1.11.2-2) ...
+Setting up libopenmpi-dev (1.6.5-11) ...
+update-alternatives: using /usr/lib/openmpi/include to provide /usr/include/mpi (mpi) in auto mode
+Setting up mpi-default-dev (1.0.2+nmu2) ...
+Setting up libboost-mpi1.58-dev (1.58.0+dfsg-4.1) ...
+Setting up libboost-mpi-dev (1.58.0.1) ...
+Setting up libboost-python1.58.0 (1.58.0+dfsg-4.1) ...
+Setting up openmpi-bin (1.6.5-11) ...
+update-alternatives: using /usr/bin/mpirun.openmpi to provide /usr/bin/mpirun (mpirun) in auto mode
+Setting up mpi-default-bin (1.0.2+nmu2) ...
+Setting up libboost-mpi-python1.58.0 (1.58.0+dfsg-4.1) ...
+Setting up libboost-mpi-python1.58-dev (1.58.0+dfsg-4.1) ...
+Setting up libboost-mpi-python-dev (1.58.0.1) ...
+Setting up libboost-program-options1.58.0:amd64 (1.58.0+dfsg-4.1) ...
+Setting up libboost-program-options1.58-dev:amd64 (1.58.0+dfsg-4.1) ...
+Setting up libboost-program-options-dev:amd64 (1.58.0.1) ...
+Setting up libpython2.7:amd64 (2.7.11-3) ...
+Setting up libexpat1-dev:amd64 (2.1.0-7) ...
+Setting up libpython2.7-dev:amd64 (2.7.11-3) ...
+Setting up libpython-dev:amd64 (2.7.11-1) ...
+Setting up python2.7-dev (2.7.11-3) ...
+Setting up python-dev (2.7.11-1) ...
+Setting up libboost-python1.58-dev (1.58.0+dfsg-4.1) ...
+Setting up libboost-python-dev (1.58.0.1) ...
+Setting up libboost-random1.58.0:amd64 (1.58.0+dfsg-4.1) ...
+Setting up libboost-random1.58-dev:amd64 (1.58.0+dfsg-4.1) ...
+Setting up libboost-random-dev:amd64 (1.58.0.1) ...
+Setting up libboost-regex-dev:amd64 (1.58.0.1) ...
+Setting up libboost-serialization-dev:amd64 (1.58.0.1) ...
+Setting up libboost-signals1.58.0:amd64 (1.58.0+dfsg-4.1) ...
+Setting up libboost-signals1.58-dev:amd64 (1.58.0+dfsg-4.1) ...
+Setting up libboost-signals-dev:amd64 (1.58.0.1) ...
+Setting up libboost-system-dev:amd64 (1.58.0.1) ...
+Setting up libboost-test-dev:amd64 (1.58.0.1) ...
+Setting up libboost-thread-dev:amd64 (1.58.0.1) ...
+Setting up libboost-timer1.58.0:amd64 (1.58.0+dfsg-4.1) ...
+Setting up libboost-timer1.58-dev:amd64 (1.58.0+dfsg-4.1) ...
+Setting up libboost-timer-dev:amd64 (1.58.0.1) ...
+Setting up libboost-wave1.58.0:amd64 (1.58.0+dfsg-4.1) ...
+Setting up libboost-wave1.58-dev:amd64 (1.58.0+dfsg-4.1) ...
+Setting up libboost-wave-dev:amd64 (1.58.0.1) ...
+Setting up libboost-all-dev (1.58.0.1) ...
+Setting up libtool (2.4.6-0.1) ...
+Setting up ocl-icd-libopencl1:amd64 (2.2.8-1) ...
+Setting up libhwloc-plugins (1.11.2-2) ...
+Processing triggers for libc-bin (2.19-19) ...
+ ---> cb2973fefe94
+Removing intermediate container 286ba914eab4
+Step 4 : COPY Rprofile .Rprofile
+ ---> 6d3a644234d6
+Removing intermediate container 9a7189d7e20a
+Step 5 : COPY Rsetup/biocDevMode.R Rsetup/biocDevMode.R
+ ---> a48f0506cfcb
+Removing intermediate container a11703e377f4
+Step 6 : RUN Rscript Rsetup/biocDevMode.R
+ ---> Running in a127071e87ed
+[91mBioconductor version 3.2 (BiocInstaller 1.19.14), ?biocLite for help
+[0m[91m'devel' version already in use[0m[91mtrying URL 'https://bioconductor.org/packages/3.2/bioc/src/contrib/BiocInstaller_1.20.1.tar.gz'
+[0m[91mContent type 'application/x-gzip' length 15695 bytes (15 KB)
+================[0m[91m==================================[0m[91m
+downloaded 15 KB
+
+[0m[91m* installing *source* package ‘BiocInstaller’ ...
+[0m[91m** R
+[0m[91m** inst
+[0m[91m** preparing package for lazy loading
+[0m[91m** help
+[0m[91m*** installing help indices
+[0m[91m** building package indices
+[0m[91m** testing if installed package can be loaded
+[0mBioconductor version 3.2 (BiocInstaller 1.20.1), ?biocLite for help
+[91m* DONE (BiocInstaller)
+[0m
+The downloaded source packages are in
+	‘/tmp/Rtmpj2oTHJ/downloaded_packages’
+[91mBioconductor version 3.2 (BiocInstaller 1.20.1), ?biocLite for help
+[0m[91m'BiocInstaller' updated to version 1.20.1
+[0m[91mBioC_mirror: https://bioconductor.org
+[0m[91mUsing Bioconductor 3.2 (BiocInstaller 1.20.1), R 3.2.2 (2015-08-14).
+[0m[91mUpdating packages 'annotate', 'AnnotationDbi', 'AnnotationForge',
+  'AnnotationHub', 'Biobase', 'BiocGenerics', 'BiocParallel', 'biocViews',
+  'biomaRt', 'Biostrings', 'biovizBase', 'BSgenome', 'Category', 'curl',
+  'DESeq2', 'digest', 'edgeR', 'epivizr', 'genefilter', 'geneplotter',
+  'GenomeInfoDb', 'GenomicAlignments', 'GenomicFeatures', 'GenomicRanges',
+  'GGally', 'ggbio', 'ggplot2', 'GO.db', 'GOstats', 'graph', 'GSEABase',
+  'Gviz', 'Hmisc', 'htmltools', 'httr', 'interactiveDisplayBase', 'IRanges',
+  'jsonlite', 'knitr', 'latticeExtra', 'limma', 'matrixStats', 'munsell',
+  'OrganismDbi', 'org.Hs.eg.db', 'PFAM.db', 'R6', 'RBGL', 'Rcpp',
+  'RcppArmadillo', 'ReportingTools', 'Rgraphviz', 'rmarkdown', 'R.methodsS3',
+  'R.oo', 'Rsamtools', 'rtracklayer', 'RUnit', 'R.utils', 'S4Vectors', 'shiny',
+  'snow', 'stringi', 'SummarizedExperiment', 'VariantAnnotation', 'xtable',
+  'XVector', 'zlibbioc', 'MASS', 'Matrix', 'mgcv', 'nlme', 'nnet'
+[0m[91malso installing the dependency ‘openssl’
+
+[0m[91mtrying URL 'http://cran.at.r-project.org/src/contrib/openssl_0.9.1.tar.gz'
+[0m[91mContent type 'application/x-gzip' length 882942 bytes (862 KB)
+[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m
+downloaded 862 KB
+
+[0m[91mtrying URL 'https://bioconductor.org/packages/3.2/bioc/src/contrib/annotate_1.48.0.tar.gz'
+[0m[91mContent type 'application/x-gzip' length 1852419 bytes (1.8 MB)
+[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m
+downloaded 1.8 MB
+
+[0m[91mtrying URL 'https://bioconductor.org/packages/3.2/bioc/src/contrib/AnnotationDbi_1.32.3.tar.gz'
+[0m[91mContent type 'application/x-gzip' length 4268480 bytes (4.1 MB)
+[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m
+downloaded 4.1 MB
+
+[0m[91mtrying URL 'https://bioconductor.org/packages/3.2/bioc/src/contrib/AnnotationForge_1.12.2.tar.gz'
+[0m[91mContent type 'application/x-gzip'[0m[91m length 3785680 bytes (3.6 MB)
+[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m
+downloaded 3.6 MB
+
+[0m[91mtrying URL 'https://bioconductor.org/packages/3.2/bioc/src/contrib/AnnotationHub_2.2.3.tar.gz'
+[0m[91mContent type 'application/x-gzip' length 407803 bytes (398 KB)
+=[0m[91m====[0m[91m==[0m[91m==[0m[91m==[0m[91m==[0m[91m==[0m[91m==[0m[91m==[0m[91m==[0m[91m=[0m[91m=[0m[91m=[0m[91m==[0m[91m=[0m[91m=[0m[91m==[0m[91m=[0m[91m==[0m[91m==[0m[91m=[0m[91m==[0m[91m==[0m[91m==[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m==[0m[91m
+downloaded 398 KB
+
+[0m[91mtrying URL 'https://bioconductor.org/packages/3.2/bioc/src/contrib/Biobase_2.30.0.tar.gz'
+[0m[91mContent type 'application/x-gzip'[0m[91m length 1671178 bytes (1.6 MB)
+[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m
+downloaded 1.6 MB
+
+[0m[91mtrying URL 'https://bioconductor.org/packages/3.2/bioc/src/contrib/BiocGenerics_0.16.1.tar.gz'
+[0m[91mContent type 'application/x-gzip' length 38289 bytes (37 KB)
+====================[0m[91m=================[0m[91m=====[0m[91m========
+downloaded 37 KB
+
+[0m[91mtrying URL 'https://bioconductor.org/packages/3.2/bioc/src/contrib/BiocParallel_1.4.3.tar.gz'
+[0m[91mContent type 'application/x-gzip' length 603688 bytes (589 KB)
+[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m==[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m==[0m[91m=[0m[91m=[0m[91m==[0m[91m=[0m[91m==[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m==[0m[91m=[0m[91m=[0m[91m
+downloaded 589 KB
+
+[0m[91mtrying URL 'https://bioconductor.org/packages/3.2/bioc/src/contrib/biocViews_1.38.1.tar.gz'
+[0m[91mContent type 'application/x-gzip' length 282643 bytes (276 KB)
+[0m[91m=====[0m[91m=[0m[91m==[0m[91m===[0m[91m=[0m[91m==[0m[91m===[0m[91m===[0m[91m===[0m[91m===[0m[91m===[0m[91m==[0m[91m=[0m[91m===[0m[91m==[0m[91m===[0m[91m===[0m[91m===[0m[91m====[0m[91m
+downloaded 276 KB
+
+[0m[91mtrying URL 'https://bioconductor.org/packages/3.2/bioc/src/contrib/biomaRt_2.26.1.tar.gz'
+[0m[91mContent type 'application/x-gzip' length 274975 bytes (268 KB)
+==[0m[91m===[0m[91m====[0m[91m==[0m[91m=====[0m[91m=[0m[91m==[0m[91m==[0m[91m==[0m[91m===[0m[91m==[0m[91m============[0m[91m=[0m[91m===[0m[91m=[0m[91m===[0m[91m=[0m[91m=[0m[91m
+downloaded 268 KB
+
+[0m[91mtrying URL 'https://bioconductor.org/packages/3.2/bioc/src/contrib/Biostrings_2.38.4.tar.gz'
+[0m[91mContent type 'application/x-gzip' length 12730670 bytes (12.1 MB)
+[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m
+downloaded 12.1 MB
+
+[0m[91mtrying URL 'https://bioconductor.org/packages/3.2/bioc/src/contrib/biovizBase_1.18.0.tar.gz'
+[0m[91mContent type 'application/x-gzip'[0m[91m length 2428064 bytes (2.3 MB)
+[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=
+downloaded 2.3 MB
+
+[0m[91mtrying URL 'https://bioconductor.org/packages/3.2/bioc/src/contrib/BSgenome_1.38.0.tar.gz'
+[0m[91mContent type 'application/x-gzip' length 6055101 bytes (5.8 MB)
+[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m
+downloaded 5.8 MB
+
+[0m[91mtrying URL 'https://bioconductor.org/packages/3.2/bioc/src/contrib/Category_2.36.0.tar.gz'
+[0m[91mContent type 'application/x-gzip' length 610791 bytes (596 KB)
+[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m==[0m[91m==[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m==[0m[91m=[0m[91m==[0m[91m=[0m[91m==[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m==[0m[91m
+[0m[91mdownloaded 596 KB
+
+[0m[91mtrying URL 'http://cran.at.r-project.org/src/contrib/curl_0.9.6.tar.gz'
+[0m[91mContent type 'application/x-gzip' length 262545 bytes (256 KB)
+=[0m[91m=[0m[91m====[0m[91m=[0m[91m=[0m[91m=[0m[91m===[0m[91m===[0m[91m=[0m[91m==[0m[91m==[0m[91m=[0m[91m=[0m[91m==[0m[91m=[0m[91m=[0m[91m==[0m[91m==[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m===[0m[91m======[0m[91m==[0m[91m==[0m[91m=[0m[91m
+downloaded 256 KB
+
+[0m[91mtrying URL 'https://bioconductor.org/packages/3.2/bioc/src/contrib/DESeq2_1.10.1.tar.gz'
+[0m[91mContent type 'application/x-gzip'[0m[91m length 1255971 bytes (1.2 MB)
+=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m
+downloaded 1.2 MB
+
+[0m[91mtrying URL 'http://cran.at.r-project.org/src/contrib/digest_0.6.9.tar.gz'
+[0m[91mContent type 'application/x-gzip' length 116746 bytes (114 KB)
+======[0m[91m======[0m[91m=======[0m[91m=======[0m[91m======[0m[91m==[0m[91m=[0m[91m==[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m==[0m[91m==[0m[91m=[0m[91m=[0m[91m=
+downloaded 114 KB
+
+trying URL 'https://bioconductor.org/packages/3.2/bioc/src/contrib/edgeR_3.12.0.tar.gz'
+[0m[91mContent type 'application/x-gzip' length 1193272 bytes (1.1 MB)
+[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m
+downloaded 1.1 MB
+
+[0m[91mtrying URL 'https://bioconductor.org/packages/3.2/bioc/src/contrib/epivizr_1.8.1.tar.gz'
+[0m[91mContent type 'application/x-gzip' length 1475037 bytes (1.4 MB)
+[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=
+downloaded 1.4 MB
+
+[0m[91mtrying URL 'https://bioconductor.org/packages/3.2/bioc/src/contrib/genefilter_1.52.1.tar.gz'
+[0m[91mContent type 'application/x-gzip' length 1290725 bytes (1.2 MB)
+[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m
+downloaded 1.2 MB
+
+[0m[91mtrying URL 'https://bioconductor.org/packages/3.2/bioc/src/contrib/geneplotter_1.48.0.tar.gz'
+[0m[91mContent type 'application/x-gzip' length 1400072 bytes (1.3 MB)
+[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m==[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m
+downloaded 1.3 MB
+
+[0m[91mtrying URL 'https://bioconductor.org/packages/3.2/bioc/src/contrib/GenomeInfoDb_1.6.3.tar.gz'
+[0m[91mContent type 'application/x-gzip'[0m[91m length 19364480 bytes (18.5 MB)
+[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m
+downloaded 18.5 MB
+
+[0m[91mtrying URL 'https://bioconductor.org/packages/3.2/bioc/src/contrib/GenomicAlignments_1.6.3.tar.gz'
+[0m[91mContent type 'application/x-gzip'[0m[91m length 1939420 bytes (1.8 MB)
+[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m
+downloaded 1.8 MB
+
+[0m[91mtrying URL 'https://bioconductor.org/packages/3.2/bioc/src/contrib/GenomicFeatures_1.22.13.tar.gz'
+[0m[91mContent type 'application/x-gzip'[0m[91m length 818121 bytes (798 KB)
+[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m==[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m==[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=
+downloaded 798 KB
+
+[0m[91mtrying URL 'https://bioconductor.org/packages/3.2/bioc/src/contrib/GenomicRanges_1.22.4.tar.gz'
+[0m[91mContent type 'application/x-gzip' length 933002 bytes (911 KB)
+[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=
+downloaded 911 KB
+
+[0m[91mtrying URL 'http://cran.at.r-project.org/src/contrib/GGally_1.0.1.tar.gz'
+[0m[91mContent type 'application/x-gzip' length 4327708 bytes (4.1 MB)
+[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=
+downloaded 4.1 MB
+
+[0m[91mtrying URL 'https://bioconductor.org/packages/3.2/bioc/src/contrib/ggbio_1.18.5.tar.gz'
+[0m[91mContent type 'application/x-gzip' length 1506058 bytes (1.4 MB)
+[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m
+downloaded 1.4 MB
+
+[0m[91mtrying URL 'http://cran.at.r-project.org/src/contrib/ggplot2_2.0.0.tar.gz'
+[0m[91mContent type 'application/x-gzip' length 1546130 bytes (1.5 MB)
+[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=
+downloaded 1.5 MB
+
+[0m[91mtrying URL 'https://bioconductor.org/packages/3.2/data/annotation/src/contrib/GO.db_3.2.2.tar.gz'
+[0m[91mContent type 'application/x-gzip' length 31248918 bytes (29.8 MB)
+[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m
+downloaded 29.8 MB
+
+[0m[91mtrying URL 'https://bioconductor.org/packages/3.2/bioc/src/contrib/GOstats_2.36.0.tar.gz'
+[0m[91mContent type 'application/x-gzip'[0m[91m length 3059881 bytes (2.9 MB)
+[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=
+downloaded 2.9 MB
+
+[0m[91mtrying URL 'https://bioconductor.org/packages/3.2/bioc/src/contrib/graph_1.48.0.tar.gz'
+[0m[91mContent type 'application/x-gzip' length 958694 bytes (936 KB)
+[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m==[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m==[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m
+downloaded 936 KB
+
+[0m[91mtrying URL 'https://bioconductor.org/packages/3.2/bioc/src/contrib/GSEABase_1.32.0.tar.gz'
+[0m[91mContent type 'application/x-gzip' length 237198 bytes (231 KB)
+[0m[91m===[0m[91m==[0m[91m====[0m[91m==[0m[91m=[0m[91m==[0m[91m==[0m[91m=[0m[91m==[0m[91m=[0m[91m==[0m[91m=[0m[91m===[0m[91m=====[0m[91m===[0m[91m===[0m[91m===[0m[91m===[0m[91m=[0m[91m===[0m[91m===
+downloaded 231 KB
+
+[0m[91mtrying URL 'https://bioconductor.org/packages/3.2/bioc/src/contrib/Gviz_1.14.3.tar.gz'
+[0m[91mContent type 'application/x-gzip'[0m[91m length 3383534 bytes (3.2 MB)
+[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m
+downloaded 3.2 MB
+
+[0m[91mtrying URL 'http://cran.at.r-project.org/src/contrib/Hmisc_3.17-1.tar.gz'
+[0m[91mContent type 'application/x-gzip' length 640517 bytes (625 KB)
+=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m==[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=
+downloaded 625 KB
+
+[0m[91mtrying URL 'http://cran.at.r-project.org/src/contrib/htmltools_0.3.tar.gz'
+[0m[91mContent type 'application/x-gzip' length 39620 bytes (38 KB)
+=================[0m[91m===================[0m[91m==============
+[0m[91mdownloaded 38 KB
+
+[0m[91mtrying URL 'http://cran.at.r-project.org/src/contrib/httr_1.1.0.tar.gz'
+[0m[91mContent type 'application/x-gzip' length 118882 bytes (116 KB)
+=====[0m[91m======[0m[91m=======[0m[91m===========[0m[91m=[0m[91m==[0m[91m=[0m[91m==[0m[91m==[0m[91m=[0m[91m==[0m[91m=[0m[91m==[0m[91m=[0m[91m==[0m[91m===[0m[91m=[0m[91m
+downloaded 116 KB
+
+[0m[91mtrying URL 'https://bioconductor.org/packages/3.2/bioc/src/contrib/interactiveDisplayBase_1.8.0.tar.gz'
+[0m[91mContent type 'application/x-gzip' length 13663 bytes (13 KB)
+[0m[91m==========[0m[91m================[0m[91m========================[0m[91m
+downloaded 13 KB
+
+[0m[91mtrying URL 'https://bioconductor.org/packages/3.2/bioc/src/contrib/IRanges_2.4.7.tar.gz'
+[0m[91mContent type 'application/x-gzip' length 496925 bytes (485 KB)
+=[0m[91m=[0m[91m=[0m[91m==[0m[91m=[0m[91m==[0m[91m==[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m==[0m[91m=[0m[91m==[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m==[0m[91m=[0m[91m=[0m[91m=[0m[91m==[0m[91m=[0m[91m=[0m[91m==[0m[91m==[0m[91m==[0m[91m=[0m[91m=[0m[91m==[0m[91m==[0m[91m==[0m[91m
+downloaded 485 KB
+
+[0m[91mtrying URL 'http://cran.at.r-project.org/src/contrib/jsonlite_0.9.19.tar.gz'
+[0m[91mContent type 'application/x-gzip' length 955099 bytes (932 KB)
+[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m
+downloaded 932 KB
+
+[0m[91mtrying URL 'http://cran.at.r-project.org/src/contrib/knitr_1.12.3.tar.gz'
+[0m[91mContent type 'application/x-gzip' length 830827 bytes (811 KB)
+[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m==[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m==[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m
+downloaded 811 KB
+
+[0m[91mtrying URL 'http://cran.at.r-project.org/src/contrib/latticeExtra_0.6-28.tar.gz'
+[0m[91mContent type 'application/x-gzip'[0m[91m length 1294369 bytes (1.2 MB)
+[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m==[0m[91m=[0m[91m=[0m[91m=[0m[91m=
+downloaded 1.2 MB
+
+[0m[91mtrying URL 'https://bioconductor.org/packages/3.2/bioc/src/contrib/limma_3.26.8.tar.gz'
+[0m[91mContent type 'application/x-gzip'[0m[91m length 1446217 bytes (1.4 MB)
+[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=
+downloaded 1.4 MB
+
+[0m[91mtrying URL 'http://cran.at.r-project.org/src/contrib/matrixStats_0.50.1.tar.gz'
+[0m[91mContent type 'application/x-gzip' length 167319 bytes (163 KB)
+====[0m[91m=====[0m[91m======[0m[91m==[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m===[0m[91m=[0m[91m====[0m[91m=[0m[91m====[0m[91m===[0m[91m====[0m[91m=[0m[91m===[0m[91m=====
+downloaded 163 KB
+
+[0m[91mtrying URL 'http://cran.at.r-project.org/src/contrib/munsell_0.4.3.tar.gz'
+[0m[91mContent type 'application/x-gzip' length 97244 bytes (94 KB)
+[0m[91m=======[0m[91m========[0m[91m========[0m[91m=========[0m[91m====[0m[91m========[0m[91m======
+downloaded 94 KB
+
+[0m[91mtrying URL 'https://bioconductor.org/packages/3.2/bioc/src/contrib/OrganismDbi_1.12.1.tar.gz'
+[0m[91mContent type 'application/x-gzip' length 195863 bytes (191 KB)
+[0m[91m=[0m[91m=[0m[91m====[0m[91m==[0m[91m====[0m[91m=[0m[91m====[0m[91m=[0m[91m===[0m[91m==[0m[91m==[0m[91m====[0m[91m===[0m[91m===[0m[91m====[0m[91m=[0m[91m=====[0m[91m=[0m[91m====[0m[91m
+downloaded 191 KB
+
+[0m[91mtrying URL 'https://bioconductor.org/packages/3.2/data/annotation/src/contrib/org.Hs.eg.db_3.2.3.tar.gz'
+[0m[91mContent type 'application/x-gzip'[0m[91m length 68856557 bytes (65.7 MB)
+[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=
+downloaded 65.7 MB
+
+[0m[91mtrying URL 'https://bioconductor.org/packages/3.2/data/annotation/src/contrib/PFAM.db_3.2.2.tar.gz'
+[0m[91mContent type 'application/x-gzip' length 3705617 bytes (3.5 MB)
+[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=
+downloaded 3.5 MB
+
+[0m[91mtrying URL 'http://cran.at.r-project.org/src/contrib/R6_2.1.2.tar.gz'
+[0m[91mContent type 'application/x-gzip' length 270461 bytes (264 KB)
+[0m[91m==[0m[91m===[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m==[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m==[0m[91m==[0m[91m=[0m[91m=[0m[91m===[0m[91m=[0m[91m=[0m[91m=[0m[91m==[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m===[0m[91m=[0m[91m====[0m[91m==[0m[91m===
+downloaded 264 KB
+
+[0m[91mtrying URL 'https://bioconductor.org/packages/3.2/bioc/src/contrib/RBGL_1.46.0.tar.gz'
+[0m[91mContent type 'application/x-gzip'[0m[91m length 2278535 bytes (2.2 MB)
+[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m
+downloaded 2.2 MB
+
+[0m[91mtrying URL 'http://cran.at.r-project.org/src/contrib/Rcpp_0.12.3.tar.gz'
+[0m[91mContent type 'application/x-gzip' length 2374320 bytes (2.3 MB)
+[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=
+downloaded 2.3 MB
+
+[0m[91mtrying URL 'http://cran.at.r-project.org/src/contrib/RcppArmadillo_0.6.500.4.0.tar.gz'
+[0m[91mContent type 'application/x-gzip' length 989308 bytes (966 KB)
+[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m
+downloaded 966 KB
+
+[0m[91mtrying URL 'https://bioconductor.org/packages/3.2/bioc/src/contrib/ReportingTools_2.10.0.tar.gz'
+[0m[91mContent type 'application/x-gzip' length 2354974 bytes (2.2 MB)
+[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m
+downloaded 2.2 MB
+
+[0m[91mtrying URL 'https://bioconductor.org/packages/3.2/bioc/src/contrib/Rgraphviz_2.14.0.tar.gz'
+[0m[91mContent type 'application/x-gzip'[0m[91m length 7694656 bytes (7.3 MB)
+[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=
+downloaded 7.3 MB
+
+[0m[91mtrying URL 'http://cran.at.r-project.org/src/contrib/rmarkdown_0.9.2.tar.gz'
+[0m[91mContent type 'application/x-gzip' length 1190013 bytes (1.1 MB)
+[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m
+downloaded 1.1 MB
+
+[0m[91mtrying URL 'http://cran.at.r-project.org/src/contrib/R.methodsS3_1.7.1.tar.gz'
+[0m[91mContent type 'application/x-gzip' length 25731 bytes (25 KB)
+===========================[0m[91m=======================
+downloaded 25 KB
+
+[0m[91mtrying URL 'http://cran.at.r-project.org/src/contrib/R.oo_1.20.0.tar.gz'
+[0m[91mContent type 'application/x-gzip' length 402654 bytes (393 KB)
+=[0m[91m==[0m[91m=[0m[91m==[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m==[0m[91m=[0m[91m==[0m[91m=[0m[91m==[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m==[0m[91m==[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m
+downloaded 393 KB
+
+[0m[91mtrying URL 'https://bioconductor.org/packages/3.2/bioc/src/contrib/Rsamtools_1.22.0.tar.gz'
+[0m[91mContent type 'application/x-gzip'[0m[91m length 2981559 bytes (2.8 MB)
+[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=
+downloaded 2.8 MB
+
+[0m[91mtrying URL 'https://bioconductor.org/packages/3.2/bioc/src/contrib/rtracklayer_1.30.2.tar.gz'
+[0m[91mContent type 'application/x-gzip' length 1358051 bytes (1.3 MB)
+[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m
+downloaded 1.3 MB
+
+[0m[91mtrying URL 'http://cran.at.r-project.org/src/contrib/RUnit_0.4.31.tar.gz'
+[0m[91mContent type 'application/x-gzip' length 324003 bytes (316 KB)
+=[0m[91m=[0m[91m==[0m[91m===[0m[91m==[0m[91m=[0m[91m=[0m[91m==[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m===[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m==[0m[91m=[0m[91m=[0m[91m==[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m==[0m[91m=[0m[91m=[0m[91m=[0m[91m==[0m[91m==[0m[91m=[0m[91m==[0m[91m=[0m[91m=[0m[91m
+downloaded 316 KB
+
+[0m[91mtrying URL 'http://cran.at.r-project.org/src/contrib/R.utils_2.2.0.tar.gz'
+[0m[91mContent type 'application/x-gzip' length 385748 bytes (376 KB)
+[0m[91m=[0m[91m==[0m[91m=[0m[91m=[0m[91m==[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m==[0m[91m=[0m[91m==[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m==[0m[91m==[0m[91m==[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m
+downloaded 376 KB
+
+[0m[91mtrying URL 'https://bioconductor.org/packages/3.2/bioc/src/contrib/S4Vectors_0.8.11.tar.gz'
+[0m[91mContent type 'application/x-gzip' length 204026 bytes (199 KB)
+===[0m[91m===[0m[91m===[0m[91m=[0m[91m====[0m[91m=[0m[91m===[0m[91m====[0m[91m===[0m[91m====[0m[91m=[0m[91m===[0m[91m====[0m[91m====[0m[91m====[0m[91m=====
+[0m[91mdownloaded 199 KB
+
+[0m[91mtrying URL 'http://cran.at.r-project.org/src/contrib/shiny_0.13.1.tar.gz'
+[0m[91mContent type 'application/x-gzip' length 1854769 bytes (1.8 MB)
+[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=
+downloaded 1.8 MB
+
+[0m[91mtrying URL 'http://cran.at.r-project.org/src/contrib/snow_0.4-1.tar.gz'
+[0m[91mContent type 'application/x-gzip' length 22397 bytes (21 KB)
+=======================[0m[91m========[0m[91m===================[0m[91m
+downloaded 21 KB
+
+[0m[91mtrying URL 'http://cran.at.r-project.org/src/contrib/stringi_1.0-1.tar.gz'
+[0m[91mContent type 'application/x-gzip' length 3643002 bytes (3.5 MB)
+[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m
+downloaded 3.5 MB
+
+[0m[91mtrying URL 'https://bioconductor.org/packages/3.2/bioc/src/contrib/SummarizedExperiment_1.0.2.tar.gz'
+[0m[91mContent type 'application/x-gzip' length 947194 bytes (924 KB)
+[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m
+downloaded 924 KB
+
+[0m[91mtrying URL 'https://bioconductor.org/packages/3.2/bioc/src/contrib/VariantAnnotation_1.16.4.tar.gz'
+[0m[91mContent type 'application/x-gzip'[0m[91m length 1311934 bytes (1.3 MB)
+[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m
+[0m[91mdownloaded 1.3 MB
+
+[0m[91mtrying URL 'http://cran.at.r-project.org/src/contrib/xtable_1.8-2.tar.gz'
+[0m[91mContent type 'application/x-gzip' length 619611 bytes (605 KB)
+=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m==[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m=[0m[91m==[0m[91m=[0m[91m=
+[0m[91mdownloaded 605 KB
+
+[0m[91mtrying URL 'https://bioconductor.org/packages/3.2/bioc/src/contrib/XVector_0.10.0.tar.gz'
+[0m[91mContent type 'application/x-gzip' length 58534 bytes (57 KB)
+[0m[91m=======[0m[91m=[0m[91m=====[0m[91m========[0m[91m=[0m[91m===[0m[91m============[0m[91m=====[0m[91m========[0m[91m
+downloaded 57 KB
+
+[0m[91mtrying URL 'https://bioconductor.org/packages/3.2/bioc/src/contrib/zlibbioc_1.16.0.tar.gz'
+[0m[91mContent type 'application/x-gzip' length 257446 bytes (251 KB)
+[0m[91m=[0m[91m===[0m[91m===[0m[91m=[0m[91m=[0m[91m===[0m[91m==[0m[91m===[0m[91m====[0m[91m===[0m[91m===[0m[91m=[0m[91m=[0m[91m===[0m[91m=[0m[91m==[0m[91m=[0m[91m===[0m[91m==[0m[91m===[0m[91m==[0m[91m====
+downloaded 251 KB
+
+[0m[91m* installing *source* package ‘openssl’ ...
+[0m[91m** package ‘openssl’ successfully unpacked and MD5 sums checked
+[0mUsing PKG_CFLAGS=
+Using PKG_LIBS=-lssl -lcrypto
+[91m** libs
+[0mgcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c aes.c -o aes.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c base64.c -o base64.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c bignum.c -o bignum.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c cert.c -o cert.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c envelope.c -o envelope.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c error.c -o error.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c hash.c -o hash.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c keygen.c -o keygen.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c onload.c -o onload.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c openssh.c -o openssh.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c rand.c -o rand.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c read.c -o read.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c rsa.c -o rsa.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c signing.c -o signing.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c ssl.c -o ssl.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c stream.c -o stream.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c write.c -o write.o
+gcc -std=gnu99 -shared -L/usr/lib/R/lib -Wl,-z,relro -o openssl.so aes.o base64.o bignum.o cert.o envelope.o error.o hash.o keygen.o onload.o openssh.o rand.o read.o rsa.o signing.o ssl.o stream.o write.o -lssl -lcrypto -L/usr/lib/R/lib -lR
+[91minstalling to /usr/local/lib/R/site-library/openssl/libs
+[0m[91m** R
+[0m[91m** inst
+[0m[91m** preparing package for lazy loading
+[0m[91m** help
+[0m[91m*** installing help indices
+[0m[91m** building package indices
+[0m[91m** installing vignettes
+[0m[91m** testing if installed package can be loaded
+[0mBioconductor version 3.2 (BiocInstaller 1.20.1), ?biocLite for help
+[91m* DONE (openssl)
+[0m[91m* installing *source* package ‘BiocGenerics’ ...
+[0m[91m** R
+[0m[91m** inst
+[0m[91m** preparing package for lazy loading
+[0m[91mCreating a new generic function for ‘append’ in package ‘BiocGenerics’
+[0m[91mCreating a new generic function for ‘as.data.frame’ in package ‘BiocGenerics’
+[0m[91mCreating a new generic function for ‘as.vector’ in package ‘BiocGenerics’
+[0m[91mCreating a new generic function for ‘cbind’ in package ‘BiocGenerics’
+[0m[91mCreating a new generic function for ‘rbind’ in package ‘BiocGenerics’
+[0m[91mCreating a new generic function for ‘do.call’ in package ‘BiocGenerics’
+[0m[91mCreating a new generic function for ‘duplicated’ in package ‘BiocGenerics’
+[0m[91mCreating a new generic function for ‘anyDuplicated’ in package ‘BiocGenerics’
+[0m[91mCreating a new generic function for ‘eval’ in package ‘BiocGenerics’
+[0m[91mCreating a new generic function for ‘pmax’ in package ‘BiocGenerics’
+[0m[91mCreating a new generic function for ‘pmin’ in package ‘BiocGenerics’
+[0m[91mCreating a new generic function for ‘pmax.int’ in package ‘BiocGenerics’
+[0m[91mCreating a new generic function for ‘pmin.int’ in package ‘BiocGenerics’
+[0m[91mCreating a new generic function for ‘Reduce’ in package ‘BiocGenerics’
+[0m[91mCreating a new generic function for ‘Filter’ in package ‘BiocGenerics’
+[0m[91mCreating a new generic function for ‘Find’ in package ‘BiocGenerics’
+[0m[91mCreating a new generic function for ‘Map’ in package ‘BiocGenerics’
+[0m[91mCreating a new generic function for ‘Position’ in package ‘BiocGenerics’
+[0m[91mCreating a new generic function for ‘get’ in package ‘BiocGenerics’
+[0m[91mCreating a new generic function for ‘mget’ in package ‘BiocGenerics’
+[0m[91mCreating a new generic function for ‘grep’ in package ‘BiocGenerics’
+[0m[91mCreating a new generic function for ‘grepl’ in package ‘BiocGenerics’
+[0m[91mCreating a new generic function for ‘is.unsorted’ in package ‘BiocGenerics’
+[0m[91mCreating a new generic function for ‘lapply’ in package ‘BiocGenerics’
+[0m[91mCreating a new generic function for ‘sapply’ in package ‘BiocGenerics’
+[0m[91mCreating a new generic function for ‘lengths’ in package ‘BiocGenerics’
+[0m[91mCreating a new generic function for ‘mapply’ in package ‘BiocGenerics’
+[0m[91mCreating a new generic function for ‘match’ in package ‘BiocGenerics’
+[0m[91mCreating a new generic function for ‘order’ in package ‘BiocGenerics’
+[0m[91mCreating a new generic function for ‘paste’ in package ‘BiocGenerics’
+[0m[91mCreating a new generic function for ‘rank’ in package ‘BiocGenerics’
+[0m[91mCreating a new generic function for ‘rownames’ in package ‘BiocGenerics’
+[0m[91mCreating a new generic function for ‘colnames’ in package ‘BiocGenerics’
+[0m[91mCreating a new generic function for ‘union’ in package ‘BiocGenerics’
+[0m[91mCreating a new generic function for ‘intersect’ in package ‘BiocGenerics’
+[0m[91mCreating a new generic function for ‘setdiff’ in package ‘BiocGenerics’
+[0m[91mCreating a new generic function for ‘sort’ in package ‘BiocGenerics’
+[0m[91mCreating a new generic function for ‘table’ in package ‘BiocGenerics’
+[0m[91mCreating a new generic function for ‘tapply’ in package ‘BiocGenerics’
+[0m[91mCreating a new generic function for ‘unique’ in package ‘BiocGenerics’
+[0m[91mCreating a new generic function for ‘unlist’ in package ‘BiocGenerics’
+[0m[91mCreating a new generic function for ‘unsplit’ in package ‘BiocGenerics’
+[0m[91mCreating a new generic function for ‘IQR’ in package ‘BiocGenerics’
+[0m[91mCreating a new generic function for ‘mad’ in package ‘BiocGenerics’
+[0m[91mCreating a new generic function for ‘xtabs’ in package ‘BiocGenerics’
+[0m[91mCreating a new generic function for ‘clusterCall’ in package ‘BiocGenerics’
+[0m[91mCreating a new generic function for ‘clusterApply’ in package ‘BiocGenerics’
+[0m[91mCreating a new generic function for ‘clusterApplyLB’ in package ‘BiocGenerics’
+[0m[91mCreating a new generic function for ‘clusterEvalQ’ in package ‘BiocGenerics’
+[0m[91mCreating a new generic function for ‘clusterExport’ in package ‘BiocGenerics’
+[0m[91mCreating a new generic function for ‘clusterMap’ in package ‘BiocGenerics’
+[0m[91mCreating a new generic function for ‘parLapply’ in package ‘BiocGenerics’
+[0m[91mCreating a new generic function for ‘parSapply’ in package ‘BiocGenerics’
+[0m[91mCreating a new generic function for ‘parApply’ in package ‘BiocGenerics’
+[0m[91mCreating a new generic function for ‘parRapply’ in package ‘BiocGenerics’
+[0m[91mCreating a new generic function for ‘parCapply’ in package ‘BiocGenerics’
+[0m[91mCreating a new generic function for ‘parLapplyLB’ in package ‘BiocGenerics’
+[0m[91mCreating a new generic function for ‘parSapplyLB’ in package ‘BiocGenerics’
+[0m[91m** help
+[0m[91m*** installing help indices
+[0m[91m** building package indices
+[0m[91m** testing if installed package can be loaded
+[0mBioconductor version 3.2 (BiocInstaller 1.20.1), ?biocLite for help
+[91m* DONE (BiocGenerics)
+[0m[91m* installing *source* package ‘curl’ ...
+[0m[91m** package ‘curl’ successfully unpacked and MD5 sums checked
+[0mUsing PKG_CFLAGS=
+Using PKG_LIBS=-lcurl
+[91m** libs
+[0mgcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c callbacks.c -o callbacks.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c curl.c -o curl.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c download.c -o download.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c escape.c -o escape.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c fetch.c -o fetch.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c form.c -o form.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c getdate.c -o getdate.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c handle.c -o handle.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c ieproxy.c -o ieproxy.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c init.c -o init.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c interrupt.c -o interrupt.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c nslookup.c -o nslookup.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c utils.c -o utils.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c version.c -o version.o
+gcc -std=gnu99 -shared -L/usr/lib/R/lib -Wl,-z,relro -o curl.so callbacks.o curl.o download.o escape.o fetch.o form.o getdate.o handle.o ieproxy.o init.o interrupt.o nslookup.o utils.o version.o -lcurl -L/usr/lib/R/lib -lR
+[91minstalling to /usr/local/lib/R/site-library/curl/libs
+[0m[91m** R
+[0m[91m** data
+[0m[91m*** moving datasets to lazyload DB
+[0m[91m** inst
+[0m[91m** preparing package for lazy loading
+[0m[91m** help
+[0m[91m*** installing help indices
+[0m[91m** building package indices
+[0m[91m** installing vignettes
+[0m[91m** testing if installed package can be loaded
+[0mBioconductor version 3.2 (BiocInstaller 1.20.1), ?biocLite for help
+[91m* DONE (curl)
+[0m[91m* installing *source* package ‘digest’ ...
+[0m[91m** package ‘digest’ successfully unpacked and MD5 sums checked
+[0m[91m** libs
+[0mgcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c aes.c -o aes.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c crc32.c -o crc32.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c digest.c -o digest.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c init.c -o init.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c md5.c -o md5.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c pmurhash.c -o pmurhash.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c raes.c -o raes.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c sha1.c -o sha1.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c sha2.c -o sha2.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c sha256.c -o sha256.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c xxhash.c -o xxhash.o
+gcc -std=gnu99 -shared -L/usr/lib/R/lib -Wl,-z,relro -o digest.so aes.o crc32.o digest.o init.o md5.o pmurhash.o raes.o sha1.o sha2.o sha256.o xxhash.o -L/usr/lib/R/lib -lR
+[91minstalling to /usr/local/lib/R/site-library/digest/libs
+[0m[91m** R
+[0m[91m** inst
+[0m[91m** preparing package for lazy loading
+[0m[91m** help
+[0m[91m*** installing help indices
+[0m[91m** building package indices
+[0m[91m** installing vignettes
+[0m[91m** testing if installed package can be loaded
+[0mBioconductor version 3.2 (BiocInstaller 1.20.1), ?biocLite for help
+[91m* DONE (digest)
+[0m[91m* installing *source* package ‘jsonlite’ ...
+[0m[91m** package ‘jsonlite’ successfully unpacked and MD5 sums checked
+[0m[91m** libs
+[0mrm -f yajl/yajl.o yajl/yajl_alloc.o yajl/yajl_buf.o yajl/yajl_encode.o yajl/yajl_gen.o yajl/yajl_lex.o yajl/yajl_parser.o yajl/yajl_tree.o yajl/yajl_version.o base64.o collapse_array.o collapse_object.o escape_chars.o is_recordlist.o is_scalarlist.o null_to_na.o parse.o prettify.o validate.o modp_numtoa.o num_to_char.o integer64_to_na.o push_parser.o collapse_pretty.o row_collapse.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG -Iyajl -Iyajl/api -I.     -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c yajl/yajl.c -o yajl/yajl.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG -Iyajl -Iyajl/api -I.     -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c yajl/yajl_alloc.c -o yajl/yajl_alloc.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG -Iyajl -Iyajl/api -I.     -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c yajl/yajl_buf.c -o yajl/yajl_buf.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG -Iyajl -Iyajl/api -I.     -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c yajl/yajl_encode.c -o yajl/yajl_encode.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG -Iyajl -Iyajl/api -I.     -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c yajl/yajl_gen.c -o yajl/yajl_gen.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG -Iyajl -Iyajl/api -I.     -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c yajl/yajl_lex.c -o yajl/yajl_lex.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG -Iyajl -Iyajl/api -I.     -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c yajl/yajl_parser.c -o yajl/yajl_parser.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG -Iyajl -Iyajl/api -I.     -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c yajl/yajl_tree.c -o yajl/yajl_tree.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG -Iyajl -Iyajl/api -I.     -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c yajl/yajl_version.c -o yajl/yajl_version.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG -Iyajl -Iyajl/api -I.     -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c base64.c -o base64.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG -Iyajl -Iyajl/api -I.     -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c collapse_array.c -o collapse_array.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG -Iyajl -Iyajl/api -I.     -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c collapse_object.c -o collapse_object.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG -Iyajl -Iyajl/api -I.     -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c escape_chars.c -o escape_chars.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG -Iyajl -Iyajl/api -I.     -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c is_recordlist.c -o is_recordlist.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG -Iyajl -Iyajl/api -I.     -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c is_scalarlist.c -o is_scalarlist.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG -Iyajl -Iyajl/api -I.     -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c null_to_na.c -o null_to_na.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG -Iyajl -Iyajl/api -I.     -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c parse.c -o parse.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG -Iyajl -Iyajl/api -I.     -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c prettify.c -o prettify.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG -Iyajl -Iyajl/api -I.     -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c validate.c -o validate.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG -Iyajl -Iyajl/api -I.     -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c modp_numtoa.c -o modp_numtoa.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG -Iyajl -Iyajl/api -I.     -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c num_to_char.c -o num_to_char.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG -Iyajl -Iyajl/api -I.     -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c integer64_to_na.c -o integer64_to_na.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG -Iyajl -Iyajl/api -I.     -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c push_parser.c -o push_parser.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG -Iyajl -Iyajl/api -I.     -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c collapse_pretty.c -o collapse_pretty.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG -Iyajl -Iyajl/api -I.     -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c row_collapse.c -o row_collapse.o
+gcc -std=gnu99 -shared -L/usr/lib/R/lib -Wl,-z,relro -o jsonlite.so yajl/yajl.o yajl/yajl_alloc.o yajl/yajl_buf.o yajl/yajl_encode.o yajl/yajl_gen.o yajl/yajl_lex.o yajl/yajl_parser.o yajl/yajl_tree.o yajl/yajl_version.o base64.o collapse_array.o collapse_object.o escape_chars.o is_recordlist.o is_scalarlist.o null_to_na.o parse.o prettify.o validate.o modp_numtoa.o num_to_char.o integer64_to_na.o push_parser.o collapse_pretty.o row_collapse.o -L/usr/lib/R/lib -lR
+[91minstalling to /usr/local/lib/R/site-library/jsonlite/libs
+[0m[91m** R
+[0m[91m** inst
+[0m[91m** preparing package for lazy loading
+[0m[91m** help
+[0m[91m*** installing help indices
+[0m[91m** building package indices
+[0m[91m** installing vignettes
+[0m[91m** testing if installed package can be loaded
+[0mBioconductor version 3.2 (BiocInstaller 1.20.1), ?biocLite for help
+[91m* DONE (jsonlite)
+[0m[91m* installing *source* package ‘latticeExtra’ ...
+[0m[91m** package ‘latticeExtra’ successfully unpacked and MD5 sums checked
+[0m[91m** R
+[0m[91m** data
+[0m[91m*** moving datasets to lazyload DB
+[0m[91m** inst
+[0m[91m** preparing package for lazy loading
+[0m[91m** help
+[0m[91m*** installing help indices
+[0m[91m** building package indices
+[0m[91m** testing if installed package can be loaded
+[0mBioconductor version 3.2 (BiocInstaller 1.20.1), ?biocLite for help
+[91m* DONE (latticeExtra)
+[0m[91m* installing *source* package ‘limma’ ...
+[0m[91m** libs
+[0mgcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c normexp.c -o normexp.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c weighted_lowess.c -o weighted_lowess.o
+gcc -std=gnu99 -shared -L/usr/lib/R/lib -Wl,-z,relro -o limma.so normexp.o weighted_lowess.o -L/usr/lib/R/lib -lR
+[91minstalling to /usr/local/lib/R/site-library/limma/libs
+[0m[91m** R
+[0m[91m** inst
+[0m[91m** preparing package for lazy loading
+[0m[91m** help
+[0m[91m*** installing help indices
+[0m[91m** building package indices
+[0m[91m** installing vignettes
+[0m[91m** testing if installed package can be loaded
+[0mBioconductor version 3.2 (BiocInstaller 1.20.1), ?biocLite for help
+[91m* DONE (limma)
+[0m[91m* installing *source* package ‘matrixStats’ ...
+[0m[91m** package ‘matrixStats’ successfully unpacked and MD5 sums checked
+[0m[91m** libs
+[0mgcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c allocMatrix2.c -o allocMatrix2.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c anyMissing.c -o anyMissing.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c binCounts.c -o binCounts.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c binMeans.c -o binMeans.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c colCounts.c -o colCounts.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c colOrderStats.c -o colOrderStats.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c colRanges.c -o colRanges.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c diff2.c -o diff2.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c indexByRow.c -o indexByRow.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c logSumExp.c -o logSumExp.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c meanOver.c -o meanOver.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c productExpSumLog.c -o productExpSumLog.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c psortKM.c -o psortKM.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c rowCounts.c -o rowCounts.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c rowCumMinMaxs.c -o rowCumMinMaxs.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c rowCumprods.c -o rowCumprods.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c rowCumsums.c -o rowCumsums.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c rowDiffs.c -o rowDiffs.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c rowLogSumExp.c -o rowLogSumExp.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c rowMads.c -o rowMads.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c rowMedians.c -o rowMedians.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c rowOrderStats.c -o rowOrderStats.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c rowRanges.c -o rowRanges.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c rowRanksWithTies.c -o rowRanksWithTies.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c rowVars.c -o rowVars.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c signTabulate.c -o signTabulate.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c sumOver.c -o sumOver.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c validateIndices.c -o validateIndices.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c weightedMean.c -o weightedMean.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c weightedMedian.c -o weightedMedian.o
+gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG      -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c x_OP_y.c -o x_OP_y.o
+gcc -std=gnu99 -shared -L/usr/lib/R/lib -Wl,-z,relro -o matrixStats.so allocMatrix2.o anyMissing.o binCounts.o binMeans.o colCounts.o colOrderStats.o colRanges.o diff2.o indexByRow.o logSumExp.o meanOver.o productExpSumLog.o psortKM.o rowCounts.o rowCumMinMaxs.o rowCumprods.o rowCumsums.o rowDiffs.o rowLogSumExp.o rowMads.o rowMedians.o rowOrderStats.o rowRanges.o rowRanksWithTies.o rowVars.o signTabulate.o sumOver.o validateIndices.o weightedMean.o weightedMedian.o x_OP_y.o -L/usr/lib/R/lib -lR
+[91minstalling to /usr/local/lib/R/site-library/matrixStats/libs
+[0m[91m** R
+[0m[91m** inst
+[0m[91m** byte-compile and prepare package for lazy loading
+[0m[91m** help
+[0m[91m*** installing help indices
+[0m[91m** building package indices
+[0m[91m** installing vignettes
+[0m[91m** testing if installed package can be loaded
+[0mBioconductor version 3.2 (BiocInstaller 1.20.1), ?biocLite for help
+[91m* DONE (matrixStats)
+[0m[91m* installing *source* package ‘munsell’ ...
+[0m[91m** package ‘munsell’ successfully unpacked and MD5 sums checked
+[0m[91m** R
+[0m[91m** inst
+[0m[91m** preparing package for lazy loading
+[0m[91m** help
+[0m[91m*** installing help indices
+[0m[91m** building package indices
+[0m[91m** testing if installed package can be loaded
+[0mBioconductor version 3.2 (BiocInstaller 1.20.1), ?biocLite for help
+[91m* DONE (munsell)
+[0m[91m* installing *source* package ‘R6’ ...
+[0m[91m** package ‘R6’ successfully unpacked and MD5 sums checked
+[0m[91m** R
+[0m[91m** inst
+[0m[91m** preparing package for lazy loading
+[0m[91m** help
+[0m[91m*** installing help indices
+[0m[91m** building package indices
+[0m[91m** installing vignettes
+[0m[91m** testing if installed package can be loaded
+[0mBioconductor version 3.2 (BiocInstaller 1.20.1), ?biocLite for help
+[91m* DONE (R6)
+[0m[91m* installing *source* package ‘Rcpp’ ...
+[0m[91m** package ‘Rcpp’ successfully unpacked and MD5 sums checked
+[0m[91m** libs
+[0mg++ -I/usr/share/R/include -DNDEBUG -I../inst/include/     -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c Date.cpp -o Date.o
+g++ -I/usr/share/R/include -DNDEBUG -I../inst/include/     -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g  -c Module.cpp -o Module.o
