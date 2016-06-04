@@ -2,21 +2,26 @@
 # Build me with: 
 # Run me with: docker run -p 4000:4000 -it -v ~/web:/web sheffien/jim  bash
 
-FROM ubuntu:14.04
+FROM ubuntu:16.04
 
-MAINTAINER John Doe <jdoe@example.com>
+MAINTAINER Nathan Sheffield <nathan@code.databio.org>
+RUN apt-get update && apt-get install -y sudo build-essential
 
+# jekyll2 *but not jekyll3* also requires python2
 
-RUN sudo apt-get update
+RUN sudo apt-get install -y ruby ruby-dev make nodejs
 
-# jekyll also requires python2
+RUN gem install jekyll jekyll-sitemap octopress jekyll-gist
 
-RUN sudo apt-get install -y --force-yes ruby ruby-dev make nodejs python 
-
-RUN gem install jekyll jekyll-sitemap octopress redcarpet
+RUN gem install redcarpet
 
 EXPOSE 4000
 
 COPY jserve jserve
 #ENTRYPOINT ./cdserve.sh
 
+
+
+# For future reference, if I need to add a PPA, here's how to do it:
+#RUN apt-get install -y software-properties-common  python-software-properties && apt-add-repository ppa:brightbox/ruby-ng
+#RUN apt-get update 

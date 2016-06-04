@@ -3,5 +3,5 @@
 
 echo $1
 
-docker run -p 4000:4000 -it -v $1:$1 sheffien/jim bash -c "./jserve $1"
+docker run --rm -p 4123:4000 -it -v $1:$1 sheffien/jim bash -c "./jserve $1"
 
