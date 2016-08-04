@@ -107,7 +107,7 @@ for (i in which(unavailable.packages)) {
 	message("## Trying github for: ", i, " ", packages[i]);
 	tryCatch( {
 	library(devtools)
-	install_github(paste0("sheffien/", packages[i])) 
+	install_github(paste0("nsheff/", packages[i])) 
 } , error = function(e) { warning("Github Install Error: ", e); } )
 }
 
