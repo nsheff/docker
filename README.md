@@ -62,3 +62,17 @@ TODO:
 # TO DO:
 
 I'm working on a script to be able to run any of these `script/drun` followed by the name of the image.
+
+# Installing an R envirionment 
+
+You can also use these to install all these nice R packages in one shot.
+
+```
+gclo nsheff/docker
+cd code/docker
+Rscript Rsetup/install_bioconductor.R
+Rscript Rsetup/install_fonts.R
+Rscript Rsetup/Rsetup.R
+Rscript Rsetup/Rsetup.R --packages=Rsetup/rpack_basic.txt
+Rscript Rsetup/Rsetup.R --packages=Rsetup/rpack_bio.txt
+```
