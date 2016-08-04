@@ -10,3 +10,4 @@ IRanges
 LOLA
 Rsamtools
 MotIV
+project.init
