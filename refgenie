@@ -1,0 +1,11 @@
+echo $1
+file=`basename $1`
+echo $file
+echo "Run container..."
+docker run --name refgenie nsheff/refgenie
+echo "Copy file..."
+docker cp $1 refgenie:/$file
+echo "Execute python..."
+docker exec refgenie python /refgenie/src/refgenie.py --input $file
+echo "Remove container..."
+docker rm refgenie

@@ -34,3 +34,5 @@ linkchecker:
 lola:
 	docker build -t sheffien/lola -f Dockerfile.lola .
 
+refgenie:
+	docker build -t nsheff/refgenie -f Dockerfile_refgenie .

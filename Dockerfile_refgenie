@@ -20,8 +20,6 @@ RUN git clone https://github.com/databio/refgenie.git
 RUN pip install --user https://github.com/epigen/pypiper/zipball/master
 RUN pip install --user pyyaml
 
-ENTRYPOINT ["python",  "/refgenie/src/refgenie.py"]
-
 # For future reference, if I need to add a PPA, here's how to do it:
 #RUN apt-get install -y software-properties-common  python-software-properties && apt-add-repository ppa:brightbox/ruby-ng
 #RUN apt-get update 
