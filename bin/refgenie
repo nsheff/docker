@@ -12,11 +12,15 @@ echo "Copy file..."
 docker cp $1 refgenie:/$file
 
 echo "Execute refgenie..."
-docker exec refgenie python /refgenie/src/refgenie.py --input /$file  --outfolder /genomes
+#docker exec refgenie python /refgenie/src/refgenie.py --input /$file  --outfolder /genomes
+docker exec refgenie python /refgenie/src/refgenie.py "$@"
 
 echo "Stopping container..."
 docker stop refgenie
 
 echo "Remove container..."
 docker rm refgenie
+
+
+
 
