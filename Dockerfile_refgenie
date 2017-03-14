@@ -49,3 +49,7 @@ MAINTAINER Nathan Sheffield <nathan@code.databio.org>
 	#RUN wget -O epilog_indexer.py https://github.com/databio/epilog/blob/master/epilog/epilog_indexer.py
 	ADD includes/epilog_indexer.py bin/epilog_indexer.py
 	RUN pip install --user regex
+
+# UCSC twoBitToFa
+	ADD includes/twoBitToFa bin/twoBitToFa
+	RUN apt-get install -y libpng-dev

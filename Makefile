@@ -8,31 +8,31 @@
 all: rim rdev rmlr igv jim
 
 rim:
-	docker build -t sheffien/rim -f Dockerfile.rprod .
+	docker build -t nsheff/rim -f Dockerfile.rprod .
 
 rdev:
-	docker build -t sheffien/rdev -f Dockerfile.rdevel . > log_rdevel.txt
+	docker build -t nsheff/rdev -f Dockerfile.rdevel . > log_rdevel.txt
 
 rdev-nocache:
-	time docker build --no-cache -t sheffien/rdev -f Dockerfile.rdevel . > log_rdevel.txt &
+	time docker build --no-cache -t nsheff/rdev -f Dockerfile.rdevel . > log_rdevel.txt &
 	tail --follow log_rdevel.txt
 
 
 rmlr:
-	docker build -t sheffien/drmlr -f Dockerfile.mlr .
+	docker build -t nsheff/drmlr -f Dockerfile.mlr .
 
 igv:
-	docker build -t sheffien/igv -f Dockerfile.igv .
+	docker build -t nsheff/igv -f Dockerfile.igv .
 
 jim:
-	docker build -t sheffien/jim -f Dockerfile.jekyll .
+	docker build -t nsheff/jim -f Dockerfile.jekyll .
 
 
 linkchecker:
-	docker build -t sheffien/linkchecker -f Dockerfile.linkchecker .
+	docker build -t nsheff/linkchecker -f Dockerfile.linkchecker .
 
 lola:
-	docker build -t sheffien/lola -f Dockerfile.lola .
+	docker build -t nsheff/lola -f Dockerfile.lola .
 
 refgenie:
 	docker build -t nsheff/refgenie -f Dockerfile_refgenie .
