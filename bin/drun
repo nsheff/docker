@@ -5,12 +5,12 @@ case "$1" in
             start
 			;;
 		igv)
-			docker run -it sheffien/igv
+			docker run -it nsheff/igv
 			;;
 		test)
 			echo "test"
 			;;
 		rdev)
-			docker run -v $HOME/repo:/repo -it sheffien/rdev R --no-save
+			docker run -v $HOME/repo:/repo -it nsheff/rdev R --no-save
 			;;
 esac

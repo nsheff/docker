@@ -1,0 +1,26 @@
+#! /bin/bash
+#
+
+echo $1
+
+docker run -it -v $1:$1 rocker/r-devel bash -c "R --no-save <<END
+install.packages('devtools')
+devtools::install_deps('$1');
+END
+
+a=$(R CMD build $1)
+echo "Building..."
+echo "$a"
+
+# Get the name of the built tarball
+regex=\"building '(.*)'\"
+regex=\"building ‘(.*)’\"
+[[ $a =~ $regex ]]
+name=\"${BASH_REMATCH[1]}\"
+
+echo \"Built tarball: $name\"
+echo \"R CMD check $name...\"
+R CMD check --as-cran  $name"
+
+
+

@@ -3,6 +3,6 @@
 
 echo $1
 
-docker run -it -v $1:$1 sheffien/rdev bash -c "R --no-save <<END
+docker run -it -v $1:$1 nsheff/rdev bash -c "R --no-save <<END
 devtools::test('$1');
 END"

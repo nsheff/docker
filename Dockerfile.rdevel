@@ -7,7 +7,7 @@
 # Switch to using the bioconductor maintained docker images
 # FROM sheffien/rim
 # FROM rocker/r-devel
-FROM bioconductor/devel_core
+FROM bioconductor/devel_core2
 MAINTAINER Nathan Sheffield <nathan@code.databio.org>
 
 ################################################################################

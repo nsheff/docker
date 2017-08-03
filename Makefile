@@ -13,9 +13,12 @@ rim:
 rdev:
 	docker build -t nsheff/rdev -f Dockerfile.rdevel . > log_rdevel.txt
 
+
+# Use this to update to latest R.
 rdev-nocache:
 	time docker build --no-cache -t nsheff/rdev -f Dockerfile.rdevel . > log_rdevel.txt &
 	tail --follow log_rdevel.txt
+	docker push nsheff/rdev
 
 
 rmlr:
