@@ -11,9 +11,11 @@ RUN apt-get update && apt-get install -y sudo build-essential
 
 RUN sudo apt-get install -y ruby ruby-dev make nodejs
 
-RUN gem install jekyll jekyll-sitemap octopress jekyll-gist
+RUN gem install jekyll jekyll-sitemap octopress jekyll-gist jekyll-redirect-from
 
-RUN gem install redcarpet
+RUN gem install redcarpet 
+
+RUN gem install require jekyll-feed jekyll-seo-tag bundler public_suffix
 
 EXPOSE 4000
 

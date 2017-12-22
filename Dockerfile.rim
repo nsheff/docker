@@ -69,6 +69,8 @@ RUN Rscript Rsetup/Rsetup.R --packages=Rsetup/rpack_biodev.txt
 # CMD Check requires to check pdf size
 RUN sudo apt-get install -y --force-yes qpdf
 
+RUN sudo apt-get install -y --force-yes wget gdebi-core
+
 
 # I think it's good to have this one last, so if you change anything in the bin,
 # it won't make you reinstall all the packages.

@@ -5,6 +5,9 @@
 # use tail --follow to spit this also to the screen.
 
 
+shiny:
+	docker build -t nsheff/shiny -f Dockerfile.shiny .
+
 all: rim rdev rmlr igv jim
 
 rim:

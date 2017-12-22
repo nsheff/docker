@@ -3,27 +3,13 @@
 # CRAN, Bioconductor, or github, to set up the R computing environment
 # I like.
 #
-# It will also create (or suggest, if one exists) an Rprofile setup to
-# interfact with this R Package.
-## Renviron updates:
-#R.version
-#RenvironCode = "R_LIBS=~/R"
-#if (! file.exists("~/.Renviron")) {
-#	message("#############################")
-#	message("Writing a new Renviron to ~/.Renviron")
-#	write(RenvironCode, "~/.Renviron")
-#} else {
-#	message("#############################")
-#	message("Add this to your ~/.Renviron:")
-#	message(RenvironCode)
-#}
 
 # Try to create a local user directory for packages.
 suppressWarnings(dir.create(Sys.getenv("R_LIBS_USER"), recursive=TRUE))
+
 # Set local CRAN mirror:
-
-
 options(menu.graphics=FALSE)
+
 source("http://bioconductor.org/biocLite.R")
 # Use a closer mirror (it's way faster for BSgenome packages!)
 # But the problem is: it doesn't correctly resolve dependencies!
@@ -33,20 +19,20 @@ source("http://bioconductor.org/biocLite.R")
 # Seems to help to put this after the bioconductor source; since it
 # updates the CRAN to a new spot, which otherwise would try the bioc
 # mirror, which seems to lack some stuff.
-local({r <- getOption("repos");
-       r["CRAN"] <- "http://cran.at.r-project.org";  #AUSTRIA mirror
-       options(repos=r)})
+local({
+	r = getOption("repos")
+    #r["CRAN"] <- "http://cran.at.r-project.org";  #AUSTRIA mirror
+    r["CRAN"] <- "http://cran.r-project.org";  #AUSTRIA mirror
+    options(repos=r)
+})
 
-
-
-
-args <- commandArgs(trailingOnly = F)
+args = commandArgs(trailingOnly = F)
 message(paste0(args, collapse="::"))
-scriptPath <- paste0(getwd(), "/", dirname(sub("--file=","",args[grep("--file",args)])))
+scriptPath = paste0(getwd(), "/", dirname(sub("--file=","",args[grep("--file",args)])))
 scriptPath = sub("/bin", "", scriptPath)
 scriptPath = sub("/\\.", "", scriptPath)
 scriptPath = paste0(scriptPath, "/")
-message(scriptPath);
+message(scriptPath)
 packageArg = args[grep("--packages",args)]
 packageFile = sub("--packages=","",packageArg)
 packagePath = paste0(getwd(), "/", packageFile)
@@ -60,16 +46,14 @@ devtools
 getopt
 optparse
 xts"))
-#BSgenome.Hsapiens.UCSC.hg19
-#BSgenome.Hsapiens.UCSC.hg19.masked
 } else {
 	message("Package File: ", packageFile)
-	packages = read.table(packageFile, stringsAsFactors=FALSE)[[1]];
+	packages = read.table(packageFile, stringsAsFactors=FALSE)[[1]]
 }
 
 # List of packages to install:
 
-# 	WARNING: THESE PACKAGES ARE FACTORS AND NOT STRINGS. THIS IS
+# WARNING: THESE PACKAGES ARE FACTORS AND NOT STRINGS. THIS IS
 # ANNOYING. BE CAREFUL.
 cu = contrib.url(biocinstallRepos())
 ap = as.data.frame(available.packages(cu))
@@ -90,7 +74,8 @@ for (i in which(selected.packages)) {
 	message("using biocLite...")
 	biocLite(as.character(ap$Package[i]))
 	} else {
-	install.packages(as.character(ap$Package[i]),  lib=Sys.getenv("R_LIBS_USER"), contriburl = ap$Repo[i], dependencies=TRUE)
+	install.packages(as.character(ap$Package[i]),  lib=Sys.getenv("R_LIBS_USER"),
+		contriburl = ap$Repo[i], dependencies=TRUE)
 	}
 	} , error = function(e) { warning("Install Error: ", e); } )
 }
@@ -106,46 +91,9 @@ for (i in which(unavailable.packages)) {
 	Sys.sleep(1)
 	message("## Trying github for: ", i, " ", packages[i]);
 	tryCatch( {
-	library(devtools)
-	install_github(paste0("nsheff/", packages[i])) 
+	devtools::install_github(paste0("databio/", packages[i])) 
 } , error = function(e) { warning("Github Install Error: ", e); } )
 }
-
-# Suggest Rprofile code
-RprofileCode = readLines(textConnection('
-local({r <- getOption("repos");
-       r["CRAN"] <- "http://cran.at.r-project.org";   #AUSTRIA mirror
-       options(repos=r)})
-options(menu.graphics=FALSE);
-options(echo=TRUE);
-options(stringsAsFactors=FALSE);
-
-# Set up base directory for shared util functions:
-# Change these 3 paths to locations for your setup.
-options(PROJECT.CODE.BASE="/fhgfs/groups/lab_bock/nsheffield/")
-options(PROJECT.DATA.BASE = "/fhgfs/groups/lab_bock/shared/")
-options(RESOURCE.DIR="/fhgfs/groups/lab_bock/nsheffield/share/")
-# And the old method:
-#options(SHARE.DIR="SHARE_DIR")
-#source(paste0(getOption("SHARE.DIR"), "project.init.R"))
-'))
-RprofileCode = sub("SHARE_DIR", scriptPath, RprofileCode)
-
-# Create Rprofile if it doesn't already exist
-# To not overwrite anything if it's there...
-
-
-if (! file.exists("~/.Rprofile")) {
-	message("#############################")
-	message("Writing a new Rprofile to ~/.Rprofile")
-	message(RprofileCode)
-	#write(RprofileCode, "~/.Rprofile")
-} else {
-	message("#############################")
-	message("Add this to your ~/.Rprofile:")
-	message(RprofileCode)
-}
-
 
 #Linking to BiocCheck:
 #paste0("ln -s ~/bin/ ", Sys.getenv("R_LIBS_USER"), "/BiocCheck/script/BiocCheck")
@@ -155,3 +103,10 @@ if (! file.exists("~/.Rprofile")) {
 # sudo echo "deb http://cran.at.r-project.org/R/bin/linux/ubuntu trusty/" >> /etc/apt/sources.list
 
 
+
+install_global = function(pkgname) {
+	pkgname
+
+}
+install.packages(as.character(ap$Package[i]),  lib=Sys.getenv("R_LIBS_USER"),
+		contriburl = ap$Repo[i], dependencies=TRUE)
