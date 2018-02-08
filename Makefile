@@ -14,7 +14,8 @@ rim:
 	docker build -t nsheff/rim -f Dockerfile.rprod .
 
 rdev:
-	docker build -t nsheff/rdev -f Dockerfile.rdevel . > log_rdevel.txt
+	docker build -t nsheff/rdev -f Dockerfile.rdevel . > log_rdevel.txt &
+	tail --follow log_rdevel.txt
 
 
 # Use this to update to latest R.

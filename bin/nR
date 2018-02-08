@@ -1,0 +1,5 @@
+docker run --name=myR -it -v /home/nsheff:${HOME} nsheff/rdev bash
+
+docker exec -ti myR bash
+
+docker exec -ti myR R

@@ -1,0 +1,13 @@
+docker run -it \
+  --name=myRd \
+  --user=$(id -u) \
+  --env="DISPLAY" \
+  --volume="/etc/group:/etc/group:ro" \
+  --volume="/etc/passwd:/etc/passwd:ro" \
+  --volume="/etc/shadow:/etc/shadow:ro"  \
+  --volume="/etc/sudoers.d:/etc/sudoers.d:ro" \
+  --volume $HOME/code:/code \
+  --volume ${HOME}:${HOME} \
+  --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
+  nsheff/rdev \
+  bash

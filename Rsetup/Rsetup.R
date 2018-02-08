@@ -38,14 +38,11 @@ packageFile = sub("--packages=","",packageArg)
 packagePath = paste0(getwd(), "/", packageFile)
 
 if (length(packageFile) ==0 | !file.exists(packagePath)) {
-	message("No package list found. Using default")
+	message("No package list found, using default.")
 	# Key packages at the top
 packages = readLines(textConnection("argparse
 data.table
-devtools
-getopt
-optparse
-xts"))
+devtools"))
 } else {
 	message("Package File: ", packageFile)
 	packages = read.table(packageFile, stringsAsFactors=FALSE)[[1]]
@@ -63,21 +60,21 @@ unavailable.packages = ! packages %in% ap$Package
 
 installed.packages = rownames(installed.packages())
 
-#i=3245
-# which(selected.packages)
-for (i in which(selected.packages)) {
-	if (ap$Package[i] %in% installed.packages) { next; }
-	Sys.sleep(1)
-	message("## Installing ", i, " ", ap$Package[i]);
-	tryCatch( {
-	if ( grepl("bioconductor", ap$Repo[i]) ) {
-	message("using biocLite...")
-	biocLite(as.character(ap$Package[i]))
-	} else {
-	install.packages(as.character(ap$Package[i]),  lib=Sys.getenv("R_LIBS_USER"),
-		contriburl = ap$Repo[i], dependencies=TRUE)
+if (length(selected.packages) > 0) {
+	for (i in which(selected.packages)) {
+		if (ap$Package[i] %in% installed.packages) { next; }
+		Sys.sleep(1)
+		message("## Installing ", i, " ", ap$Package[i]);
+		tryCatch( {
+			if ( grepl("bioconductor", ap$Repo[i]) ) {
+				message("using biocLite...")
+				biocLite(as.character(ap$Package[i]))
+			} else {
+				install.packages(as.character(ap$Package[i]),  lib=Sys.getenv("R_LIBS_USER"),
+					contriburl = ap$Repo[i], dependencies=TRUE)
+			}
+		} , error = function(e) { warning("Install Error: ", e); } )
 	}
-	} , error = function(e) { warning("Install Error: ", e); } )
 }
 
 # Update to get newly installed packages:
@@ -86,13 +83,15 @@ installed.packages = rownames(installed.packages())
 warnings() 
 warning("Unavailable packages are: ", packages[unavailable.packages])
 
-for (i in which(unavailable.packages)) {
-	if (packages[i] %in% installed.packages) { next; }
-	Sys.sleep(1)
-	message("## Trying github for: ", i, " ", packages[i]);
-	tryCatch( {
-	devtools::install_github(paste0("databio/", packages[i])) 
-} , error = function(e) { warning("Github Install Error: ", e); } )
+if (length(packages[unavailable.packages]) > 0) {
+	for (i in which(unavailable.packages)) {
+		if (packages[i] %in% installed.packages) { next; }
+		Sys.sleep(1)
+		message("## Trying github for: ", i, " ", packages[i]);
+		tryCatch( {
+		devtools::install_github(paste0("databio/", packages[i])) 
+	} , error = function(e) { warning("Github Install Error: ", e); } )
+	}
 }
 
 #Linking to BiocCheck:

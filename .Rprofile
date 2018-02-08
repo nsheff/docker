@@ -1,4 +1,9 @@
-local({r <- getOption("repos")
-       r["CRAN"] <- "http://cran.at.r-project.org" 
-       options(repos=r)
+options(menu.graphics=FALSE)
+options(stringsAsFactors=FALSE)
+
+# Load projectInit (if installed)
+tryCatch( {
+    library(projectInit)
+}, error = function(e) {
+    message(e)
 })

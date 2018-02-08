@@ -40,15 +40,6 @@ libboost-all-dev
 
 COPY Rprofile .Rprofile
 
-# Turn bioconductor into development mode
-COPY Rsetup/biocDevMode.R Rsetup/biocDevMode.R
-RUN Rscript Rsetup/biocDevMode.R
-
-# I used to install bioconductor; but now that I'm using the base
-# bioconductor docker images, this is no longer useful.
-#COPY Rsetup/install_bioconductor.R Rsetup/install_bioconductor.R
-#RUN Rscript Rsetup/install_bioconductor.R
-
 # I put these COPY statements in separately, so that the whole thing
 # isn't invalidated (causing unnecessary cache rebuilds)
 # with an unrelated change in Rsetup/
@@ -60,14 +51,13 @@ RUN Rscript Rsetup/install_fonts.R
 # Install packages
 COPY Rsetup/Rsetup.R Rsetup/Rsetup.R
 RUN Rscript Rsetup/Rsetup.R
+
 COPY Rsetup/rpack_basic.txt Rsetup/rpack_basic.txt
-COPY Rsetup/rpack_bio.txt Rsetup/rpack_bio.txt
 RUN Rscript Rsetup/Rsetup.R --packages=Rsetup/rpack_basic.txt
-RUN Rscript Rsetup/Rsetup.R --packages=Rsetup/rpack_bio.txt
 
 # If you want to develop R packages on this machine (need biocCheck):
-COPY Rsetup/rpack_biodev.txt Rsetup/rpack_biodev.txt
-RUN Rscript Rsetup/Rsetup.R --packages=Rsetup/rpack_biodev.txt
+#COPY Rsetup/rpack_biodev.txt Rsetup/rpack_biodev.txt
+#RUN Rscript Rsetup/Rsetup.R --packages=Rsetup/rpack_biodev.txt
 
 
 # CMD Check requires to check pdf size
