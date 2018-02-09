@@ -14,14 +14,12 @@ rim:
 	docker build -t nsheff/rim -f Dockerfile.rprod .
 
 rdev:
-	docker build -t nsheff/rdev -f Dockerfile.rdevel . > logs/log_rdevel.txt &
-	tail --follow log_rdevel.txt
+	docker build -t nsheff/rdev -f Dockerfile.rdevel . | tee logs/log_rdevel.txt
 
 
 # Use this to update to latest R.
 rdev-nocache:
-	time docker build --no-cache -t nsheff/rdev -f Dockerfile.rdevel . > logs/log_rdevel.txt &
-	tail --follow log_rdevel.txt
+	time docker build --no-cache -t nsheff/rdev -f Dockerfile.rdevel . | tee logs/log_rdevel.txt 
 	docker push nsheff/rdev
 
 
