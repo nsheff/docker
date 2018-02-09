@@ -72,4 +72,5 @@ RUN sudo apt-get install -y --force-yes qpdf
 COPY Rpack/ Rpack/
 ENV PATH Rpack:$PATH
 
-
+# Bioconductor packages may not be up-to-date. This updates them.
+RUN Rscript -e 'source("https://bioconductor.org/biocLite.R");biocLite(ask=FALSE)'

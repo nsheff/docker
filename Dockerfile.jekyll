@@ -17,6 +17,8 @@ RUN gem install redcarpet
 
 RUN gem install require jekyll-feed jekyll-seo-tag bundler public_suffix
 
+RUN gem install jekyll-redirect-from
+
 EXPOSE 4000
 
 COPY jserve jserve
