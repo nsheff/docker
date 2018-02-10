@@ -8,9 +8,9 @@
 
 roxygenize.sh -i $1
 
-R --no-save <<END
-devtools::install_deps("$1");
-END
+# R --no-save <<END
+# devtools::install_deps("$1");
+# END
 
 a=$(R CMD build $1)
 echo "Building..."

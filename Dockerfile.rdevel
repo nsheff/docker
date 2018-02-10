@@ -20,7 +20,7 @@ RUN sudo apt-get update && apt-get install -y --force-yes\
   libxml2-dev \
   # Curl; required for RCurl; but present in upstream images
   # libcurl4-gnutls-dev \
-   # GNU Scientific Library; required by MotIV
+  # GNU Scientific Library; required by MotIV
   libgsl0-dev \
   # Open SSL is used, for example, devtools dependency git2r
   libssl-dev \
@@ -56,8 +56,10 @@ COPY Rsetup/rpack_basic.txt Rsetup/rpack_basic.txt
 RUN Rscript Rsetup/Rsetup.R --packages=Rsetup/rpack_basic.txt
 
 # If you want to develop R packages on this machine (need biocCheck):
-#COPY Rsetup/rpack_biodev.txt Rsetup/rpack_biodev.txt
-#RUN Rscript Rsetup/Rsetup.R --packages=Rsetup/rpack_biodev.txt
+COPY Rsetup/rpack_biodev.txt Rsetup/rpack_biodev.txt
+RUN Rscript Rsetup/Rsetup.R --packages=Rsetup/rpack_biodev.txt
+# Add BiocCheck executable to PATH
+ENV PATH /blahb/lahb/lah:${PATH}
 
 
 # CMD Check requires to check pdf size
@@ -70,7 +72,7 @@ RUN sudo apt-get install -y --force-yes qpdf
 
 # Copy over the stuff in Rpack and add it to path
 COPY Rpack/ Rpack/
-ENV PATH Rpack:$PATH
+ENV PATH /Rpack:${PATH}
 
 # Bioconductor packages may not be up-to-date. This updates them.
 RUN Rscript -e 'source("https://bioconductor.org/biocLite.R");biocLite(ask=FALSE)'
