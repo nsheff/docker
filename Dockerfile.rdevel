@@ -38,7 +38,7 @@ libboost-all-dev
 # If you COPY a whole folder, it busts the cache if anything in that folder
 # changes, so it's better to add each file separately if the folder may change
 
-COPY Rprofile .Rprofile
+#COPY Rprofile .Rprofile
 
 # I put these COPY statements in separately, so that the whole thing
 # isn't invalidated (causing unnecessary cache rebuilds)
@@ -59,8 +59,8 @@ RUN Rscript Rsetup/Rsetup.R --packages=Rsetup/rpack_basic.txt
 COPY Rsetup/rpack_biodev.txt Rsetup/rpack_biodev.txt
 RUN Rscript Rsetup/Rsetup.R --packages=Rsetup/rpack_biodev.txt
 # Add BiocCheck executable to PATH
-ENV PATH /blahb/lahb/lah:${PATH}
-
+ENV PATH /usr/local/lib/R/site-library/BiocCheck/script/:${PATH}
+RUN chmod 777 /usr/local/lib/R/site-library/BiocCheck/script/BiocCheck
 
 # CMD Check requires to check pdf size
 RUN sudo apt-get install -y --force-yes qpdf
