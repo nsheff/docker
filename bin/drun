@@ -1,16 +1,16 @@
 #! /bin/bash
 
 case "$1" in
-        start)
-            start
-			;;
-		igv)
-			docker run -it nsheff/igv
-			;;
-		test)
-			echo "test"
-			;;
-		rdev)
-			docker run -v $HOME/repo:/repo -it nsheff/rdev R --no-save
-			;;
+    start)
+        start
+		;;
+	igv)
+		docker run -it nsheff/igv
+		;;
+	test)
+		echo "test"
+		;;
+	rdev)
+		docker run -v $HOME/repo:/repo -it nsheff/rdev R --no-save
+		;;
 esac

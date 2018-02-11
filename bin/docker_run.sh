@@ -1,5 +1,10 @@
+#!/bin/bash
+
+container_name=$1
+docker_image=$2
+
 docker run -it \
-  --name=myRd \
+  --name=${container_name} \
   --user=$(id -u) \
   --env="DISPLAY" \
   --volume="/etc/group:/etc/group:ro" \
@@ -10,5 +15,5 @@ docker run -it \
   --volume ${HOME}:${HOME} \
   --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
   -w ${HOME} \
-  nsheff/rdev \
+  ${docker_image} \
   bash
