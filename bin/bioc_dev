@@ -1,0 +1,34 @@
+#!/bin/bash
+
+DOCKER_IMAGE="bioconductor/devel_core2"
+CONTAINER_NAME="rbcdev"
+
+isRunning=`docker ps --filter name=${CONTAINER_NAME} --format "table{{.Names}}" | sed '1d' | wc -l`
+
+# Warn of version mismatch
+
+CLOUD_SHA=`docker inspect --format "{{.Id}}" ${DOCKER_IMAGE}`
+LOCAL_SHA=`docker inspect --format "{{.Id}}" ${CONTAINER_NAME}`
+NAME=`docker inspect --format '{{.Name}}' rdev | sed "s/\///g"`
+if [ "$CLOUD_SHA" != "$LOCAL_SHA" ];then
+	echo "Warning: Local version does not match dockerhub"
+	echo $CLOUD_SHA $LOCAL_SHA
+else
+	echo "Version match"
+	echo $CLOUD_SHA $LOCAL_SHA
+fi
+
+if [ "$isRunning" == "1" ]; then
+	echo "Container is running. Attaching..."
+	#docker attach ${CONTAINER_NAME}
+	docker exec -it ${CONTAINER_NAME} bash
+else
+	exists=`docker ps -a --filter name=${CONTAINER_NAME} --format "table{{.Names}}" | sed '1d' | wc -l`
+	if [ "$exists" == "1" ]; then
+	echo "Container exists but is turned off. Starting and attaching..."
+	docker start -ai ${CONTAINER_NAME}
+	else
+	echo "Container does not exist. Creating a new one..."
+	docker_run.sh ${CONTAINER_NAME} ${DOCKER_IMAGE}
+	fi
+fi
