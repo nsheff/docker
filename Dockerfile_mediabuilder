@@ -1,0 +1,17 @@
+# Dockerfile for mediabuilder:
+
+FROM ubuntu:16.04
+
+MAINTAINER Nathan Sheffield <nathan@code.databio.org>
+
+# Updating is required before any apt-gets
+RUN apt-get update && apt-get install -y wget git
+RUN apt-get install -y python3
+RUN apt-get install -y make
+
+RUN wget https://github.com/jgm/pandoc/releases/download/2.1.3/pandoc-2.1.3-1-amd64.deb
+
+RUN dpkg -i pandoc-2.1.3-1-amd64.deb
+
+RUN apt-get install -y texlive-latex-recommended
+RUN apt-get install -y texlive-latex-extra 

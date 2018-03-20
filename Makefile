@@ -8,6 +8,9 @@
 shiny:
 	docker build -t nsheff/shiny -f Dockerfile.shiny .
 
+mb:
+	docker build -t nsheff/mediabuilder -f Dockerfile_mediabuilder .
+
 all: rim rdev rmlr igv jim
 
 rim:

@@ -2,6 +2,7 @@
 
 container_name=$1
 docker_image=$2
+COMMAND=$3
 
 docker run -it \
   --name=${container_name} \
@@ -16,4 +17,4 @@ docker run -it \
   --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
   -w ${HOME} \
   ${docker_image} \
-  bash
+  ${COMMAND}
