@@ -55,6 +55,9 @@ RUN Rscript Rsetup/Rsetup.R
 COPY Rsetup/rpack_basic.txt Rsetup/rpack_basic.txt
 RUN Rscript Rsetup/Rsetup.R --packages=Rsetup/rpack_basic.txt
 
+COPY Rsetup/rpack_basic.txt Rsetup/rpack_shiny.txt
+RUN Rscript Rsetup/Rsetup.R --packages=Rsetup/rpack_shiny.txt
+
 # If you want to develop R packages on this machine (need biocCheck):
 COPY Rsetup/rpack_biodev.txt Rsetup/rpack_biodev.txt
 RUN Rscript Rsetup/Rsetup.R --packages=Rsetup/rpack_biodev.txt
@@ -76,3 +79,6 @@ ENV PATH /Rpack:${PATH}
 
 # Bioconductor packages may not be up-to-date. This updates them.
 RUN Rscript -e 'source("https://bioconductor.org/biocLite.R");biocLite(ask=FALSE)'
+
+RUN sudo apt-get update && apt-get install -y --force-yes\
+  libsodium-dev

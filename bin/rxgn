@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# This script roxygenizes the current package.
+
+CONTAINER_NAME="rdev"
+package=$1
+echo $package
+docker_exec.sh rdev  R -e "roxygen2::roxygenize(\"${package}\")"

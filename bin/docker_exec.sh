@@ -1,7 +1,12 @@
 #!/bin/bash
 
-container_name=$1
+container_name=`shift`
+cmd=$@
 
 docker exec -it \
   ${container_name} \
-  bash
+  ${cmd}
+
+
+
+  #--workdir="`pwd`" \

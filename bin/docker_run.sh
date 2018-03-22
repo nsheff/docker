@@ -14,7 +14,9 @@ docker run -it \
   --volume="/etc/sudoers.d:/etc/sudoers.d:ro" \
   --volume ${HOME}/code:/code \
   --volume ${HOME}:${HOME} \
+  --volume /fsl:/fsl \
   --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
-  -w ${HOME} \
+  --workdir="`pwd`" \
+  -p 4020:4020 \
   ${docker_image} \
   ${COMMAND}

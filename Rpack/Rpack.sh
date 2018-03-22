@@ -26,7 +26,7 @@ echo "Built tarball: $name"
 
 if [  "$2" != "bio" ]; then
 echo "R CMD check $name..."
-R CMD check $name
+R CMD check --as-cran $name
 fi
 if [  "$2" != "cran" ]; then
 echo "R CMD BiocCheck $name..."

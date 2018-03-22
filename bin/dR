@@ -26,7 +26,7 @@ else
 	exists=`docker ps -a --filter name=${CONTAINER_NAME} --format "table{{.Names}}" | sed '1d' | wc -l`
 	if [ "$exists" == "1" ]; then
 	echo "Container exists but is turned off. Starting and attaching..."
-	docker start -ai ${CONTAINER_NAME}
+	docker start -ai ${CONTAINER_NAME} 
 	else
 	echo "Container does not exist. Creating a new one..."
 	docker_run.sh ${CONTAINER_NAME} ${DOCKER_IMAGE}
