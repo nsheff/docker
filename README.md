@@ -59,11 +59,17 @@ TODO:
 * write a wrapper script (a la djserve) to run the conversion in a container
 
 
+## Using dpipe
+
+The `dpipe` script in `/bin` lets you create slick containerized version of software that will behave in the host OS as if the software were installed locally (it will just handle permissions, setting userID, etc), so that you don't have to install them. As an example, look at `pandocker`, which can replace the `pandoc` executable if you stick `/bin` in your `PATH`.
+
+I should produce other things using the same system.
+
 # TO DO:
 
 I'm working on a script to be able to run any of these `script/drun` followed by the name of the image.
 
-# Installing an R envirionment 
+# Installing an R environment 
 
 You can also use these to install all these nice R packages in one shot.
 
