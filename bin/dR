@@ -29,6 +29,6 @@ else
 	docker start -ai ${CONTAINER_NAME} 
 	else
 	echo "Container does not exist. Creating a new one..."
-	docker_run.sh ${CONTAINER_NAME} ${DOCKER_IMAGE}
+	docker_run.sh ${CONTAINER_NAME} ${DOCKER_IMAGE} bash
 	fi
 fi

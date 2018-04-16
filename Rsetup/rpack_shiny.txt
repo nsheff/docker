@@ -2,3 +2,4 @@ sodium
 shinyBS
 shinyjs
 DT
+plotly

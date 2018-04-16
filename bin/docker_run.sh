@@ -14,7 +14,7 @@ docker run -it \
   --volume="/etc/sudoers.d:/etc/sudoers.d:ro" \
   --volume ${HOME}/code:/code \
   --volume ${HOME}:${HOME} \
-  --volume /fsl:/fsl \
+  --volume ${EXTDATA}:${EXTDATA} \
   --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
   --workdir="`pwd`" \
   -p 4020:4020 \

@@ -5,5 +5,5 @@
 CONTAINER_NAME="rdev"
 package=$1
 echo $package
-docker_exec.sh rdev  R -e "shiny::runApp('${package}',host='0.0.0.0',port=4020,launch.browser=FALSE)"
+docker_exec.sh rdev  R -e "shiny::runApp('${package}',host='0.0.0.0',port=4020,launch.browser=FALSE)"  -e LWLOCAL=$LWLOCAL -e LWREF=$LWREF
 
