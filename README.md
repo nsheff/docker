@@ -16,6 +16,23 @@ Detailed container descriptions follow:
 
 # R containers
 
+## Running a shiny server with my R container:
+
+I use the `bin/shny` executable. Run an app in the shiny server container like so:
+
+```
+shny ~/code/LOLAweb/apps/LOLAweb
+```
+
+Since this is going to `docker exec` the `shiny::runApp()` function in `R`, the container needs to be already running at the moment (start it with `dR`).
+
+## Roxygenize in container:
+```
+rxgn ~/code/LOLA
+```
+Now with permissions preserved!
+
+
 ## rim
 My R production environment, based on the bioconductor Docker containers, then installs a bunch of packages I use regularly (the packages lists are, for example, in [Rsetup/rpack_basic.txt](Rsetup/rpack_basic.txt)).
 
