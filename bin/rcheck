@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# This script runs a shiny server from the given package.
+
+CONTAINER_NAME="rdev"
+package=$1
+echo $package
+docker_exec.sh rdev  ../Rpack/Rpack.sh

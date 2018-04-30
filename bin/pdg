@@ -1,0 +1,30 @@
+#!/bin/bash
+
+confirm() {
+    # call with a prompt string or use a default
+    read -r -p "${1:-Are you sure? [y/N]} " response
+    case "$response" in
+        [yY][eE][sS]|[yY]) 
+            true
+            ;;
+        *)
+            false
+            ;;
+    esac
+}
+
+# This script pkgdowns the current package.
+
+CONTAINER_NAME="rdev"
+package=$1
+bn=`basename $package`
+echo $package
+docker_exec.sh rdev  R -e "pkgdown::build_site(\"${package}\",override=list(destination='${HOME}/code/code.databio.org/${bn}'))"
+
+confirm "Push to GitHub? [y/n]" || exit
+
+cd ${CODE}/code.databio.org/
+git pull
+git add -A
+git commit -m "Update $bn site"
+git push origin HEAD

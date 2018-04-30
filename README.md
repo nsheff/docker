@@ -5,7 +5,7 @@ In this repo is a [Makefile](Makefile) which stores instructions for how to buil
 
 * rim - R image
 * rdev - R development
-* rmlr - R `mlr` package depedencies for machine learning.
+* rmlr - R `mlr` package dependencies for machine learning.
 * jim - Jekyll image
 * vis - graphics; under construction
 * igv - under contruction

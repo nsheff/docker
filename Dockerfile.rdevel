@@ -82,3 +82,6 @@ RUN Rscript -e 'source("https://bioconductor.org/biocLite.R");biocLite(ask=FALSE
 
 RUN sudo apt-get update && apt-get install -y --force-yes\
   libsodium-dev
+
+
+RUN R -e 'devtools::install_github("r-lib/pkgdown")'
