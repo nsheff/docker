@@ -1,0 +1,16 @@
+#!/bin/bash
+
+docker_image=nsheff/jabref
+
+docker run --rm -it \
+  --name=${container_name} \
+  --user=$(id -u) \
+  --env="DISPLAY" \
+  --volume="/etc/group:/etc/group:ro" \
+  --volume="/etc/passwd:/etc/passwd:ro" \
+  --volume="/etc/shadow:/etc/shadow:ro"  \
+  --volume="/etc/sudoers.d:/etc/sudoers.d:ro" \
+  --volume ${HOME}:${HOME} \
+  --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
+  -p 4020:4020 \
+  ${docker_image} java -Xmx2000m -jar JabRef-4.3.1.jar "$@"

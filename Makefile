@@ -4,6 +4,8 @@
 # To save the log of the build process, I execute it in the background and then
 # use tail --follow to spit this also to the screen.
 
+jabref:
+	docker build -t nsheff/jabref -f Dockerfile.jabref .
 
 shiny:
 	docker build -t nsheff/shiny -f Dockerfile.shiny .

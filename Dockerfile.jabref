@@ -1,0 +1,21 @@
+FROM ubuntu:latest
+MAINTAINER Nathan Sheffield <nathan@code.databio.org>
+
+################################################################################
+# Some of these dependencies will be already installed by the parent images;
+# But just to make sure, run these installs here:
+
+# Updating is required before any apt-gets
+RUN apt-get update && apt-get install -y\
+	openjdk-8-jdk
+
+RUN apt-get install -y \
+	wget
+
+################################################################################
+
+RUN wget https://github.com/JabRef/jabref/releases/download/v4.3.1/JabRef-4.3.1.jar
+
+RUN apt-get install -y \
+	openjfx
+
