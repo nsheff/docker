@@ -14,8 +14,11 @@ RUN apt-get install -y \
 
 ################################################################################
 
-RUN wget https://github.com/JabRef/jabref/releases/download/v4.3.1/JabRef-4.3.1.jar
-
 RUN apt-get install -y \
 	openjfx
 
+RUN wget https://github.com/JabRef/jabref/releases/download/v4.1/JabRef-4.1.jar -O JabRef.jar
+# 4.2, 4.3, and 4.3.1 have bugs that break it. It looks like 4.4 will work.
+
+
+#ADD  "JabRef-4.1-dev--snapshot--2017-12-22--master--d9644d018.jar" JabRef.jar

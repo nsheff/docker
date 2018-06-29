@@ -21,7 +21,7 @@ RUN gem install jekyll-redirect-from
 
 EXPOSE 4000
 
-COPY jserve jserve
+COPY includes/jserve jserve
 #ENTRYPOINT ./cdserve.sh
 
 

@@ -1,0 +1,9 @@
+dpipe nsheff/liquify $@
+
+# #! /bin/bash
+# #
+
+# echo "$@"
+
+# docker run --rm -it nsheff/liquify bash -c "./liquify.rb $@"
+

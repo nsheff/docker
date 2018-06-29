@@ -13,7 +13,16 @@ shiny:
 pandocker:
 	docker build -t nsheff/pandocker -f Dockerfile_pandocker .
 
+jim:
+	docker build -t nsheff/jim -f Dockerfile_jim .
+
+liquify:
+	docker build -t nsheff/liquify -f Dockerfile_liquify .
+
+
+
 all: rim rdev rmlr igv jim
+
 
 rim:
 	docker build -t nsheff/rim -f Dockerfile.rprod .
@@ -33,9 +42,6 @@ rmlr:
 
 igv:
 	docker build -t nsheff/igv -f Dockerfile.igv .
-
-jim:
-	docker build -t nsheff/jim -f Dockerfile.jekyll .
 
 
 linkchecker:

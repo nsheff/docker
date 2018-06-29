@@ -12,5 +12,5 @@ docker run --rm -it \
   --volume="/etc/sudoers.d:/etc/sudoers.d:ro" \
   --volume ${HOME}:${HOME} \
   --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
-  -p 4020:4020 \
-  ${docker_image} java -Xmx2000m -jar JabRef-4.3.1.jar "$@"
+  --workdir="`pwd`" \
+  ${docker_image} java -Xmx2000m -jar /JabRef.jar "$@"
