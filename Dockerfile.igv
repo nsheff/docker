@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:16.04
 MAINTAINER Nathan Sheffield <nathan@code.databio.org>
 
 ################################################################################
@@ -8,13 +8,23 @@ MAINTAINER Nathan Sheffield <nathan@code.databio.org>
 # Updating is required before any apt-gets
 RUN apt-get update && apt-get install -y --force-yes\
 	git\
-	ant\
-	openjdk-7-jdk
+	wget\
+	unzip\
+	openjdk-8-jdk
 
 ################################################################################
 
-RUN git clone https://github.com/broadinstitute/IGV.git
-RUN cd IGV
-RUN ant
-ENTRYPOINT java -Xmx2000m -jar igv.jar
+RUN wget http://data.broadinstitute.org/igv/projects/downloads/2.4/IGV_2.4.13.zip
+RUN unzip IGV_2.4.13.zip
+#ENTRYPOINT sh /IGV_2.4.13/igv.sh
 
+# These don't work anymore with the gradle setup, I can't build it anymore
+#RUN git clone https://github.com/igvteam/igv.git
+#RUN cd igv
+#RUN ./gradew createDist
+#ENTRYPOINT java -Xmx2000m -jar igv.jar
+
+# you can select a particular java to use like this. for example,
+# if I use ubuntu 18, I get java 11 by default; but that doesn't work with
+# igv, which wants java 8. you can install 8 and choose like this:
+#update-alternatives set java 2

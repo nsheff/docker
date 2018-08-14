@@ -19,6 +19,8 @@ jim:
 liquify:
 	docker build -t nsheff/liquify -f Dockerfile_liquify .
 
+vis:
+	docker build -t nsheff/vis -f Dockerfile_vis .
 
 
 all: rim rdev rmlr igv jim
