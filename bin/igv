@@ -1,21 +1,17 @@
 #!/bin/bash
-#$(env | cut -f1 -d= | sed 's/^/-e /') \
-container_name="igv"
-docker_image="nsheff/igv"
-COMMAND="bash"
 
-docker run -it \
-  --name=${container_name} \
+docker_image=nsheff/igv
+
+docker run --privileged --rm -it \
+  --name=igv \
   --user=$(id -u) \
   --env="DISPLAY" \
-  -e $GENOMES \
-  --volume ${HOME}:${HOME} \
-  --volume ${EXTDATA}:${EXTDATA} \
   --volume="/etc/group:/etc/group:ro" \
   --volume="/etc/passwd:/etc/passwd:ro" \
   --volume="/etc/shadow:/etc/shadow:ro"  \
   --volume="/etc/sudoers.d:/etc/sudoers.d:ro" \
+  --volume ${HOME}:${HOME} \
+  --volume /ext/qumulo/:/ext/qumulo/ \
   --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
   --workdir="`pwd`" \
-  ${docker_image} \
-  ${COMMAND}
+${docker_image} sh /IGV_2.4.13/igv.sh "$@"

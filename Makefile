@@ -22,6 +22,9 @@ liquify:
 ffmpeg:
 	docker build -t nsheff/ffmpeg -f Dockerfile_ffmpeg .
 
+vis:
+	docker build -t nsheff/vis -f Dockerfile_vis .
+
 
 all: rim rdev rmlr igv jim
 

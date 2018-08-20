@@ -1,0 +1,12 @@
+# Dockerfile for Jekyll environment:
+# Build me with: 
+# Run me with: docker run -p 4000:4000 -it -v ~/web:/web sheffien/jim  bash
+
+FROM ruby
+
+MAINTAINER Nathan Sheffield <nathan@code.databio.org>
+RUN gem install liquid
+COPY liquify.rb /liquify.rb
+
+ENTRYPOINT ["ruby", "/liquify.rb"]
+

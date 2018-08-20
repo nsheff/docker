@@ -1,21 +1,17 @@
 #!/bin/bash
-#$(env | cut -f1 -d= | sed 's/^/-e /') \
-container_name="igv"
-docker_image="nsheff/igv"
-COMMAND="bash"
+# command-line only; don't allocate TTY. Useful for loops that process a bunch of stuff
+# in background jobs.
+docker_image=nsheff/jabref
 
-docker run -it \
+docker run --rm \
   --name=${container_name} \
   --user=$(id -u) \
   --env="DISPLAY" \
-  -e $GENOMES \
-  --volume ${HOME}:${HOME} \
-  --volume ${EXTDATA}:${EXTDATA} \
   --volume="/etc/group:/etc/group:ro" \
   --volume="/etc/passwd:/etc/passwd:ro" \
   --volume="/etc/shadow:/etc/shadow:ro"  \
   --volume="/etc/sudoers.d:/etc/sudoers.d:ro" \
+  --volume ${HOME}:${HOME} \
   --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
   --workdir="`pwd`" \
-  ${docker_image} \
-  ${COMMAND}
+  ${docker_image} java -Xmx2000m -jar /JabRef.jar "$@"

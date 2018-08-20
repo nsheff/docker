@@ -1,0 +1,9 @@
+# Dockerfile for graphics environment (visualization software):
+
+FROM ubuntu:18.04
+
+MAINTAINER Nathan Sheffield <nathan@code.databio.org>
+
+RUN apt-get update
+RUN apt-get install inkscape -y
+RUN apt-get install -y imagemagick
