@@ -22,6 +22,10 @@ liquify:
 ffmpeg:
 	docker build -t nsheff/ffmpeg -f Dockerfile_ffmpeg .
 
+libreoffice:
+	docker build -t nsheff/libreoffice -f Dockerfile_libreoffice .
+
+
 vis:
 	docker build -t nsheff/vis -f Dockerfile_vis .
 

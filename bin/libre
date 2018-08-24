@@ -1,0 +1,1 @@
+dpipe nsheff/libreoffice libreoffice -env:UserInstallation=file:///tmp/ -env:SingleAppInstance="false" $@
