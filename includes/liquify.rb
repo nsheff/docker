@@ -1,5 +1,8 @@
 # require 'liquid'
 # require 'yaml'
+# @author Nathan Sheffield
+# liquify takes a liquid template file and a yaml data file and populates the 
+# template with data from the yaml file, into the provided outfile.
 
 # @template = Liquid::Template.parse("hi {{name}}")
 # @template.render('name' => 'tobi')
