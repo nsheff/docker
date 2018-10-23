@@ -7,7 +7,7 @@ docker run --rm -i \
 	--volume="/etc/passwd:/etc/passwd:ro" \
 	--volume="/etc/shadow:/etc/shadow:ro"  \
 	--volume="/etc/sudoers.d:/etc/sudoers.d:ro" \
-	--volume ${HOME}:${HOME} \
+	--volume ${CODE}:${CODE} \
 	--volume /ext:/ext \
 	--volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
 	--env "GENOMES" \
