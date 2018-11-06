@@ -5,4 +5,7 @@
 CONTAINER_NAME="rdev"
 package=$1
 echo $package
-docker_exec.sh rdev  R -e "roxygen2::roxygenize(\"${package}\")"
+docker_exec.sh rdev  R -e "devtools::document(\"${package}\")"
+
+# I used to use roxygenize like this, but it failes with an error now
+#docker_exec.sh rdev  R -e "roxygen2::roxygenize(\"${package}\")"
