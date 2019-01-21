@@ -3,5 +3,5 @@
 
 echo $1
 
-docker run --rm -p 4123:4000 -it -v $1:$1 nsheff/jim bash -c "cd $1; bundle exec jekyll serve --host 0.0.0.0 $1"
+docker run --rm -p 4123:4000 -it -v $1:$1 nsheff/jim bash -c "cd $1; bundle install; bundle exec jekyll serve --host 0.0.0.0 $1"
 

@@ -25,7 +25,13 @@ RUN gem install github-pages
 
 RUN gem install minimal
 
-RUN bundle install --path vendor/bundle 
+RUN gem install jekyll-github-metadata
+
+RUN sudo apt-get install -y git
+
+RUN gem update --system
+
+RUN bundle update --all
 
 EXPOSE 4000
 

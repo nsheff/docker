@@ -16,6 +16,10 @@ pandocker:
 jim:
 	docker build -t nsheff/jim -f Dockerfile_jim .
 
+jim-nocache:
+	time docker build --no-cache -t nsheff/jim -f Dockerfile_jim .
+
+
 liquify:
 	docker build -t nsheff/liquify -f Dockerfile_liquify .
 
