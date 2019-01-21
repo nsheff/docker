@@ -10,6 +10,9 @@ jabref:
 shiny:
 	docker build -t nsheff/shiny -f Dockerfile.shiny .
 
+sphinx:
+	docker build -t nsheff/sphinx -f Dockerfile_sphinx .
+
 pandocker:
 	docker build -t nsheff/pandocker -f Dockerfile_pandocker .
 
