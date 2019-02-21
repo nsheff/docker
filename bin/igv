@@ -1,17 +1,20 @@
 #!/bin/bash
 
-docker_image=nsheff/igv
+dpipe nsheff/igv sh /IGV_2.4.13/igv.sh "$@"
 
-docker run --privileged --rm -it \
-  --name=igv \
-  --user=$(id -u) \
-  --env="DISPLAY" \
-  --volume="/etc/group:/etc/group:ro" \
-  --volume="/etc/passwd:/etc/passwd:ro" \
-  --volume="/etc/shadow:/etc/shadow:ro"  \
-  --volume="/etc/sudoers.d:/etc/sudoers.d:ro" \
-  --volume ${HOME}:${HOME} \
-  --volume /ext/qumulo/:/ext/qumulo/ \
-  --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
-  --workdir="`pwd`" \
-${docker_image} sh /IGV_2.4.13/igv.sh "$@"
+
+# docker_image=nsheff/igv
+
+# docker run --privileged --rm -it \
+#   --name=igv \
+#   --user=$(id -u) \
+#   --env="DISPLAY" \
+#   --volume="/etc/group:/etc/group:ro" \
+#   --volume="/etc/passwd:/etc/passwd:ro" \
+#   --volume="/etc/shadow:/etc/shadow:ro"  \
+#   --volume="/etc/sudoers.d:/etc/sudoers.d:ro" \
+#   --volume ${HOME}:${HOME} \
+#   --volume /ext/qumulo/:/ext/qumulo/ \
+#   --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
+#   --workdir="`pwd`" \
+# ${docker_image} sh /IGV_2.4.13/igv.sh "$@"

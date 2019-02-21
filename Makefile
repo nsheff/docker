@@ -49,7 +49,10 @@ rdev:
 
 # Use this to update to latest R.
 rdev-nocache:
-	time docker build --no-cache -t nsheff/rdev -f Dockerfile.rdevel . | tee logs/log_rdevel.txt 
+	# First pull the latest base image
+	docker pull bioconductor/devel_core2
+	# Rebuild our image with no cache.
+	time docker build --no-cache -t nsheff/rdev -f Dockerfile_rdev . | tee logs/log_rdevel.txt 
 	docker push nsheff/rdev
 
 

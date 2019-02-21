@@ -31,6 +31,11 @@ RUN sudo apt-get update && apt-get install -y --force-yes\
 RUN sudo apt-get update && apt-get install -y --force-yes \
 libboost-all-dev
 
+# Likewise sodium libraries
+RUN sudo apt-get update && apt-get install -y --force-yes\
+  libsodium-dev
+
+
 ################################################################################
 # I put these COPY statements in separately, so that the whole thing
 # isn't invalidated (causing unnecessary cache rebuilds)
@@ -68,10 +73,8 @@ RUN chmod 777 /usr/local/lib/R/site-library/BiocCheck/script/BiocCheck
 # CMD Check requires to check pdf size
 RUN sudo apt-get install -y --force-yes qpdf
 
-
 # I think it's good to have this one last, so if you change anything in the bin,
 # it won't make you reinstall all the packages.
-
 
 # Copy over the stuff in Rpack and add it to path
 COPY Rpack/ Rpack/
@@ -80,8 +83,6 @@ ENV PATH /Rpack:${PATH}
 # Bioconductor packages may not be up-to-date. This updates them.
 RUN Rscript -e 'source("https://bioconductor.org/biocLite.R");biocLite(ask=FALSE)'
 
-RUN sudo apt-get update && apt-get install -y --force-yes\
-  libsodium-dev
 
 
 RUN R -e 'devtools::install_github("r-lib/pkgdown")'

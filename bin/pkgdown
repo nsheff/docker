@@ -6,7 +6,11 @@ CONTAINER_NAME="rdev"
 package=$1
 bn=`basename $package`
 echo $package
-docker_exec.sh rdev  R -e "pkgdown::build_site(\"${package}\",override=list(destination='${HOME}/code/code.databio.org/${bn}'))"
+
+
+dperm rdev nsheff/rdev  R -e "pkgdown::build_site(\"${package}\",override=list(destination='${HOME}/code/code.databio.org/${bn}'))"
+
+# docker_exec.sh rdev  R -e "pkgdown::build_site(\"${package}\",override=list(destination='${HOME}/code/code.databio.org/${bn}'))"
 
 confirm "Push to GitHub?" || exit
 
