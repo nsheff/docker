@@ -1,6 +1,5 @@
 #!/bin/sh
-
-# dpipe is for docker stuff that will run and then exit and don't need to live on.
+# dpipe is for docker runs that run and exit and don't need to live on.
 
 IMAGE="$1"
 shift  # Discard the first argument so we can use "$@"
@@ -19,4 +18,3 @@ docker run --rm -i \
 	--volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
 	--workdir="`pwd`" \
 	${IMAGE} "$@"
-

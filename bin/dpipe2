@@ -1,3 +1,7 @@
+#!/bin/bash
+# dpipe is for docker runs that run and exit and don't need to live on.
+# dpipe2 just has a different array of variables; should probably be deprecated
+
 IMAGE="$1"
 shift
 docker run --rm -i \
@@ -14,5 +18,4 @@ docker run --rm -i \
 	-w `pwd` \
 	${IMAGE} "$@"
 
-# dpipe is for docker stuff that will run and then exit and don't need to live on.
 

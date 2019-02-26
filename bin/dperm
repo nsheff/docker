@@ -5,11 +5,11 @@ docker_image="$2"
 shift 2
 cmd="$@"
 
-if [ -z "$var" ]
+if [ -z "$cmd" ]
 then
 cmd="bash"
 fi
-echo "name: ${container_name}\t image: ${docker_image}\t cmd: ${cmd}"
+echo "name: ${container_name}  image: ${docker_image}  cmd: ${cmd}"
 
 isRunning=`docker ps --filter name=${container_name} --format "table{{.Names}}" | sed '1d' | wc -l`
 
