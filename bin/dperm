@@ -27,14 +27,15 @@ else
 fi
 
 if [ "$isRunning" == "1" ]; then
-	echo "Container is running. Attaching..."
+	echo "Container is running. Executing in existing container..."
 	#docker attach ${container_name}
 	docker exec -it ${container_name} ${cmd}
 else
 	exists=`docker ps -a --filter name=${container_name} --format "table{{.Names}}" | sed '1d' | wc -l`
 	if [ "$exists" == "1" ]; then
-	echo "Container exists but is turned off. Starting and attaching..."
-	docker start -ai ${container_name} 
+	echo "Container exists but is turned off. Starting and executing in container..."
+	docker start -i ${container_name} 
+	docker exec -it ${container_name} ${cmd}
 	else
 	echo "Container does not exist. Creating a new one..."
 	docker_run.sh ${container_name} ${docker_image} ${cmd}
