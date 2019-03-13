@@ -1,0 +1,12 @@
+FROM ubuntu:18.04
+
+MAINTAINER Nathan Sheffield <nathan@code.databio.org>
+
+# Updating is required before any apt-gets
+RUN apt-get update && apt-get install -y wget git
+RUN apt-get install -y python3 python3-pip
+RUN pip3 install --upgrade pip
+RUN pip3 install mkdocs
+RUN pip install --upgrade https://github.com/databio/mkdocs-databio/zipball/master
+ENV LANG C.UTF-8
+ENV LC_ALL C.UTF-8

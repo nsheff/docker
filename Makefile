@@ -1,43 +1,47 @@
+SHELL:=/bin/bash
+
 # Just a convenient builder makefile to make it easy to build
 # these docker images
 
-# To save the log of the build process, I execute it in the background and then
-# use tail --follow to spit this also to the screen.
+IMAGES := $(shell ls Dockerfile_* | sed 's/Dockerfile_//g')
+.PHONY: $(IMAGES)
 
-jabref:
-	docker build -t nsheff/jabref -f Dockerfile.jabref .
+define build_image
+	time docker build -t nsheff/$(1) -f Dockerfile_$(1) . | tee logs/log_$(1).txt
+endef
 
-shiny:
-	docker build -t nsheff/shiny -f Dockerfile.shiny .
-
-sphinx:
-	docker build -t nsheff/sphinx -f Dockerfile_sphinx .
-
-pandocker:
-	docker build -t nsheff/pandocker -f Dockerfile_pandocker .
-
-jim:
-	docker build -t nsheff/jim -f Dockerfile_jim .
-
-jim-nocache:
-	time docker build --no-cache -t nsheff/jim -f Dockerfile_jim .
+# This piece of work is assigning the make variable to a bash variable, using
+# bash variable replacement to create a new variable that lacks the '-nocache'
+# flag, and then uses that new variable (as a bash variable). Wow, what a pain,
+# but I could not figure out how to get string replacements working directly
+# on make variables...
+define build_image_nocache
+	longtgt=$(1); tgt=$${longtgt/-nocache/}; time docker build --no-cache -t nsheff/$$tgt -f Dockerfile_$$tgt . | tee logs/log_$$tgt.txt
+endef
 
 
-liquify:
-	docker build -t nsheff/liquify -f Dockerfile_liquify .
+# This will create generic recipes following the build_image functions above
+# for each entry in the IMAGES list
 
-ffmpeg:
-	docker build -t nsheff/ffmpeg -f Dockerfile_ffmpeg .
+# Then it will also create new recipes for each of these, with "-nocache" added.
+# if you call that nocache recipe, it will call the build_image_nocache function
+# instead, which just adds the --nocache to the docker build call... it looks 
+# a lot more complicated than it really is.
 
-libreoffice:
-	docker build -t nsheff/libreoffice -f Dockerfile_libreoffice .
+$(IMAGES):
+	$(call build_image,$@)
+
+NOCACHE_TARGETS=$(addsuffix -nocache, $(IMAGES))
+
+$(NOCACHE_TARGETS):
+	$(call build_image_nocache,$@)
 
 
-vis:
-	docker build -t nsheff/vis -f Dockerfile_vis .
+# All of these other recipes can theoretically be eliminmated now,
+# as long as they follwo the standard naming convention:
 
-
-all: rim rdev rmlr igv jim
+# Dockerfile is named: Dockerfile_IMAGE
+# image is named: nsheff/IMAGE
 
 
 rim:
@@ -62,12 +66,9 @@ rmlr:
 igv:
 	docker build -t nsheff/igv -f Dockerfile.igv .
 
-
 linkchecker:
 	docker build -t nsheff/linkchecker -f Dockerfile.linkchecker .
 
 lola:
 	docker build -t nsheff/lola -f Dockerfile.lola .
 
-refgenie:
-	docker build -t nsheff/refgenie -f Dockerfile_refgenie .
