@@ -13,6 +13,7 @@ alias dockerrv="docker run `vols`"
 docker run --rm -i \
 	--user=`id -u` \
 	--env="DISPLAY" \
+	--network="host" \
 	--env "GENOMES" \
 	--volume $HOME:$HOME \
 	--volume /tmp:/tmp \
