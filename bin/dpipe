@@ -4,12 +4,17 @@
 IMAGE="$1"
 shift  # Discard the first argument so we can use "$@"
 
+# This is going to populate the output of the 'vols' script (in docker/bin)
+# which provides a list of volumes created from the colon-separated string
+# VOLUMES="VOL1:VOL2:VOL3" set in .bashrc.
+
+alias dockerrv="docker run `vols`"
+
 docker run --rm -i \
 	--user=`id -u` \
 	--env="DISPLAY" \
 	--env "GENOMES" \
-	--volume ${HOME}:${HOME} \
-	--volume ${EXTDATA}:${EXTDATA} \
+	--volume $HOME:$HOME \
 	--volume /tmp:/tmp \
 	--volume="/etc/group:/etc/group:ro" \
 	--volume="/etc/passwd:/etc/passwd:ro" \
