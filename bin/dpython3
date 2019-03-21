@@ -1,0 +1,2 @@
+#!/bin/sh
+dperm python3 nsheff/mkdocs bash

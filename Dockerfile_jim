@@ -30,8 +30,6 @@ RUN sudo apt-get install -y git
 
 RUN gem update --system
 
-RUN bundle update --all
-
 EXPOSE 4000
 
 COPY includes/jserve jserve
