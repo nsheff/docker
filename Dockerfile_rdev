@@ -86,3 +86,4 @@ RUN Rscript -e 'source("https://bioconductor.org/biocLite.R");biocLite(ask=FALSE
 
 
 RUN R -e 'devtools::install_github("r-lib/pkgdown")'
+RUN chmod 755 /usr/local/lib/R/site-library/
