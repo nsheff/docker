@@ -1,0 +1,2 @@
+#!/bin/sh
+dpipe nsheff/python3 pip3 $@

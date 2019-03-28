@@ -1,7 +1,9 @@
 #! /bin/bash
-#
+# This is the docker-jekyll-bundle serve script
+# used for serving jekyll sites that require bundle
+# install
 
 echo $1
 
-docker run --rm -p 4123:4000 -it -v $1:$1 nsheff/jim bash -c "cd $1; bundle install; bundle exec jekyll serve --host 0.0.0.0 $1"
+docker run --rm -p 4000:4000 -it -v $1:$1 nsheff/jim bash -c "cd $1; bundle install; bundle exec jekyll serve --host 0.0.0.0 $1"
 

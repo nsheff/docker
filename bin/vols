@@ -1,0 +1,5 @@
+#!/bin/bash
+VOLS=(${VOLUMES//:/ })
+for i in "${VOLS[@]}"; do
+	echo -n "--volume \${$i}:\${$i} "
+done

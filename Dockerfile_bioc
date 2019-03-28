@@ -1,0 +1,35 @@
+# Dockerfile for R 
+
+FROM bioconductor/release_core2
+MAINTAINER Nathan Sheffield <nathan@code.databio.org>
+
+################################################################################
+# Some of these dependencies will be already installed by the parent images;
+# But just to make sure, run these installs here:
+
+# Updating is required before any apt-gets
+RUN sudo apt-get update && apt-get install -y --force-yes\
+  # Required for R Package XML
+  libxml2-dev \
+  # Curl; required for RCurl; but present in upstream images
+  # libcurl4-gnutls-dev \
+  # GNU Scientific Library; required by MotIV
+  libgsl0-dev \
+  # Open SSL is used, for example, devtools dependency git2r
+  libssl-dev \
+   # CMD Check requires to check pdf size
+  qpdf
+
+# Boost libraries are helpful for some r packages
+RUN sudo apt-get update && apt-get install -y --force-yes \
+libboost-all-dev
+
+# Likewise sodium libraries
+RUN sudo apt-get update && apt-get install -y --force-yes\
+  libsodium-dev
+
+# CMD Check requires to check pdf size
+RUN sudo apt-get install -y --force-yes qpdf
+
+RUN chmod 755 /usr/local/lib/R/site-library/
+ENV R_LIBS_USER "$HOME/R/%p/%v"

@@ -1,12 +1,15 @@
 # Dockerfiles
 
-This repository contains Dockerfiles for building various docker containers. The different containers are described below.
+This repository contains Dockerfiles for building various docker containers. 
 
-In this repo is a [Makefile](Makefile) which stores instructions for how to build each Dockerfile. You can clone this repository, and then type `make CONTAINER`, where `CONTAINER` is one of the following items described below. Built containers can (usually) also be downloaded from [Dockerhub](https://hub.docker.com/u/nsheff/).
+## Building images
 
-# Containerized executables 
+In this repo is a [Makefile](Makefile) with recipes for building each image.  Type `make IMAGE`, where `IMAGE` is one of the values in the `Dockerfile_IMAGE`. Built containers can (usually) also be downloaded from [Dockerhub](https://hub.docker.com/u/nsheff/).
 
-A bunch of my containers I wrap with a little shell wrapper so that I can execute their functions in containers easily on the command-line, without having to construct a complicated `docker` arguments like volumes, entrypoints, etc.
+## Containerized executables 
+
+In the [/bin](/bin) folder are little shell wrappers that execute functions in containers, so that I can run these containers on the command-line. I add this `bin` folder to my `PATH` and then immediately have access to each of these tools using the respective containers.
+
 
 ## `shny` - running a shiny server
 
@@ -23,13 +26,11 @@ Since this is going to `docker exec` the `shiny::runApp()` function in `R`, the 
 ```
 rxgn ~/code/LOLA
 ```
-Now with permissions preserved!
 
-```
 ## `jim` - build and serve a Jekyll website from a container
 My `jim` container has Ruby, Jekyll, and friends, so I can serve up local jekyll sites for testing without installing Ruby and so forth. 
 
-Copy the `bin/djserve` script to your bin and then you can serve up any jekyll site with a quick command:
+Serve up a jekyll site with:
 
 ```
 djserve path/to/blog
@@ -55,7 +56,13 @@ This container combines Liquid templates and YAML data to build a simple, comman
 
 I use `bin/jabref` as an executable to run containerized Jabref. This is more convenient than using the Java CLI (`java -jar blah blah`), and also lets me run multiple `jabrefs` at the same time, which is nice, because I can run exports even when `jabref` is already running.
 
-I need to do the same with with `libreoffice`, which silently fails on command-line tasks when it's already running.
+
+## libreoffice
+
+Run containerized libreoffice with:
+```
+libre
+```
 
 # Non-executable container descriptions
 

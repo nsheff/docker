@@ -1,5 +1,4 @@
-# Dockerfile for Jekyll environment:
-# Build me with: 
+# Dockerfile for Jekyll environment
 # Run me with: docker run -p 4000:4000 -it -v ~/web:/web sheffien/jim  bash
 
 FROM ubuntu:18.04
@@ -30,8 +29,6 @@ RUN gem install jekyll-github-metadata
 RUN sudo apt-get install -y git
 
 RUN gem update --system
-
-RUN bundle update --all
 
 EXPOSE 4000
 

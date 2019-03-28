@@ -11,7 +11,6 @@ docker run -it \
   --name=${container_name} \
   --user=$(id -u) \
   --env="DISPLAY" \
-  -e $GENOMES \
   --volume ${HOME}:${HOME} \
   --volume ${EXTDATA}:${EXTDATA} \
   --volume /tmp:/tmp \

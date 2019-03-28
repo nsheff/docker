@@ -1,6 +1,4 @@
-# Dockerfile for Jekyll environment:
-# Build me with: 
-# Run me with: docker run -p 4000:4000 -it -v ~/web:/web sheffien/jim  bash
+# Dockerfile for liquid template populating
 
 FROM ruby
 

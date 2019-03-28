@@ -44,31 +44,11 @@ $(NOCACHE_TARGETS):
 # image is named: nsheff/IMAGE
 
 
-rim:
-	docker build -t nsheff/rim -f Dockerfile.rprod .
-
-rdev:
-	docker build -t nsheff/rdev -f Dockerfile.rdevel . | tee logs/log_rdevel.txt
-
-
 # Use this to update to latest R.
-rdev-nocache:
+rupdate:
 	# First pull the latest base image
 	docker pull bioconductor/devel_core2
 	# Rebuild our image with no cache.
 	time docker build --no-cache -t nsheff/rdev -f Dockerfile_rdev . | tee logs/log_rdevel.txt 
 	docker push nsheff/rdev
-
-
-rmlr:
-	docker build -t nsheff/drmlr -f Dockerfile.mlr .
-
-igv:
-	docker build -t nsheff/igv -f Dockerfile.igv .
-
-linkchecker:
-	docker build -t nsheff/linkchecker -f Dockerfile.linkchecker .
-
-lola:
-	docker build -t nsheff/lola -f Dockerfile.lola .
 
