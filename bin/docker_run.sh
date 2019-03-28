@@ -5,7 +5,7 @@ docker_image="$2"
 shift 2
 cmd="$@"
 
-echo "name: ${container_name}\t image: ${docker_image}\t cmd: ${cmd}"
+echo "name: ${container_name} image: ${docker_image} cmd: ${cmd}"
 
 docker run -it \
   --name=${container_name} \
@@ -14,6 +14,7 @@ docker run -it \
   -e $GENOMES \
   --volume ${HOME}:${HOME} \
   --volume ${EXTDATA}:${EXTDATA} \
+  --volume /tmp:/tmp \
   --volume="/etc/group:/etc/group:ro" \
   --volume="/etc/passwd:/etc/passwd:ro" \
   --volume="/etc/shadow:/etc/shadow:ro"  \

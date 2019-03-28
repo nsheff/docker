@@ -8,6 +8,7 @@ docker run --rm -i \
 	--user=`id -u` \
 	--env="DISPLAY" \
 	--env "GENOMES" \
+	--network="host" \
 	--volume ${HOME}:${HOME} \
 	--volume ${EXTDATA}:${EXTDATA} \
 	--volume /tmp:/tmp \
