@@ -39,3 +39,5 @@ RUN dpkg -i pandoc-2.6-1-amd64.deb
 
 
 COPY includes/pandoc-crossref /bin
+
+RUN apt-get install -y texlive-bibtex-extra biber
