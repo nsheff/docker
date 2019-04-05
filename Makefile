@@ -38,7 +38,7 @@ $(NOCACHE_TARGETS):
 
 
 # All of these other recipes can theoretically be eliminmated now,
-# as long as they follwo the standard naming convention:
+# as long as they follow the standard naming convention:
 
 # Dockerfile is named: Dockerfile_IMAGE
 # image is named: nsheff/IMAGE

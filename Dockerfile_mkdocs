@@ -1,4 +1,4 @@
-FROM nsheff/jupyter
+FROM nsheff/python3
 
 MAINTAINER Nathan Sheffield <nathan@code.databio.org>
 

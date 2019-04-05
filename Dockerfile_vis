@@ -1,6 +1,6 @@
 # Dockerfile for graphics environment (visualization software):
 
-FROM ubuntu:18.04
+FROM nsheff/texextra
 
 MAINTAINER Nathan Sheffield <nathan@code.databio.org>
 

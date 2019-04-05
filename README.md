@@ -4,7 +4,7 @@ This repository contains Dockerfiles for building various docker containers.
 
 ## Building images
 
-In this repo is a [Makefile](Makefile) with recipes for building each image.  Type `make IMAGE`, where `IMAGE` is one of the values in the `Dockerfile_IMAGE`. Built containers can (usually) also be downloaded from [Dockerhub](https://hub.docker.com/u/nsheff/).
+In this repo is a [Makefile](Makefile) with recipes for building each image.  Type `make IMAGE`, where `IMAGE` is one of the values in the `Dockerfile_IMAGE`. You can also tab-complete to see which images can be built.
 
 ## Containerized executables 
 
@@ -82,6 +82,7 @@ dockrpack /path/to/R/package
 This will run your unit tests in a docker container:
 ```
 dockrtest /path/to/R/package
+```
 
 ## `vis`
 
@@ -102,7 +103,11 @@ I should produce other things using the same system.
 
 I'm working on a script to be able to run any of these `script/drun` followed by the name of the image.
 
+
+
 # Installing an R environment 
+
+Originally, I was install packages *inside* my R containers. This seems to be the preferred way to do this from the rocker and bioconductor containers. After a few years of doing it this way, I've decided I changed my mind: I think it makes more sense to just containerize the basic requirements and then install and host the packages locally. The reason is that otherwise the containers become huge, and it gives more control over which packages I want to hold on which systems, while still providing all the system prerequisites and R versions.
 
 You can also use these to install all these nice R packages in one shot.
 
@@ -120,3 +125,5 @@ Rscript Rsetup/Rsetup.R --packages=Rsetup/rpack_bio.txt
 ## Some useful commands:
 
 * `docker rm $(docker ps -a -q)`: cleans all stopped containers
+
+

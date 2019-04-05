@@ -1,2 +1,2 @@
 #!/bin/sh
-dpipe nsheff/bioc R $@
+dpipe nsheff/r R $@

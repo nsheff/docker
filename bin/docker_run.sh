@@ -19,6 +19,7 @@ docker run -it \
   --volume="/etc/shadow:/etc/shadow:ro"  \
   --volume="/etc/sudoers.d:/etc/sudoers.d:ro" \
   --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
+  --volume="${HOME}/.local/lib/R:/usr/local/lib/R/host-site-library" \
   --workdir="`pwd`" \
   ${docker_image} \
   ${cmd}

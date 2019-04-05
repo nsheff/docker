@@ -1,0 +1,22 @@
+# Dockerfile for mediabuilder:
+
+FROM nsheff/texextra
+
+MAINTAINER Nathan Sheffield <nathan@code.databio.org>
+
+# Updating is required before any apt-gets
+# Install prerecs and latex
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update
+RUN apt-get install -y make
+RUN apt install -y librsvg2-bin
+
+# Install pandoc
+
+RUN wget https://github.com/jgm/pandoc/releases/download/2.6/pandoc-2.6-1-amd64.deb
+RUN dpkg -i pandoc-2.6-1-amd64.deb
+
+COPY includes/pandoc-crossref /bin
+
