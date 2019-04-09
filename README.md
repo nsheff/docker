@@ -125,5 +125,7 @@ Rscript Rsetup/Rsetup.R --packages=Rsetup/rpack_bio.txt
 ## Some useful commands:
 
 * `docker rm $(docker ps -a -q)`: cleans all stopped containers
+* `docker image prune`: removes all dangling images
+
 
 

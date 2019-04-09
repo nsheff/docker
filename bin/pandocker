@@ -1,2 +1,2 @@
 #!/bin/sh
-dpipe nsheff/pandocker pandoc $@
+dpipe nsheff/pandoc pandoc $@

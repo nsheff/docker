@@ -11,4 +11,4 @@ RUN apt-get install -y texlive-science
 RUN apt-get install -y texlive-xetex
 RUN apt-get install -y texlive-bibtex-extra biber
 RUN apt-get install -y context
-
+RUN apt-get install -y texlive-fonts-extra
