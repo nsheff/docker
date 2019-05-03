@@ -52,3 +52,8 @@ rupdate:
 	time docker build --no-cache -t nsheff/rdev -f Dockerfile_rdev . | tee logs/log_rdevel.txt 
 	docker push nsheff/rdev
 
+# Quick recipe to reset pandoc
+alltex: tex-nocache texextra-nocache pandoc-nocache
+
+
+

@@ -10,7 +10,7 @@ shift  # Discard the first argument so we can use "$@"
 
 alias dockerrv="docker run `vols`"
 
-docker run --rm -i \
+docker run --rm -it \
 	--user=`id -u` \
 	--env="DISPLAY" \
 	--env "GENOMES" \
@@ -25,3 +25,8 @@ docker run --rm -i \
 	--volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
 	--workdir="`pwd`" \
 	${IMAGE} "$@"
+
+
+# do we need the -t or not? If not, then the python pipe container will not
+# provide a python session... but R does. strange. is there any reason not to have it?
+# it works either way with R...
