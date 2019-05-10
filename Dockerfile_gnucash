@@ -1,0 +1,14 @@
+
+FROM ubuntu:18.10
+
+MAINTAINER Nathan Sheffield <nathan@code.databio.org>
+
+# Updating is required before any apt-gets
+# Install prerecs and latex
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update
+RUN apt-get install -y make gnucash
+RUN apt-get install -y dbus-x11
+

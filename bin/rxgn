@@ -2,10 +2,10 @@
 
 # This script roxygenizes the current package.
 
-CONTAINER_NAME="rdev"
+CONTAINER_NAME="rcon"
 package=$1
 echo $package
-docker_exec.sh rdev  R -e "devtools::document(\"${package}\")"
+docker_exec.sh $CONTAINER_NAME  R -e "devtools::document(\"${package}\")"
 
 # I used to use roxygenize like this, but it failes with an error now
 #docker_exec.sh rdev  R -e "roxygen2::roxygenize(\"${package}\")"

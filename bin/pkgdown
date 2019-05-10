@@ -2,13 +2,13 @@
 
 # This script pkgdowns the current package.
 
-CONTAINER_NAME="rdev"
+CONTAINER_NAME="rcon"
 package=$1
 bn=`basename $package`
 echo $package
 
 
-dperm rdev nsheff/rdev  R -e "pkgdown::build_site(\"${package}\",override=list(destination='${HOME}/code/code.databio.org/${bn}'))"
+dperm rcon nsheff/$CONTAINER_NAME  R -e "pkgdown::build_site(\"${package}\",override=list(destination='${HOME}/code/code.databio.org/${bn}'))"
 
 # docker_exec.sh rdev  R -e "pkgdown::build_site(\"${package}\",override=list(destination='${HOME}/code/code.databio.org/${bn}'))"
 

@@ -6,6 +6,7 @@ MAINTAINER Nathan Sheffield <nathan@code.databio.org>
 RUN apt-get update && apt-get install -y wget git
 RUN apt-get install -y python3 python3-pip
 RUN pip3 install --upgrade pip
+RUN apt-get install -y python3-venv
 
 ENV LANG C.UTF-8
 ENV LC_ALL C.UTF-8
