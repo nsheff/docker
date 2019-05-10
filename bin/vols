@@ -1,5 +1,14 @@
 #!/bin/bash
 VOLS=(${VOLUMES//:/ })
 for i in "${VOLS[@]}"; do
-	echo -n "--volume \${$i}:\${$i} "
+	if [ -d "$i" ]; then
+		expandedvol=${i}
+	else
+		expandedvol=${!i}
+	fi
+	if [ -d "$expandedvol" ]; then
+	echo -n "--volume ${expandedvol}:${expandedvol} "
+	else
+	echo "Bad volume specified" 1>&2;
+	fi
 done

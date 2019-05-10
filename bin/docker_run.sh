@@ -7,12 +7,14 @@ cmd="$@"
 
 echo "name: ${container_name} image: ${docker_image} cmd: ${cmd}"
 
-docker run -it \
+dockerrv() {
+  docker run -it `vols` $@
+}
+
+dockerrv \
   --name=${container_name} \
   --user=$(id -u) \
   --env="DISPLAY" \
-  --volume ${HOME}:${HOME} \
-  --volume ${EXTDATA}:${EXTDATA} \
   --volume /tmp:/tmp \
   --volume="/etc/group:/etc/group:ro" \
   --volume="/etc/passwd:/etc/passwd:ro" \

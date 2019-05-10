@@ -5,11 +5,32 @@ docker_image="$2"
 shift 2
 cmd="$@"
 
+# Echo to stderr
+echoerr() { echo "$@" 1>&2; }
+
+
+# Populate the VOLUMES variable into docker-friendly args
+vols() {
+  VOLS=(${VOLUMES//:/ })
+  for i in "${VOLS[@]}"; do
+    if [ -d "$i" ]; then
+      expandedvol=${i}
+    else
+      expandedvol=${!i}
+    fi
+    if [ -d "$expandedvol" ]; then
+    echo -n "--volume ${expandedvol}:${expandedvol} "
+    else
+    echo "Bad volume specified" 1>&2;
+    fi
+  done
+}
+
 if [ -z "$cmd" ]
 then
 cmd="bash"
 fi
-echo "name: ${container_name}  image: ${docker_image}  cmd: ${cmd}"
+echoerr "name: ${container_name}  image: ${docker_image}  cmd: ${cmd}" 1>&2;
 
 isRunning=`docker ps --filter name=${container_name} --format "table{{.Names}}" | sed '1d' | wc -l`
 
@@ -19,25 +40,38 @@ CLOUD_SHA=`docker inspect --format "{{.Id}}" ${docker_image}`
 LOCAL_SHA=`docker inspect --format "{{.Id}}" ${container_name}`
 NAME=`docker inspect --format '{{.Name}}' rdev | sed "s/\///g"`
 if [ "$CLOUD_SHA" != "$LOCAL_SHA" ];then
-	echo "Warning: Local version does not match dockerhub"
-	echo $CLOUD_SHA $LOCAL_SHA
+  echoerr "Warning: Local version does not match dockerhub"  1>&2;
+  echoerr $CLOUD_SHA $LOCAL_SHA
 else
-	echo "Version match"
-	echo $CLOUD_SHA $LOCAL_SHA
+  echoerr "Version match" 1>&2;
+  echoerr $CLOUD_SHA $LOCAL_SHA
 fi
 
 if [ "$isRunning" == "1" ]; then
-	echo "Container is running. Executing in existing container..."
-	#docker attach ${container_name}
-	docker exec -it ${container_name} ${cmd}
+  echoerr "Container is running. Executing in existing container..."
+  #docker attach ${container_name}
+  docker exec -it ${container_name} ${cmd}
 else
-	exists=`docker ps -a --filter name=${container_name} --format "table{{.Names}}" | sed '1d' | wc -l`
-	if [ "$exists" == "1" ]; then
-	echo "Container exists but is turned off. Starting and executing in container..."
-	docker start ${container_name} 
-	docker exec -it ${container_name} ${cmd}
-	else
-	echo "Container does not exist. Creating a new one..."
-	docker_run.sh ${container_name} ${docker_image} ${cmd}
-	fi
+  exists=`docker ps -a --filter name=${container_name} --format "table{{.Names}}" | sed '1d' | wc -l`
+  if [ "$exists" == "1" ]; then
+  echoerr "Container exists but is turned off. Starting and executing in container..."
+  docker start ${container_name} 
+  docker exec -it ${container_name} ${cmd}
+  else
+  echoerr "Container does not exist. Creating a new one..."
+  docker run -it `vols` \
+  --name=${container_name} \
+  --user=$(id -u) \
+  --env="DISPLAY" \
+  --volume /tmp:/tmp \
+  --volume="/etc/group:/etc/group:ro" \
+  --volume="/etc/passwd:/etc/passwd:ro" \
+  --volume="/etc/shadow:/etc/shadow:ro"  \
+  --volume="/etc/sudoers.d:/etc/sudoers.d:ro" \
+  --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
+  --volume="${HOME}/.local/lib/R:/usr/local/lib/R/host-site-library" \
+  --workdir="`pwd`" \
+  ${docker_image} \
+  ${cmd}
+  fi
 fi
