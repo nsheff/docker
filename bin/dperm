@@ -61,7 +61,7 @@ else
   echoerr "Container does not exist. Creating a new one..."
   docker run -it `vols` \
   --name=${container_name} \
-  --user=$(id -u) \
+  --user=$(id -u):$(id -g)  \
   --env="DISPLAY" \
   --volume /tmp:/tmp \
   --volume="/etc/group:/etc/group:ro" \

@@ -11,7 +11,7 @@ shift  # Discard the first argument so we can use "$@"
 alias dockerrv="docker run `vols`"
 
 docker run --rm -i \
-	--user=`id -u` \
+	--user=$(id -u):$(id -g) \
 	--env="DISPLAY" \
 	--env "GENOMES" \
 	--env "TEXINPUTS" \
