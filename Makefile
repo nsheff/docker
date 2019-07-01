@@ -3,11 +3,11 @@ SHELL:=/bin/bash
 # Just a convenient builder makefile to make it easy to build
 # these docker images
 
-IMAGES := $(shell ls Dockerfile_* | sed 's/Dockerfile_//g')
+IMAGES := $(shell ls Dockerfiles/Dockerfile_* | sed 's/Dockerfiles\/Dockerfile_//g')
 .PHONY: $(IMAGES)
 
 define build_image
-	time docker build -t nsheff/$(1) -f Dockerfile_$(1) . | tee logs/log_$(1).txt
+	time docker build -t nsheff/$(1) -f Dockerfiles/Dockerfile_$(1) . | tee logs/log_$(1).txt
 endef
 
 # This piece of work is assigning the make variable to a bash variable, using
@@ -16,7 +16,7 @@ endef
 # but I could not figure out how to get string replacements working directly
 # on make variables...
 define build_image_nocache
-	longtgt=$(1); tgt=$${longtgt/-nocache/}; time docker build --no-cache -t nsheff/$$tgt -f Dockerfile_$$tgt . | tee logs/log_$$tgt.txt
+	longtgt=$(1); tgt=$${longtgt/-nocache/}; time docker build --no-cache -t nsheff/$$tgt -f Dockerfiles/Dockerfile_$$tgt . | tee logs/log_$$tgt.txt
 endef
 
 

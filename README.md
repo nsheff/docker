@@ -1,14 +1,39 @@
 # Dockerfiles
 
-This repository contains Dockerfiles for building various docker containers. 
+This repository contains a complete solution to dockerizing common commands. It includes both  Dockerfiles for building various docker containers, as well as a `bin` directory with executables that are run in their respective container.
+
+## Getting started: An example
+
+Just clone this repository:
+
+```
+git clone https://github.com/nsheff/docker.git
+```
+
+Then, build any containers you want. For example, to build the pandoc container:
+
+```
+cd docker
+make pandoc
+```
+
+Now, you can run this containerized `pandoc` command like this:
+
+```
+./bin/pandoc
+```
 
 ## Building images
 
-In this repo is a [Makefile](Makefile) with recipes for building each image.  Type `make IMAGE`, where `IMAGE` is one of the values in the `Dockerfile_IMAGE`. You can also tab-complete to see which images can be built.
+In this repo is a [Makefile](Makefile) with recipes for building each image.  Type `make IMAGE`, where `IMAGE` is one of the values in the `Dockerfile_IMAGE`. You can also tab-complete to see which images can be built. You can also re-build any container from scratch (don't use caches) by adding '-nocache' to the target name, *e.g.* `make pandoc-nocache`.
 
 ## Containerized executables 
 
-In the [/bin](/bin) folder are little shell wrappers that execute functions in containers, so that I can run these containers on the command-line. I add this `bin` folder to my `PATH` and then immediately have access to each of these tools using the respective containers.
+In the [/bin](/bin) folder are little shell wrappers that execute commands in containers. These wrappers will do all the magic so that the commands will: 1) run in your current working directory; 2) mount your filesystem appropriately, and 3) run as the current user/group to preserve permissions. Thus, each of the command in the `bin` is a drop-in replacement for the corresponding utility, so that you don't have to install any of this stuff natively. I add this `bin` folder to my `PATH` and then immediately have access to each of these tools using the respective containers:
+
+```
+export PATH='$PATH:path/to/docker/bin'
+```
 
 
 ## `shny` - running a shiny server
@@ -27,13 +52,14 @@ Since this is going to `docker exec` the `shiny::runApp()` function in `R`, the 
 rxgn ~/code/LOLA
 ```
 
-## `jim` - build and serve a Jekyll website from a container
-My `jim` container has Ruby, Jekyll, and friends, so I can serve up local jekyll sites for testing without installing Ruby and so forth. 
+## `jekyll` - build and serve a Jekyll website from a container
+My `jekyll` container has Ruby, Jekyll, and friends, so I can serve up local jekyll sites for testing without installing Ruby and so forth. 
 
 Serve up a jekyll site with:
 
 ```
-djserve path/to/blog
+cd path/to/blog
+jekyll serve 
 ```
 
 Then visit the site at `http://localhost:4000/`
