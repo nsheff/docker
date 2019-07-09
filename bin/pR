@@ -1,3 +1,0 @@
-#!/bin/sh
-DOCKERARGS="-t --volume=${HOME}/.local/lib/R:/usr/local/lib/R/host-site-library" \
-	dpipe nsheff/r R $@

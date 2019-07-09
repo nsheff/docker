@@ -1,0 +1,12 @@
+#!/bin/bash
+# This script installs a local R package
+
+package=$1
+
+if [ -z "$package" ]
+then
+  echo "\$package is empty. Run like: roxygenize path/to/package"
+else
+  echo $package
+  R -e "install.packages(\"${package}\",repos=NULL)"
+fi

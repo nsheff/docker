@@ -4,8 +4,14 @@
 
 CONTAINER_NAME="rcon"
 package=$1
-echo $package
-docker_exec.sh $CONTAINER_NAME  R -e "devtools::document(\"${package}\")"
+
+if [ -z "$package" ]
+then
+  echo "\$package is empty. Run like: roxygenize path/to/package"
+else
+  echo $package
+  R -e "devtools::document(\"${package}\")"
+fi
 
 # I used to use roxygenize like this, but it failes with an error now
 #docker_exec.sh rdev  R -e "roxygen2::roxygenize(\"${package}\")"
