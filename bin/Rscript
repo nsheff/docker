@@ -1,3 +1,7 @@
 #! /usr/bin/env bash
 
-dpipe rdev $@
+DOCKERARGS="--volume=${HOME}/.local/lib/R:/usr/local/lib/R/host-site-library" dpipe nsheff/r Rscript $@
+exit 0
+# Rscript doesn't want the -t argument to docker
+
+# dpipe rdev $@

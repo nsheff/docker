@@ -9,8 +9,8 @@ shift  # Discard the first argument so we can use "$@"
 # VOLUMES="VOL1:VOL2:VOL3" set in .bashrc.
 
 alias dockerrv="docker run `vols`"
-echo "Dockerargs: ${DOCKERARGS}" 1>&2
-dockerrv --rm -i \
+echo "Starting docker with args: ${DOCKERARGS}" 1>&2
+dockerrv --rm \
 	${DOCKERARGS} \
 	--user=$(id -u):$(id -g) \
 	--env="DISPLAY" \
@@ -27,6 +27,7 @@ dockerrv --rm -i \
 	--workdir="`pwd`" \
 	${IMAGE} "$@"
 
+echo "Exiting docker 1>&2"
 
 # do we need the -t or not? If not, then the python pipe container will not
 # provide a python session... but R does, but the up and down arrow keys don't work.
@@ -34,3 +35,6 @@ dockerrv --rm -i \
 
 # for something like pandoc if you include it, it says:  the input device is not a TTY
 # So, some things require it, some don't.
+
+# So, strategy is: use $DOCKERARGS. Now we don't put -t here, and you can add it
+# in whatever scripts call dpipe

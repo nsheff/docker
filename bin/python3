@@ -1,2 +1,5 @@
 #!/bin/sh
-dperm python3 nsheff/python3 python3 
+DOCKERARGS="-it" \
+	dpipe nsheff/python3 python3 $@
+
+# dperm python3 nsheff/python3 python3 
