@@ -9,8 +9,9 @@ shift  # Discard the first argument so we can use "$@"
 # VOLUMES="VOL1:VOL2:VOL3" set in .bashrc.
 
 alias dockerrv="docker run `vols`"
-
-docker run --rm -i \
+echo "Dockerargs: ${DOCKERARGS}" 1>&2
+dockerrv --rm -i \
+	${DOCKERARGS} \
 	--user=$(id -u):$(id -g) \
 	--env="DISPLAY" \
 	--env "GENOMES" \
@@ -28,7 +29,8 @@ docker run --rm -i \
 
 
 # do we need the -t or not? If not, then the python pipe container will not
-# provide a python session... but R does. strange. is there any reason not to have it?
-# it works either way with R...
+# provide a python session... but R does, but the up and down arrow keys don't work.
+# is there any reason not to have it?
 
 # for something like pandoc if you include it, it says:  the input device is not a TTY
+# So, some things require it, some don't.
