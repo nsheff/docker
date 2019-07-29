@@ -27,7 +27,7 @@ dockerrv --rm \
 	--workdir="`pwd`" \
 	${IMAGE} "$@"
 
-echo "Exiting docker 1>&2"
+echo "Exiting docker" 1>&2
 
 # do we need the -t or not? If not, then the python pipe container will not
 # provide a python session... but R does, but the up and down arrow keys don't work.
