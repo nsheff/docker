@@ -1,0 +1,59 @@
+manifest:
+  name: nsheff
+  commands:
+
+  - command: jekyll
+    docker_image: nsheff/jekyll
+    docker_command: jekyll
+  - command: latex
+    docker_image: nsheff/pandocker
+  - command: ffmpeg
+    docker_image: nsheff/ffmpeg
+  - command: igv
+    docker_image: nsheff/igv
+    docker_command: sh /IGV_2.4.13/igv.sh
+  - command: bibtool
+    docker_image: nsheff/pandocker
+  - command: gnucash
+    docker_image: nsheff/gnucash
+  - command: inkscape
+    docker_image: nsheff/vis
+  - command: ipython
+    docker_image: nsheff/python3
+  - command: jabref
+    docker_image: nsheff/jabref
+    docker_command: java -Xmx2000m -jar /JabRef.jar
+  - command: jabref-cl
+    description:  command-line only; don't allocate TTY. Useful for background jobs.
+    dockerargs: "--name=jabref-cl"
+    docker_command: java -Xmx2000m -jar /JabRef.jar
+  - command: libre
+    docker_image: nsheff/libreoffice
+    docker_command: "libreoffice -env:UserInstallation=file:///tmp/ -env:SingleAppInstance='false'"
+  - command: liquify
+    docker_image: nsheff/liquify
+    docker_command: bash -c "./liquify.rb"
+  - command: mkdocs
+    docker_image: nsheff/mkdocs
+  - command: pandoc
+    docker_image: nsheff/pandoc
+    dockerargs: "-i"
+  - command: pip3
+    docker_image: nsheff/python3
+  - command: python3
+    dockerargs: "-it"
+    docker_image: nsheff/python3
+    docker_command: python3
+  - command: R
+    docker_image: nsheff/r
+    docker_command: R
+    dockerargs: "-it --volume=${HOME}/.local/lib/R:/usr/local/lib/R/host-site-library" 
+  - command: Rscript
+    docker_image: nsheff/r
+    dockerargs: "--volume=${HOME}/.local/lib/R:/usr/local/lib/R/host-site-library"
+  - command: samtools
+    dockerargs: "-i"
+    docker_image: quay.io/biocontainers/samtools:1.9--h91753b0_8
+  - command: subl
+    docker_image: nsheff/sublime
+    
