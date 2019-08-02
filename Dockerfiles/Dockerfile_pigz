@@ -1,0 +1,4 @@
+FROM ubuntu:18.04
+
+MAINTAINER Nathan Sheffield <nathan@code.databio.org>
+RUN apt-get update && apt-get install -y pigz
