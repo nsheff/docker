@@ -3,7 +3,9 @@ bulker:
   envvars: ['GENOMES', 'DISPLAY', 'TEXINPUTS']
   default_crate_folder: ${HOME}/bulker_crates
   singularity_image_folder: ${HOME}/simages
-  executable_template: singularity_executable.jinja2
+  container_system: docker
+  executable_template: null
+  build_template: null
   crates:
     base: ${HOME}/bulker_crates/base
     peppro: /home/nsheff/bulker_crates/peppro
