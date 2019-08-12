@@ -4,7 +4,9 @@ bulker:
   default_crate_folder: ${HOME}/bulker_crates
   container_engine: docker
   singularity_image_folder: ${HOME}/simages
-  executable_template: /home/nsheff/.local/lib/python3.7/site-packages/bulker/templates/docker_executable.jinja2
+  container_system: docker
+  executable_template: null
+  build_template: null
   crates:
     base: ${HOME}/bulker_crates/base
     peppro: /home/nsheff/bulker_crates/peppro
@@ -13,4 +15,4 @@ bulker:
     pi: /home/nsheff/bulker_crates/pi
     databio: /home/nsheff/bulker_crates/databio
     demo2: /home/nsheff/bulker_crates/demo2
-  build_template: /home/nsheff/.local/lib/python3.7/site-packages/bulker/templates/docker_build.jinja2
+
