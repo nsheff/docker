@@ -16,4 +16,7 @@ RUN apt-get install -y liblzma-dev
 ENV LANG C.UTF-8
 ENV LC_ALL C.UTF-8
 
+RUN pip install ipython
+
+
 CMD ["python3"]

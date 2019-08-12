@@ -7,3 +7,4 @@ MAINTAINER Nathan Sheffield <nathan@code.databio.org>
 RUN apt-get update
 RUN apt-get install inkscape -y
 RUN apt-get install -y imagemagick
+RUN apt-get install -y librsvg2-bin

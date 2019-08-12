@@ -1,0 +1,5 @@
+FROM python
+
+MAINTAINER Nathan Sheffield <nathan@code.databio.org>
+RUN pip install ipython
+CMD ["ipython"]

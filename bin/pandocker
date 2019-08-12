@@ -1,2 +1,2 @@
 #!/bin/sh
-dpipe nsheff/pandoc pandoc $@
+DOCKERARGS='-i' dpipe nsheff/pandoc pandoc $@
