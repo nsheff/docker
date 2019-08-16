@@ -6,5 +6,3 @@ MAINTAINER Nathan Sheffield <nathan@code.databio.org>
 # Make the site library un-writable so I don't write
 # garbage into the container.
 RUN chmod 555 /usr/local/lib/R/site-library/
-
-RUN sudo apt-get install libicu55
