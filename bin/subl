@@ -1,3 +1,0 @@
-#!/bin/sh
-
-dpipe nsheff/sublime subl "$@"

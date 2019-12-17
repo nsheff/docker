@@ -1,0 +1,8 @@
+FROM nikolaik/python-nodejs:python3.7-nodejs13
+
+# Simple docker image for serverless
+
+MAINTAINER Nathan Sheffield <nathan@code.databio.org>
+
+RUN npm install -g serverless
+RUN apt-get update && apt-get install python3.7
