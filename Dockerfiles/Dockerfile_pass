@@ -1,0 +1,9 @@
+FROM ubuntu:19.10
+MAINTAINER Nathan Sheffield <nathan@code.databio.org>
+RUN apt-get update \
+  && apt-get install -y git curl make tree gnupg pwgen xz-utils
+
+RUN curl -O https://git.zx2c4.com/password-store/snapshot/password-store-1.7.3.tar.xz
+RUN tar -xf password-store-1.7.3.tar.xz \
+  && cd password-store-1.7.3 \
+  && make install
