@@ -1,5 +1,7 @@
 # Dockerfile for sublime
-FROM ubuntu:18.04
+# To update, change the number in the SUBLIME_BUILD line to match # the latest version number
+
+FROM ubuntu:19.10
 
 MAINTAINER Nathan Sheffield <nathan@code.databio.org>
 
@@ -14,7 +16,7 @@ RUN apt-get update && \
         libgtk-3-0 \
         dbus-x11 \
         curl
-ARG SUBLIME_BUILD="${SUBLIME_BUILD:-3207}"
+ARG SUBLIME_BUILD="${SUBLIME_BUILD:-3211}"
 
 RUN locale-gen en_US.UTF-8
 
