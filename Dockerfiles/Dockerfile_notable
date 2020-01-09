@@ -1,0 +1,26 @@
+
+FROM ubuntu:19.10
+
+MAINTAINER Nathan Sheffield <nathan@code.databio.org>
+
+# notable installs tzdata, which provides an interactive
+# "choose your location" prompt, which can't be done from within
+# a docker build, so we turn it off by specifying noninteractive
+ARG DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && \
+    apt-get -y upgrade && \
+    apt-get -y install \
+    	libgtk-3-0 \
+    	libnotify4 \
+    	libxss1 \
+    	libxtst6 \
+    	xdg-utils \
+    	libatspi2.0-0 \
+    	libappindicator3-1 \
+    	libsecret-1-0 \
+        curl
+
+RUN curl -L -O https://github.com/notable/notable/releases/download/v1.8.2/notable_1.8.2_amd64.deb
+RUN	dpkg -i notable_1.8.2_amd64.deb
+
