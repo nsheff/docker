@@ -1,0 +1,6 @@
+FROM docker:latest
+
+FROM python:3.7.4
+WORKDIR /root/
+COPY --from=0 /usr/local/bin/docker /usr/local/bin/
+COPY --from=0 /usr/local/bin/dockerd /usr/local/bin/
