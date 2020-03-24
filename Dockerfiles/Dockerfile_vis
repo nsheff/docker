@@ -9,5 +9,7 @@ RUN apt-get install inkscape -y
 RUN apt-get install -y imagemagick
 RUN apt-get install -y librsvg2-bin
 RUN apt-get update --fix-missing
-RUN apt-get install ttf-mscorefonts-installer -y
-RUN fc-cache
+RUN echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula \
+    select true | debconf-set-selections && \
+    apt-get install -y ttf-mscorefonts-installer
+RUN fc-cache -f -v
