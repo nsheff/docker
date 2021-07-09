@@ -5,6 +5,6 @@ FROM ruby
 MAINTAINER Nathan Sheffield <nathan@code.databio.org>
 RUN gem install liquid
 COPY includes/liquify.rb liquify.rb
+RUN chmod 755 liquify.rb
 
 ENTRYPOINT ["ruby", "/liquify.rb"]
-

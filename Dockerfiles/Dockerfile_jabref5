@@ -13,14 +13,14 @@ RUN apt-get update && apt-get install -y\
 
 ################################################################################
 
-RUN wget https://github.com/JabRef/jabref/releases/download/v5.0/JabRef-5.0-portable_linux.tar.gz
-
+#RUN wget https://github.com/JabRef/jabref/releases/download/v5.0/JabRef-5.0-portable_linux.tar.gz
+#RUN wget https://github.com/JabRef/jabref/releases/download/v5.1/JabRef-5.1-portable_linux.tar.gz
 # 4.2, 4.3, and 4.3.1 have bugs that break it. It looks like 4.4 will work.
-
+RUN wget https://github.com/JabRef/jabref/releases/download/v5.2/JabRef-5.2-portable_linux.tar.gz
 
 #ADD  "JabRef-4.1-dev--snapshot--2017-12-22--master--d9644d018.jar" JabRef.jar
 
-RUN tar -xf JabRef-5.0-portable_linux.tar.gz
+RUN tar -xf JabRef-5.2-portable_linux.tar.gz
 RUN apt-get update && apt-get install -y xdg-utils --fix-missing
 ENV PATH /JabRef/bin
 

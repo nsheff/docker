@@ -1,3 +1,4 @@
+#! /usr/local/bin/ruby
 # require 'liquid'
 # require 'yaml'
 # @author Nathan Sheffield
@@ -11,16 +12,27 @@ require 'liquid'
 require 'optparse'
 require 'yaml'
 
-options = {}
+options = Hash.new { |h, k| h[k] = [] }
 OptionParser.new do |opts|
   opts.banner = "Usage: liquify [options]"
 
   opts.on('-t', '--template TEMPLATE', 'Liquid template file') { |v| options[:template] = v }
-  opts.on('-d', '--data DATA', 'YAML data file') { |v| options[:data] = v }
+  opts.on('-d', '--data DATA', 'YAML data file') do |v|
+   options[:data] << v
+  end
   opts.on('-o', '--outfile OUTFILE', 'Output file') { |v| options[:outfile] = v }
 
 end.parse!
-data = YAML.load_file(options[:data])
+
+# puts options
+data = {}
+options[:data].each { |x| 
+	# puts x
+	data =data.merge(YAML.load_file(x))
+}
+
+# puts data
+# puts options[:template]
 @template = Liquid::Template.parse(File.read(options[:template]))
 File.write(options[:outfile], @template.render(data))
 
