@@ -1,27 +1,30 @@
 FROM ubuntu:latest
 MAINTAINER Nathan Sheffield <nathan@code.databio.org>
 
-ARG DEBIAN_FRONTEND=noninteractive
-
 ################################################################################
 # Some of these dependencies will be already installed by the parent images;
 # But just to make sure, run these installs here:
 
 # Updating is required before any apt-gets
-RUN apt-get update && \
-	apt-get upgrade && \
-	apt-get install -y --fix-missing \
-	wget \
-	xdg-utils \
-	evince 	
+RUN apt-get update && apt-get install -y\
+	openjdk-8-jdk
+
+RUN apt-get install -y \
+	wget
 
 ################################################################################
 
-RUN wget https://github.com/JabRef/jabref/releases/download/v5.3/JabRef-5.3-portable_linux.tar.gz
+RUN apt-get install -y \
+	openjfx
 
-RUN tar -xf JabRef-5.3-portable_linux.tar.gz
-ENV PATH "/JabRef/bin:${PATH}"
+RUN wget https://github.com/JabRef/jabref/releases/download/v4.1/JabRef-4.1.jar -O JabRef.jar
+# 4.2, 4.3, and 4.3.1 have bugs that break it. It looks like 4.4 will work.
 
 RUN apt-get install -y \
-	openjdk-8-jdk \
-	openjfx
+	xdg-utils
+
+RUN apt-get install -y \
+	evince
+
+
+#ADD  "JabRef-4.1-dev--snapshot--2017-12-22--master--d9644d018.jar" JabRef.jar
