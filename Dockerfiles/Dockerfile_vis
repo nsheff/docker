@@ -13,3 +13,4 @@ RUN echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula \
     select true | debconf-set-selections && \
     apt-get install -y ttf-mscorefonts-installer
 RUN fc-cache -f -v
+RUN apt-get install -y libcanberra-gtk-module
