@@ -1,7 +1,0 @@
-FROM ubuntu:19.10
-
-MAINTAINER Nathan Sheffield <nathan@code.databio.org>
-
-# Updating is required before any apt-gets
-RUN apt-get update && apt-get install -y wget git
-RUN apt-get install -y texlive-latex-recommended

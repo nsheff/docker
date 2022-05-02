@@ -1,5 +1,15 @@
 # Dockerfiles
 
+**DEPRECATED**. This repository is no longer actively maintained. It has been replaced with the following:
+
+- [Databio/dockerfiles](https://github.com/databio/dockerfiles) is the new source for lab dockerfiles
+- [Bulker](bulker.databio.org/) is a polished, updated version of my 'containerized executables' that is now much more approachable than this initial version.
+
+
+I'll leave this repository here just for reference.
+
+---
+
 This repository contains a complete solution to dockerizing common commands. It includes both  Dockerfiles for building various docker containers, as well as a `bin` directory with executables that are run in their respective container.
 
 ## Getting started: An example

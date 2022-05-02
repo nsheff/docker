@@ -1,6 +1,0 @@
-FROM nsheff/python3
-
-MAINTAINER Nathan Sheffield <nathan@code.databio.org>
-
-RUN pip3 install mkdocs
-RUN pip3 install jupyter

@@ -1,7 +1,0 @@
-FROM ubuntu:18.04
-
-MAINTAINER Nathan Sheffield <nathan@code.databio.org>
-
-# Updating is required before any apt-gets
-RUN apt-get update && apt-get install -y cowsay
-ENV PATH /usr/games:$PATH
